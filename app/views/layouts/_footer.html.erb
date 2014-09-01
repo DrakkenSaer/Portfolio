@@ -1,7 +1,14 @@
-<footer>
-  <p>The current time is <%= Time.now %></p>
-  <% if signed_in? %>
-    <%= link_to 'Logout', logout_path, method: :delete %>
-  <% end %>
-  <%= debug(params) if Rails.env.development? %>
+<footer class="footer">
+  <small>
+    The current time is <%= Time.now %>
+  </small>
+  <nav>
+    <ul>
+      <% if signed_in? %>
+        <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <% end %>  
+    </ul>
+  </nav>
 </footer>
+
+<%= debug(params) if Rails.env.development? %>

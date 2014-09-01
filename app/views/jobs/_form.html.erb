@@ -3,22 +3,22 @@
     <%= form_for @job do |f| %>
     <%= render 'shared/error_messages', object: @job %>
  
-        <%= f.label :title %><br>
+        <%= f.label :title %>
         <%= f.text_field :title %>
 
-        <%= f.label :company %><br>
+        <%= f.label :company %>
         <%= f.text_field :company %>
 
-        <%= f.label :description %><br>
+        <%= f.label :description %>
         <%= f.text_area :description %>
 
-        <%= f.label :years %><br>
+        <%= f.label :years %>
         <%= f.number_field :years %>
 
-        <%= f.label :manager %><br>
+        <%= f.label :manager %>
         <%= f.text_field :manager %>
 
-        <%= f.label :contact %><br>
+        <%= f.label :contact %>
         <%= f.telephone_field :contact %>
 
       <%= f.submit "Submit", class: "btn btn-large btn-primary" %>

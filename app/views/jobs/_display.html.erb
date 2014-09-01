@@ -1,9 +1,9 @@
-Position held: <%= job.title %><br>
-Company: <%= job.company %><br>
-Years at job: <%= job.years %><br>
-Supervisor: <%= job.manager %><br>
-Supervisor contact: <%= job.contact %><br>
-Description: <%= word_wrap(truncate(job.description, length:200), line_width: 50) %><br>
+Position held: <%= job.title %>
+Company: <%= job.company %>
+<% if !job.years.nil? %>Years at job: <%= job.years %><% end %>
+<% if !job.manager.empty? %>Supervisor: <%= job.manager %><% end %>
+<% if !job.contact.empty? %>Supervisor contact: <%= job.contact %><% end %>
+Description: <%= word_wrap(truncate(job.description, length:200), line_width: 50) %>
 <%= link_to 'More details', job_path(job) if current_page?(action: 'index') %> 
 <% if signed_in? %> 
   <%= link_to 'Edit job', edit_job_path(job) %>

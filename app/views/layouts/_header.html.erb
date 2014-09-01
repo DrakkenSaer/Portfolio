@@ -1,14 +1,16 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "home", '#', id: "logo" %>
+      <%= link_to "Work in Progress", '#', id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'About me', about_path %></li>
           <li><%= link_to 'Contact me', contact_path %></li>
           <li><%= link_to 'Work experience', jobs_path %></li>
+          <% unless @projects.empty? %>
           <li><%= link_to 'Portfolio', projects_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>

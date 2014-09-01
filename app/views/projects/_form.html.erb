@@ -3,16 +3,16 @@
     <%= form_for @project, html:{multipart:true} do |f| %>
     <%= render 'shared/error_messages', object: @project %>
 
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
 
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
 
-    <%= f.label :link %><br>
+    <%= f.label :link %>
     <%= f.text_field :link %>
 
-    <%= f.file_field :image %><br>
+    <%= f.file_field :image %>
 
     <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
     <% end %>
