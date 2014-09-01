@@ -1,0 +1,9 @@
+<%= project.title if current_page?(action: 'index') %><br>
+<%= link_to(image_tag(project.image.url(size)), link) %><br>
+<%= link_to('Visit the website', project.link) %>
+<%= word_wrap(truncate(project.description, length:200), line_width: 50) %><br>
+<%= link_to 'More details', project_path(project) if current_page?(action: 'index') %>
+<% if signed_in? %> 
+  <%= link_to 'Edit project', edit_project_path(project) %> 
+  <%= link_to 'Delete project', project_path(project), method: :delete, data:{confirm: "Are you sure?"} %>
+<% end %>

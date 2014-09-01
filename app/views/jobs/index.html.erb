@@ -1,0 +1,11 @@
+<% provide(:title, 'Work history') %>
+
+<h1>Work history</h1>
+
+<% if signed_in? %>
+  <%= link_to 'Add new work experience', new_job_path %>
+<% end %>
+
+<% @jobs.each do |job| %>
+  <%= render 'jobs/display', job: job %>
+<% end %>

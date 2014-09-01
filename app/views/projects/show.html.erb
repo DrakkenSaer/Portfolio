@@ -1,0 +1,5 @@
+<% provide(:title, 'Project') %>
+
+<h1><%= @project.title %></h1>
+
+<%= render 'projects/display', project: @project, link: @project.link, size: :large %> 

@@ -1,0 +1,13 @@
+<% provide(:title, "Portfolio") %>
+
+<h1>Portfolio</h1>
+
+<% if signed_in? %>
+  <%= link_to 'Add new project', new_project_path %>
+<% end %>
+
+<% @projects.each do |project| %>
+  <p>
+    <%= render 'projects/display', project: project, link: project, size: :medium %>
+  </p>
+<% end %>
