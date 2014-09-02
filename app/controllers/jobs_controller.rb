@@ -3,10 +3,12 @@ class JobsController < ApplicationController
   
   def index
     @jobs = Job.all
+    empty?(@jobs)
   end
   
   def show
     @job = Job.find(params[:id])
+    empty?(@job)
   end
   
   def new

@@ -7,4 +7,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def menu_empty?(object)
+    object.all.empty? unless signed_in?
+  end
 end

@@ -3,10 +3,12 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
+    empty?(@projects)
   end
   
   def show
     @project = Project.find(params[:id])
+    empty?(@project)
   end
   
   def new
@@ -44,8 +46,8 @@ class ProjectsController < ApplicationController
   
   private
   
-  def project_params
-    params.require(:project).permit(:title, :description, :link, :image)
-  end
-  
+    def project_params
+      params.require(:project).permit(:title, :description, :link, :image)
+    end
+
 end
