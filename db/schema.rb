@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140827044732) do
     t.integer  "years"
     t.string   "manager"
     t.string   "contact"
+    t.string   "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

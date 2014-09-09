@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* mixins, variables, etc. */
@@ -27,7 +28,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 section {
@@ -39,55 +40,38 @@ textarea {
 }
 
 .center {
+  margin: auto;
   text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
+  display: block;
 }
 
-/* typography */
+ul {
+  list-style: none;  
+}
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+a:hover {
+  text-decoration: none;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
   text-align: center;
 }
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
 
 /* header */
 
 #logo {
   float: left;
-  margin-right: 10px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
-  line-height: 1;
   &:hover {
     color: white;
-    text-decoration: none;
   }
 }
 
@@ -97,19 +81,14 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: $gray-light;
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: $gray-darker;
     }
   }
-  small {
-    float: left;
-  }
   ul {
-    float: right;
-    list-style: none;
     li {
       float: left;
       margin-left: 10px;
@@ -117,5 +96,23 @@ footer {
   }
 }
 
+/* forms */
 
+input, textarea, select, .uneditable-input {
+  margin-bottom: 15px;
+}
 
+#error_explanation {
+  color: #f00;
+  ul {
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+.alert-notice {
+  @extend .alert-warning
+}

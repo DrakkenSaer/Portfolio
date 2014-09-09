@@ -2,4 +2,6 @@
 
 <h1><%= @project.title %></h1>
 
-<%= render 'projects/display', project: @project, link: @project.link, size: :large %> 
+<div class="row">
+  <%= render 'projects/display', project: @project, link: @project.link, size: :large, col_size: "col-md-6 col-md-offset-3", description: @project.description, img_type: 'img-responsive img-rounded' %>
+</div>

@@ -1,11 +1,14 @@
-Position held: <%= job.title %>
-Company: <%= job.company %>
-<% if !job.years.nil? %>Years at job: <%= job.years %><% end %>
-<% if !job.manager.empty? %>Supervisor: <%= job.manager %><% end %>
-<% if !job.contact.empty? %>Supervisor contact: <%= job.contact %><% end %>
-Description: <%= word_wrap(truncate(job.description, length:200), line_width: 50) %>
-<%= link_to 'More details', job_path(job) if current_page?(action: 'index') %> 
-<% if signed_in? %> 
-  <%= link_to 'Edit job', edit_job_path(job) %>
-  <%= link_to 'Delete job', job_path(job), method: :delete,  data:{confirm: "Are you sure?"} %>
-<% end %> 
+<div class="<%= col_size %>">
+  <% if current_page?(action: 'index') %> <h2><%= job.title %></h2> <% end %>
+  <p><b>Company:</b> <%= job.company %></p>
+  <p><% if !job.years.nil? %><b>Years at job:</b> <%= job.years %></p><% end %>
+  <p><% if !job.manager.empty? %><b>Supervisor:</b> <%= job.manager %></p><% end %>
+  <p><% if !job.contact.empty? %><b>Supervisor contact:</b> <%= job.contact %></p><% end %>
+  <p><b>Description:</b> <%= word_wrap(description, line_width: 50) %></p>
+  <% if current_page?(job) %><p><b>Skills:</b> <%= job.skills %></p><% end %>
+  <%= link_to "View details >>", job, class: "btn btn-default" if current_page?(action: 'index') %> 
+  <% if signed_in? && current_page?(job) %> 
+  <%= link_to 'Edit job', edit_job_path(job) %> | 
+  <%= link_to 'Delete job', job, method: :delete,  data:{confirm: "Are you sure?"} %>
+  <% end %>
+</div>

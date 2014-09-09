@@ -3,12 +3,10 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
-    empty?(@projects)
   end
   
   def show
     @project = Project.find(params[:id])
-    empty?(@project)
   end
   
   def new
@@ -40,8 +38,10 @@ class ProjectsController < ApplicationController
   end
   
   def destroy
-    @project = Project.(params[:id])
+    @project = Project.find(params[:id])
     @project.destroy!
+    flash[:success] = "Project destroyed!"
+    redirect_to projects_path
   end
   
   private

@@ -3,11 +3,13 @@
 <h1>Portfolio</h1>
 
 <% if signed_in? %>
-  <%= link_to 'Add new project', new_project_path %>
+<%= link_to 'Add new project', new_project_path, class: 'center' %>
 <% end %>
 
-<% @projects.each do |project| %>
-  <p>
-    <%= render 'projects/display', project: project, link: project, size: :medium %>
-  </p>
+<% @projects.each_slice(3) do |slice| %>
+<div class="row">
+  <% slice.each do |project| %>
+  <%= render 'projects/display', project: project, size: 'medium', link: project, col_size: "col-md-4", description: truncate(project.description, length:200), img_type: "img-responsive img-thumbnail" %>
+  <% end %>
+</div>
 <% end %>

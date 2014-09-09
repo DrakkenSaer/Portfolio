@@ -1,20 +1,20 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Work in Progress", '#', id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'About me', about_path %></li>
-          <li><%= link_to 'Contact me', contact_path %></li>
-          <% unless menu_empty?(Job) %>
-          <li><%= link_to 'Work experience', jobs_path %></li>
-          <% end %>
-          <% unless menu_empty?(Project) %>
-          <li><%= link_to 'Portfolio', projects_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Work in Progress", '#', id: "logo" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About me', about_path %></li>
+        <li><%= link_to 'Contact me', contact_path %></li>
+        <% unless menu_empty?(Job) %>
+        <li><%= link_to 'Work experience', jobs_path %></li>
+        <% end %>
+        <% unless menu_empty?(Project) %>
+        <li><%= link_to 'Portfolio', projects_path %></li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 </header>

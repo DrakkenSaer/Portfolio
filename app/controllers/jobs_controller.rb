@@ -3,12 +3,10 @@ class JobsController < ApplicationController
   
   def index
     @jobs = Job.all
-    empty?(@jobs)
   end
   
   def show
     @job = Job.find(params[:id])
-    empty?(@job)
   end
   
   def new
@@ -40,14 +38,16 @@ class JobsController < ApplicationController
   end
   
   def destroy
-    @job = Job.(params[:id])
+    @job = Job.find(params[:id])
     @job.destroy!
+    flash[:success] = "Job destroyed!"
+    redirect_to jobs_path
   end
   
   private
   
   def job_params
-    params.require(:job).permit(:title, :company, :years, :description, :manager, :contact)
+    params.require(:job).permit(:title, :company, :years, :description, :manager, :contact, :skills)
   end
 
 end

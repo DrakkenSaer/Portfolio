@@ -1,11 +1,13 @@
 <footer class="footer">
-  <small>
+  <small class="pull-left">
     The current time is <%= Time.now %>
   </small>
   <nav>
-    <ul>
+    <ul class="pull-right">
+      <li><%= link_to 'Source code', 'https://github.com/drakkensaer/portfolio' %></li>
+      <li><%= link_to 'GitHub', 'https://github.com/drakkensaer' %></li>
       <% if signed_in? %>
-        <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
       <% end %>  
     </ul>
   </nav>

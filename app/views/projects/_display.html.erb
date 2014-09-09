@@ -1,9 +1,11 @@
-<%= project.title if current_page?(action: 'index') %>
-<%= link_to(image_tag(project.image.url(size)), link) %>
-<%= link_to('Visit the website', project.link) %>
-<%= word_wrap(truncate(project.description, length:200), line_width: 50) %>
-<%= link_to 'More details', project_path(project) if current_page?(action: 'index') %>
-<% if signed_in? %> 
-  <%= link_to 'Edit project', edit_project_path(project) %> 
-  <%= link_to 'Delete project', project_path(project), method: :delete, data:{confirm: "Are you sure?"} %>
-<% end %>
+<div class="<%= col_size %>">
+  <% if current_page?(action: 'index') %><h2><%= project.title %></h2><% end %>
+  <p><%= link_to image_tag(project.image.url(size)), link, class: img_type %></p>
+  <p><%= link_to 'Visit the website', project.link %></p>
+  <p><%= word_wrap(description, line_width: 50) %></p>
+  <p><%= link_to "View details >>", project, class: "btn btn-default" if current_page?(action: 'index') %></p>
+  <% if signed_in? && current_page?(project) %> 
+  <%= link_to 'Edit project', edit_project_path(project) %> | 
+  <%= link_to 'Delete project', project, method: :delete,  data:{confirm: "Are you sure?"} %>
+  <% end %>
+</div>

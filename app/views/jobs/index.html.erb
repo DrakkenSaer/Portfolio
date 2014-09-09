@@ -3,9 +3,13 @@
 <h1>Work history</h1>
 
 <% if signed_in? %>
-  <%= link_to 'Add new work experience', new_job_path %>
+<%= link_to 'Add new work experience', new_job_path, class: 'center' %>
 <% end %>
 
-<% @jobs.each do |job| %>
-  <%= render 'jobs/display', job: job %>
+<% @jobs.each_slice(4) do |slice| %>
+<div class="row">
+  <% slice.each do |job| %>
+  <%= render 'jobs/display', job: job, col_size: 'col-md-3', description: truncate(job.description, length:200) %>
+  <% end %>
+</div>
 <% end %>
