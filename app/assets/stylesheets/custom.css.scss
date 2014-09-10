@@ -27,10 +27,6 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  padding-top: 70px;
-}
-
 section {
   overflow: auto;
 }
@@ -63,15 +59,23 @@ h1 {
 
 /* header */
 
-#logo {
-  float: left;
+.navbar-brand {
   font-size: 1.7em;
-  color: white;
+  color: white !important;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
-  &:hover {
-    color: white;
+}
+
+.navbar {
+  width: 100%;
+  position: absolute;
+}
+
+li {
+  font-weight: bold;
+  .active {
+   color: $gray-lighter !important; 
   }
 }
 
@@ -115,4 +119,32 @@ input, textarea, select, .uneditable-input {
 
 .alert-notice {
   @extend .alert-warning
+}
+
+/* home page */
+
+.jumbotron {
+  background: none !important;
+  color: $gray-lighter !important;
+  text-align: center;
+}
+
+section {
+  position: relative;
+  &.dark-overlay {
+    background-color: black;
+  }
+  .bg-mountains {
+    height: 100%;
+    width: 100%;
+    background-image: image-url("mountains.jpg");
+    position: absolute;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+  }
+}
+
+.v-center {
+  position: absolute;
+  transform: translate(9%, 40%)
 }

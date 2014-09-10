@@ -11,4 +11,8 @@ module ApplicationHelper
   def menu_empty?(object)
     object.all.empty? unless signed_in?
   end
+  
+  def header_link(title, path)
+    current_page?(path) ? link_to(title, path, class: "active") : link_to(title, path)
+  end
 end

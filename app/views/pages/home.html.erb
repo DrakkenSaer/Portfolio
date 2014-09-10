@@ -1,11 +1,23 @@
 <% provide(:title, 'Home') %>
 
-<div class="jumbotron">
-  <h1>Work in Progress!</h1>
+<section class="dark-overlay">
+  <div class="bg-mountains">
+  </div>
+  <div>
+    <div class="v-center container">
+      <div class="jumbotron">
+        <h1>Startup Framework is a set of components</h1>
+        <p>
+          We’ve created the product that will help your
+          <br/>
+          startup to look even better.
+        </p>
+      </div>
+    </div>
+  </div>
+  <%= link_to ' ', '#', class: "glyphicon glyphicon-circle-arrow-down" %>
+</section>
 
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-</div>
+<script>
+$("section").css( "height", $(window).height());
+</script>
