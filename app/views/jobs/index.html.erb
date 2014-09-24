@@ -6,10 +6,10 @@
 <%= link_to 'Add new work experience', new_job_path, class: 'center' %>
 <% end %>
 
-<% @jobs.each_slice(4) do |slice| %>
+<% @jobs.each_slice(2) do |slice| %>
 <div class="row">
   <% slice.each do |job| %>
-  <%= render 'jobs/display', job: job, col_size: 'col-md-3', description: truncate(job.description, length:200) %>
+  <%= render 'jobs/display', job: job, col_size: 'col-md-6' %>
   <% end %>
 </div>
 <% end %>

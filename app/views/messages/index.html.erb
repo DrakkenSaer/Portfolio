@@ -1,0 +1,13 @@
+<% provide(:title, 'Messages') %>
+
+<h1>Messages</h1>
+
+<div class="contact">
+  <% @messages.each_slice(2) do |slice| %>
+  <div class="row">
+    <% slice.each do |message| %>
+    <%= render 'messages/display', message: message, col_size: 'col-md-6' %>
+    <% end %>
+  </div>
+  <% end %>
+</div>

@@ -1,23 +1,70 @@
-<% provide(:title, 'Home') %>
+<% provide(:title, 'Home'); provide(:container, 'page-wrapper') %>
 
-<section class="dark-overlay">
-  <div class="bg-mountains">
-  </div>
-  <div>
-    <div class="v-center container">
+<div class="home">
+  <section class="bg-mountains">
+    <div class="dark-overlay">
+    </div>
+    <div class="container v-center">
       <div class="jumbotron">
-        <h1>Startup Framework is a set of components</h1>
+        <h1>Website develpoment</h1>
         <p>
-          We’ve created the product that will help your
+          Made fast, simple, and easy
+        </p>
+        <%= link_to '', '', class: "scroll-button" %>
+      </div>
+    </div>
+  </section>
+
+  <%= render 'section_begin' %>
+  <%= render 'about_summary' %>
+  <div class="center">
+    <div class="btn-group">
+      <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
+    </div>
+  </div>
+  <%= render 'section_end' %>
+
+  <section>
+    <div class="container v-center">
+      <div class="jumbotron">
+        <h1>Adding flare and functionality to your webpage</h1>
+        <p>
+          I'll make it easier for you to get that eye-catching flashy design
           <br/>
-          startup to look even better.
+          while making everything functional too!
         </p>
       </div>
     </div>
+  </section>
+
+
+  <%= render 'section_begin' %>
+  <div class="row">
+    <% @jobs.each do |job| %>
+    <%= render 'jobs/display', job: job, col_size: 'col-md-4' %>
+    <% end %>
   </div>
-  <%= link_to ' ', '#', class: "glyphicon glyphicon-circle-arrow-down" %>
-</section>
+  <div class="center">
+    <div class="btn-group">
+      <%= link_to 'Work history', jobs_path, class: "btn btn-default btn-lg" %>
+    </div>
+  </div>
+  <%= render 'section_end' %>
+</div>
 
 <script>
-$("section").css( "height", $(window).height());
+  $(window).resize(function() {
+    $("section").css( "height", $(window).height());
+  });
+
+  $(".scroll-button").click(function() {
+    var element = $("section").next();
+    $('html, body').stop().animate({
+      scrollTop: $(element).offset().top
+    }, 500);
+  });
+
+  $("section").css( "height", $(window).height());
+  $("body").css("padding-top", 0);
+  $("body").addClass("bg-ocean");
 </script>

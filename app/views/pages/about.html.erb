@@ -1,3 +1,23 @@
 <% provide(:title, 'About me') %>
 
 <h1>About me</h1>
+
+<div class="about">
+  <%= render 'about_summary' %>
+
+  <h1>What I do</h1>
+  <div clas="row">
+    <div class="col-md-4">
+      <h2>Ruby on Rails</h2>
+      RoR (Ruby on Rails) is an extremely power backend language. Most of my programming experience has been with this language. I thoroughly enjoy it's elegance and simplicity and strongly wish to pursue my career dealing with this coding language. Rails is used by some pretty major players in the web industry!
+    </div>
+    <div class="col-md-4">
+      <h2>jQuery</h2>
+      jQuery is a JavaScript library which makes quick work of some normally very complicated tasks to do within JavaScript. I prefer to use jQuery over JavaScript whenever I can (while I am capable of coding in JavaScript, it is not my strong point) simply because of it's community base, which continually improves upon pre-existing code to make it run faster and more efficient. 
+    </div>
+    <div class="col-md-4">
+      <h2>Bootstrap</h2>
+      Bootstrap is a front-end CSS3 library developed by the awesome people at Twitter. I absolutely love using this front-end library simply because it allows me to continue working through the code on my website without having to worry about the smaller details. Bootstrap has a grid-system which I tend to make strong use of. I look forward for future developments of this library!
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.string :company
       t.text :description
-      t.integer :years
+      t.string :years
       t.string :manager
       t.string :contact
       t.string :skills

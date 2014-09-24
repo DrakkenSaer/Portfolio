@@ -5,14 +5,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
-
     <%= render "layouts/header" %>
-    <div class=<%= current_page?(root_path) ? "page-wrapper" : "container" %>>
+    <div class=<%= page_base(yield(:container)) %>>
       <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span   class="sr-only">Close</span></button>

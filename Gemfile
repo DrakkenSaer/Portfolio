@@ -10,7 +10,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.1"
-gem 'flat-ui-rails'
 
 group :development, :test do
   gem 'sqlite3'

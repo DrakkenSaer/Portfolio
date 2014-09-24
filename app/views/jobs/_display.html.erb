@@ -1,14 +1,27 @@
-<div class="<%= col_size %>">
-  <% if current_page?(action: 'index') %> <h2><%= job.title %></h2> <% end %>
-  <p><b>Company:</b> <%= job.company %></p>
-  <p><% if !job.years.nil? %><b>Years at job:</b> <%= job.years %></p><% end %>
-  <p><% if !job.manager.empty? %><b>Supervisor:</b> <%= job.manager %></p><% end %>
-  <p><% if !job.contact.empty? %><b>Supervisor contact:</b> <%= job.contact %></p><% end %>
-  <p><b>Description:</b> <%= word_wrap(description, line_width: 50) %></p>
-  <% if current_page?(job) %><p><b>Skills:</b> <%= job.skills %></p><% end %>
-  <%= link_to "View details >>", job, class: "btn btn-default" if current_page?(action: 'index') %> 
-  <% if signed_in? && current_page?(job) %> 
-  <%= link_to 'Edit job', edit_job_path(job) %> | 
-  <%= link_to 'Delete job', job, method: :delete,  data:{confirm: "Are you sure?"} %>
-  <% end %>
+<% if current_page?(job) %>
+<h1><%= image_tag(job.image.url) %></h1>
+<div class="<%= col_size %> job">
+  <ul class="center">
+    <li><h2><%= job.title %></h2></li>
+    <li><b>Company</b></li><li><%= job.company %></li>
+    <% if !job.years.empty? %><li><b>Years at job</b></li><li><%= job.years %></li><% end %>
+    <% if !job.manager.empty? %><li><b>Supervisor</b></li><li><%= job.manager %></li><% end %>
+    <% if !job.contact.empty? %><li><b>Supervisor contact</b></li><li><%= job.contact %></li><% end %>
+    <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
+    <% if !job.skills.empty? %><li><b>Skills</b></li><li><%= job.skills %></li><% end %>
+    <% if signed_in? %> 
+    <li>
+      <%= link_to 'Edit job', edit_job_path(job) %> | 
+      <%= link_to 'Delete job', job, method: :delete,  data:{confirm: "Are you sure?"} %>
+    </li>
+    <% end %>
+  </ul>
 </div>
+<% else %>
+<div class="<%= col_size %> job">
+  <ul class="center">
+    <li><%= link_to image_tag(job.image.url(:large)), job %></li>
+    <li><%= job.title %></li>
+  </ul>
+</div>
+<% end %>

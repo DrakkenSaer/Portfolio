@@ -15,4 +15,8 @@ module ApplicationHelper
   def header_link(title, path)
     current_page?(path) ? link_to(title, path, class: "active") : link_to(title, path)
   end
+
+  def page_base(container)
+    container.empty? ? "container" : "#{container}"
+  end
 end

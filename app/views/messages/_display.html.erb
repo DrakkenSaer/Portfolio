@@ -1,0 +1,22 @@
+<div class="<%= col_size %>">
+  <ul>
+    <li><b>Sender's email: </b><%= message.email %></li>
+    <li><b>Subject: </b><%= message.subject %></li>
+    <% if message.body.length > 200 %>
+    <li><b>Body: </b><%= truncate(message.body, length: 200) %>
+    <%= link_to '...Read more', '', class: "read-more-#{message.id}" %>
+    <script>
+      $('.read-more-<%= message.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<b>Body: </b><%= escape_javascript message.body %>')
+      })
+    </script>
+    </li>
+    <% else %>
+    <li><b>Body: </b><%= message.body %></li>
+    <% end %>
+    <li> 
+      <%= link_to 'Delete message', message, method: :delete,  data:{confirm: "Are you sure?"} %>
+    </li>
+  </ul>
+</div>

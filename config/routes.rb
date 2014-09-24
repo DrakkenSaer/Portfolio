@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   
   resources :jobs, :projects
   resources :sessions, only: [:create]
+  resources :messages, except: [:edit, :update, :show]
   
-  match 'contact', to: 'pages', via: :get
+  match 'contact', to: 'messages#new', via: :get
   match 'about', to: 'pages', via: :get
   match 'login', to: 'sessions#new', via: :get
   match 'logout', to: 'sessions#destroy', via: :delete
