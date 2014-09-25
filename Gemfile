@@ -23,6 +23,8 @@ group :development do
   gem 'spring'
 end
 
+  gem 'pg'
+
 # gem 'therubyracer',  platforms: :ruby
 
 # Use unicorn as the app server
