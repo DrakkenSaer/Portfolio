@@ -20,7 +20,7 @@
 <% else %>
 <div class="<%= col_size %> job">
   <ul class="center">
-    <li><%= link_to image_tag(job.image.url(:large)), job %></li>
+    <li><%= link_to image_tag(job.image.url(size)), job %></li>
     <li><%= job.title %></li>
   </ul>
 </div>

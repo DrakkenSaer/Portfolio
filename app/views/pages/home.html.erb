@@ -1,36 +1,63 @@
 <% provide(:title, 'Home'); provide(:container, 'page-wrapper') %>
 
+<script>
+  $(document).ready(function (){
+    $(window).resize(function() {
+      $("section").css( "height", $(window).height());
+      $(".section").css( "padding-bottom", $(window).height()/2.5);
+      $(".v-center").css( "padding-top", $(window).height()/4);
+    });
+
+    $(".scroll-button").click(function() {
+      $('html:not(:animated),body:not(:animated)').stop().animate({
+        scrollTop: $(".scroll-send").offset().top
+      }, 1000);
+    });
+
+    $(".v-center").css( "padding-top", $(window).height()/4);
+    $(".section").css( "padding-bottom", $(window).height()/2.5);
+    $("section").css( "height", $(window).height());
+    $("body").css("padding-top", 0);
+    $("body").addClass("bg-ocean");
+  });
+</script>
+
 <div class="home">
   <section class="bg-mountains">
     <div class="dark-overlay">
     </div>
-    <div class="container v-center">
-      <div class="jumbotron">
-        <h1>Website develpoment</h1>
+    <div class="container">
+      <div class="jumbotron v-center">
+        <h1>Web dev & design</h1>
         <p>
           Made fast, simple, and easy
         </p>
-        <%= link_to '', '', class: "scroll-button" %>
+        <%= link_to '', '', class: "scroll-button center" %>
       </div>
     </div>
   </section>
 
-  <%= render 'section_begin' %>
-  <%= render 'about_summary' %>
-  <div class="center">
-    <div class="btn-group">
-      <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
+  <div class="container-fluid white scroll-send">
+    <div class="container">
+      <div class="row section">
+        <div class="col-md-12 v-center">
+          <%= render 'about_summary' %>
+          <div class="center">
+            <div class="btn-group">
+              <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <%= render 'section_end' %>
 
   <section>
-    <div class="container v-center">
-      <div class="jumbotron">
-        <h1>Adding flare and functionality to your webpage</h1>
+    <div class="container">
+      <div class="jumbotron v-center">
+        <h1>Cool tricks for your webpage</h1>
         <p>
           I'll make it easier for you to get that eye-catching flashy design
-          <br/>
           while making everything functional too!
         </p>
       </div>
@@ -38,34 +65,21 @@
   </section>
 
   <% unless @jobs.empty? %>
-  <%= render 'section_begin' %>
-  <div class="row">
-    <% @jobs.each do |job| %>
-    <%= render 'jobs/display', job: job, col_size: 'col-md-4' %>
-    <% end %>
-  </div>
-  <div class="center">
-    <div class="btn-group">
-      <%= link_to 'Work history', jobs_path, class: "btn btn-default btn-lg" %>
+  <div class="container-fluid white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 v-center">        
+          <% @jobs.each do |job| %>
+          <%= render 'jobs/display', size: :medium, job: job, col_size: 'col-md-4' %>
+          <% end %>
+          <div class="center">
+            <div class="btn-group">
+              <%= link_to 'Work history', jobs_path, class: "btn btn-default btn-lg" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <%= render 'section_end' %>
   <% end %>
 </div>
-
-<script>
-  $(window).resize(function() {
-    $("section").css( "height", $(window).height());
-  });
-
-  $(".scroll-button").click(function() {
-    var element = $("section").next();
-    $('html, body').stop().animate({
-      scrollTop: $(element).offset().top
-    }, 500);
-  });
-
-  $("section").css( "height", $(window).height());
-  $("body").css("padding-top", 0);
-  $("body").addClass("bg-ocean");
-</script>
