@@ -219,9 +219,6 @@ input, textarea, select, .uneditable-input {
     $radius: 300px;
     @include border_rounding
   }
-  .center img {
-    margin-top: -80px;
-  }
 }
 
 /* job page */
