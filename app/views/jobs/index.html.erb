@@ -9,7 +9,7 @@
 <% @jobs.each_slice(2) do |slice| %>
 <div class="row">
   <% slice.each do |job| %>
-  <%= render 'jobs/display', size: :large, job: job, col_size: 'col-md-6' %>
+  <%= render 'jobs/display', size: :medium, job: job, col_size: 'col-md-6' %>
   <% end %>
 </div>
 <% end %>
