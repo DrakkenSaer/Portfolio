@@ -39,6 +39,7 @@ class JobsController < ApplicationController
   
   def destroy
     @job = Job.find(params[:id])
+    @job.image = nil
     @job.destroy!
     flash[:success] = "Job destroyed!"
     redirect_to jobs_path
