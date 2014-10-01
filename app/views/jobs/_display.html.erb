@@ -1,5 +1,5 @@
 <% if current_page?(job) %>
-<h1><%= image_tag(job.image.url) %></h1>
+<h1><%= image_tag(job.image.url(size)) %></h1>
 <div class="<%= col_size %> job">
   <ul class="center">
     <li><h2><%= job.title %></h2></li>

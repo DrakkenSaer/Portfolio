@@ -42,10 +42,10 @@
       <div class="row section">
         <div class="col-md-12 v-center">
           <%= render 'about_summary' %>
-          <div class="center">
-            <div class="btn-group">
-              <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
-            </div>
+        </div>
+        <div class="center">
+          <div class="btn-group">
+            <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
           </div>
         </div>
       </div>
@@ -70,12 +70,12 @@
       <div class="row">
         <div class="col-md-12 v-center">        
           <% @jobs.each do |job| %>
-          <%= render 'jobs/display', size: :medium, job: job, col_size: 'col-md-4' %>
+          <%= render 'jobs/display', size: :small, job: job, col_size: 'col-md-4' %>
           <% end %>
-          <div class="center">
-            <div class="btn-group">
-              <%= link_to 'Work history', jobs_path, class: "btn btn-default btn-lg" %>
-            </div>
+        </div>
+        <div class="center">
+          <div class="btn-group">
+            <%= link_to 'Work history', jobs_path, class: "btn btn-default btn-lg" %>
           </div>
         </div>
       </div>
