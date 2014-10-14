@@ -6,6 +6,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function() {
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+          var msViewportStyle = document.createElement("style");
+          msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+          );
+          document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+      })();
+    </script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

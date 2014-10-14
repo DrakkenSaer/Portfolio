@@ -169,23 +169,23 @@ input, textarea, select, .uneditable-input {
 /* home page */
 
 .bg-ocean {
-  background-size: cover !important;
-  background-attachment: fixed !important;
-  background-position: center center !important;
-  background: image-url("blue-ocean.jpg");
+  background: image-url("blue-ocean.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 } 
 .white {
   background-color: white !important;
 }
-.section {
-  height: 900px;
-}
 .home {
   section {
     &.bg-mountains {
+      background: image-url("mountains.jpg") no-repeat center center; 
       background-size: cover !important;
-      background-position: center center !important;
-      background: image-url("mountains.jpg");
     } 
     .dark-overlay {
       background-color: black;
@@ -212,7 +212,7 @@ input, textarea, select, .uneditable-input {
     }
   }
   .btn-group {
-    margin-top: 5%;
+    margin-top: 0.5em;
   }
   .btn {
     padding: 1em 4em;
@@ -272,7 +272,11 @@ p.summary {
   }
 }
 
+/* viewport-specific browsers */
 
+@-ms-viewport{
+	width: device-width;
+}
 
 
 
