@@ -12,7 +12,11 @@
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control' %>
 
-    <%= f.submit "Submit", class: "btn btn-large btn-primary center" %>
+    <div class="center">
+      <div class="btn-group">  
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>

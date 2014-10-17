@@ -1,12 +1,12 @@
 <% provide(:title, 'Home'); provide(:container, 'page-wrapper') %>
 
 <script>
-  $(window).load(function (){
-    $(window).resize(function() {
-      $("section").css( "height", $(window).height());
+  $(document).ready(function (){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini/i.test(navigator.userAgent) ) {
       $(".v-center").css( "padding-top", $(window).height()/5);
-      $(".container").css( "font-size", $(window).height()/45);
-    });
+      $("section").css( "height", $(window).height());
+      $(".dark-overlay").css( "height", $(window).height());
+    }
 
     $(".scroll-button").click(function(e) {
       e.preventDefault(); 
@@ -15,9 +15,6 @@
       }, 1000);
     });
 
-    $(".v-center").css( "padding-top", $(window).height()/5);
-    $(".container").css( "font-size", $(window).height()/45);
-    $("section").css( "height", $(window).height());
     $("body").css("padding-top", 0);
   });
 </script>
@@ -40,8 +37,8 @@
   </section>
 
   <div class="container-fluid white scroll-send">
-    <div class="container v-center">
-      <section class="row">
+    <div class="row">
+      <div class="container buffer">
         <div class="col-md-12">
           <%= render 'about_summary' %>
         </div>
@@ -50,7 +47,7 @@
             <%= link_to 'About me', about_path, class: "btn btn-default btn-lg" %>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 
@@ -64,8 +61,8 @@
 
   <% unless @jobs.empty? %>
   <div class="container-fluid white">
-    <div class="container v-center">
-      <div class="row">
+    <div class="row">
+      <div class="container v-center">
         <div class="col-md-12">        
           <% @jobs.each do |job| %>
           <%= render 'jobs/display', size: :small, job: job, col_size: 'col-md-4' %>
