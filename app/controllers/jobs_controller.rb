@@ -29,6 +29,7 @@ class JobsController < ApplicationController
   
   def update
     @job = Job.find(params[:id])
+    @job.image = nil
     if @job.update!(job_params)
       flash[:success] = "Job saved!"
       redirect_to @job

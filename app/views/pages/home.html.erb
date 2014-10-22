@@ -14,10 +14,17 @@
       });
     }
 
-    $(".scroll-button").click(function(e) {
+    $(".scroll-1").click(function(e) {
       e.preventDefault(); 
       $('html:not(:animated),body:not(:animated)').stop().animate({
-        scrollTop: $(".scroll-send").offset().top
+        scrollTop: $(".scroll-send-1").offset().top
+      }, 1000);
+    });
+    
+    $(".scroll-2").click(function(e) {
+      e.preventDefault(); 
+      $('html:not(:animated),body:not(:animated)').stop().animate({
+        scrollTop: $(".scroll-send-2").offset().top
       }, 1000);
     });
 
@@ -37,12 +44,12 @@
         <p>
           Made fast, simple, and easy
         </p>
-        <%= link_to '', '', class: "scroll-button center" %>
+        <%= link_to '', '', class: "scroll-button scroll-1 center" %>
       </div>
     </div>
   </section>
 
-  <div class="container-fluid white scroll-send">
+  <div class="container-fluid white scroll-send-1">
     <div class="row">
       <div class="container buffer">
         <div class="col-md-12">
@@ -61,14 +68,15 @@
     <div class="container v-center">
       <div class="jumbotron">
         <h1>Cool tricks for your webpage</h1>
+        <%= link_to '', '', class: "scroll-button scroll-2 center" unless @jobs.empty? %>
       </div>
     </div>
   </section>
 
   <% unless @jobs.empty? %>
-  <div class="container-fluid white">
+  <div class="container-fluid white scroll-send-2">
     <div class="row">
-      <div class="container v-center">
+      <div class="container buffer">
         <div class="col-md-12">        
           <% @jobs.each do |job| %>
           <%= render 'jobs/display', size: :small, job: job, col_size: 'col-md-4' %>
