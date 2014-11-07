@@ -1,0 +1,26 @@
+<% provide(:title, "Modeling") %>
+
+<h1>Modeling</h1>
+
+<% if signed_in? %>
+<%= link_to 'Add new photo', new_photo_path, class: 'center' %>
+<% end %>
+
+<% @photos.each_slice(3) do |slice| %>
+<div class="row">
+  <% slice.each do |photo| %>
+  <%= render 'photos/display', photo: photo, size: 'small', col_size: "col-md-4", img_type: "img-responsive img-rounded" %>
+  <% end %>
+</div>
+<% end %>
+
+<%= will_paginate @photos %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $galleryHolder = $('<div id="gallery_holder"></div>').appendTo(document.body);
+    $('a.fancybox').fancybox({
+      parent: $galleryHolder
+    });
+  });
+</script>

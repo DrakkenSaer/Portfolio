@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @photo, role: 'form', html:{multipart:true} do |f| %>
+    <%= render 'shared/error_messages', object: @photo %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :photographer %>
+    <%= f.text_field :photographer, class: 'form-control' %>
+    
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'width-100' %>
+
+    <div class="center">
+      <div class="btn-group">  
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

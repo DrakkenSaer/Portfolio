@@ -75,13 +75,13 @@ ul {
   }
 }
 
-a {
+a, btn {
   text-decoration: none;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
   &:hover, &:active, &:link, &:visited {
     text-decoration: inherit;
   }
@@ -104,19 +104,39 @@ h1 {
 }
 
 h1, h2, h3, h4, h5, btn {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oregano', cursive;
+}
+
+.pagination {
+  letter-spacing: 0.5em;
+  @extend .center;
+}
+
+/* images */
+
+.img-darken {
+  display: inline-block;
+  &:hover {
+    background: black; 
+  }
+  img { 
+    display: block;
+    @extend a; 
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 
 /* header */
 
 header {
-  font-family: 'Lobster', cursive;
+  font-family: 'Berkshire Swash', cursive;
   .navbar-brand {
     color: white !important;
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
-    font-size: 1.2em;
   }
   li {
     font-weight: bold;
@@ -176,7 +196,6 @@ textarea {
 }
 
 /* home page */
-
  
 .white {
   background-color: white !important;
@@ -196,7 +215,7 @@ textarea {
     height: 100%;
   }
   .buffer {
-    padding: 15% 0;
+    padding: 200px 0;
   }  
   section {
     height: 100vh;
@@ -233,9 +252,9 @@ textarea {
   }
 }
 
-/* job page */
+/* job & portfolio page */
 
-.job {
+.job, .portfolio {
   ul {
     display: inline !important;
     li {
@@ -244,16 +263,6 @@ textarea {
   }
 }
 
-/* portfolio page */
-
-.portfolio {
-  ul {
-    display: inline !important;
-    li {
-      margin: 1em 0;
-    }
-  }
-}
 
 /* contact page & about page */
 

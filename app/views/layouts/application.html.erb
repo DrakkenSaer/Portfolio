@@ -2,23 +2,25 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag     'http://fonts.googleapis.com/css?family=Lobster', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag     'http://fonts.googleapis.com/css?family=Abel', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag     'http://fonts.googleapis.com/css?family=Open+Sans:600', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Berkshire+Swash', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Abel', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Oregano', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-      (function() {
-        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
-          var msViewportStyle = document.createElement("style");
-          msViewportStyle.appendChild(
-            document.createTextNode("@-ms-viewport{width:auto!important}")
-          );
-          document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-        }
-      })();
+      $(document).ready(function (){
+        (function() {
+          if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(
+              document.createTextNode("@-ms-viewport{width:auto!important}")
+            );
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+          }
+        })();
+      });
     </script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

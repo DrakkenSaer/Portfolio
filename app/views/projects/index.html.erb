@@ -1,6 +1,6 @@
-<% provide(:title, "Portfolio") %>
+<% provide(:title, "Projects") %>
 
-<h1>Portfolio</h1>
+<h1>Projects</h1>
 
 <% if signed_in? %>
 <%= link_to 'Add new project', new_project_path, class: 'center' %>
@@ -9,7 +9,9 @@
 <% @projects.each_slice(3) do |slice| %>
 <div class="row">
   <% slice.each do |project| %>
-  <%= render 'projects/display', project: project, size: 'medium', link: project, col_size: "col-md-4", description: truncate(project.description, length:200), img_type: "img-responsive img-thumbnail" %>
+  <%= render 'projects/display', project: project, size: 'small', link: project, col_size: "col-md-4", description: truncate(project.description, length:200), img_type: "img-responsive" %>
   <% end %>
 </div>
 <% end %>
+
+<%= will_paginate @projects %>

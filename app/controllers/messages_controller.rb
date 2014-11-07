@@ -2,15 +2,15 @@ class MessagesController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
 
   def index
-    @messages = Messages.all
+    @messages = Message.all
   end
     
   def new
-    @message = Messages.new
+    @message = Message.new
   end
   
   def create
-    @message = Messages.new(message_params)
+    @message = Message.new(message_params)
     if @message.save
       flash[:success] = "Message sent!"
       redirect_to contact_path
@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
   end
   
   def destroy
-    @message = Messages.find(params[:id])
+    @message = Message.find(params[:id])
     @message.destroy!
     flash[:success] = "Message deleted!"
     redirect_to messages_path

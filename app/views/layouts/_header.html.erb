@@ -18,8 +18,8 @@
           <% unless menu_empty?(Job) %>
           <li><%= header_link('Work experience', jobs_path) %></li>
           <% end %>
-          <% unless menu_empty?(Project) %>
-          <li><%= header_link('Portfolio', projects_path) %></li>
+          <% unless menu_empty?(Project) && menu_empty?(Photo) %>
+          <li><%= header_link('Portfolio', portfolio_path) %></li>
           <% end %>
         </ul>
       </div>

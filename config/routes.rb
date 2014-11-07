@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   resources :jobs, :projects
+  resources :photos, except: [:show]
   resources :sessions, only: [:create]
   resources :messages, except: [:edit, :update, :show]
   
+  match 'portfolio', to: 'pages', via: :get
   match 'contact', to: 'messages#new', via: :get
   match 'about', to: 'pages', via: :get
   match 'login', to: 'sessions#new', via: :get
