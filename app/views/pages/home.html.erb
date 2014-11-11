@@ -2,17 +2,15 @@
 
 <script>
   $(document).ready(function (){
-    if( /IEMobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini/i.test(navigator.userAgent) ) {
-      $(".v-center").css( "padding-top", $(window).height()/5);
+    $("section").css( "height", $(window).height());
+    $(".dark-overlay").css( "height", $(window).height());
+    $(".v-center").css( "padding-top", $("section").height()/4);
+
+    $(window).resize(function() {
       $("section").css( "height", $(window).height());
       $(".dark-overlay").css( "height", $(window).height());
-
-      $(window).resize(function() {
-        $(".v-center").css( "padding-top", $(window).height()/5);
-        $("section").css( "height", $(window).height());
-        $(".dark-overlay").css( "height", $(window).height());        
-      });
-    }
+      $(".v-center").css( "padding-top", $("section").height()/4);
+    });
 
     $(".scroll-button").click(function(e) {
       e.preventDefault(); 
@@ -20,7 +18,7 @@
         scrollTop: $(".scroll-send").offset().top
       }, 1000);
     });
-    
+
     $("body").css("padding-top", 0);
   });
 </script>

@@ -12,7 +12,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.1"
-gem 'rack-rewrite', '~> 1.5.0'
 gem 'will_paginate', '~> 3.0'
 gem 'fancybox2-rails', '~> 0.2.8'
 

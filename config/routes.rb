@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :photos, except: [:show]
   resources :sessions, only: [:create]
   resources :messages, except: [:edit, :update, :show]
-  
+
+  match 'modeling', to: 'photos#index', via: :get
   match 'portfolio', to: 'pages', via: :get
   match 'contact', to: 'messages#new', via: :get
   match 'about', to: 'pages', via: :get
