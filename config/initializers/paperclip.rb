@@ -5,6 +5,6 @@ if Rails.env.production?
   Paperclip::Attachment.default_options[:s3_protocol] = 'https'
   Paperclip::Attachment.default_options[:s3_credentials] =
     { :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] }
+      :access_key_id => ENV['AWS_ACCESS_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ID'] }
 end
