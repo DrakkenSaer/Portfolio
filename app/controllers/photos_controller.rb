@@ -28,7 +28,6 @@ class PhotosController < ApplicationController
   
   def update
     @photo = Photo.find(params[:id])
-    @photo.image = nil
     if @photo.update!(photo_params)
       flash[:success] = "Photo updated!"
       redirect_to photos_path
@@ -48,7 +47,7 @@ class PhotosController < ApplicationController
   private
   
   def photo_params
-    params.require(:photo).permit(:title, :image)
+    params.require(:photo).permit(:title, :photographer, :image)
   end
 
 end
