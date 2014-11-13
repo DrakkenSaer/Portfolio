@@ -28,6 +28,11 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt (3.1.9)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
@@ -48,6 +53,9 @@ GEM
     fancybox2-rails (0.2.8)
       railties (>= 3.1.0, < 5.0)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
@@ -61,8 +69,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.6.1)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
+    nokogiri (1.6.4.1)
+      mini_portile (~> 0.6.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -134,12 +146,14 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.5)
     will_paginate (3.0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 1.5.7)
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)

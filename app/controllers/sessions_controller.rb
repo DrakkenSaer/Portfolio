@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    if signed_in?
+      flash.now[:notice] = 'You are already signed in!'
+    end
   end
 
   def create
@@ -20,4 +23,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
