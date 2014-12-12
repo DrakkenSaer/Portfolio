@@ -2,20 +2,12 @@
 
 <script>
   $(document).ready(function (){
-    $(".fade").css("opacity", 0);
     $("body").css("padding-top", 0);
-    $("section").css( "height", $(window).height());
-    $(".dark-overlay").css( "height", $(window).height());
-    $(".v-center").css( "padding-top", $("section").height()/4);
-    
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 200) {
-        $(".fade").stop().animate({ opacity: 1 }, 500);
-      } else {
-        $(".fade").stop().animate({ opacity: 0 }, 500);
-      }
-    });
-    
+    $("section").css("height", $(window).height());
+    $(".dark-overlay").css("height", $(window).height());
+    $(".v-center").css("padding-top", $("section").height()/4);
+    $("header").addClass("toggle");
+
     $(window).resize(function() {
       $("section").css( "height", $(window).height());
       $(".dark-overlay").css( "height", $(window).height());
@@ -23,11 +15,22 @@
     });
 
     $(".scroll-button").click(function(e) {
-      e.preventDefault(); 
+      e.preventDefault();
       $('html:not(:animated),body:not(:animated)').stop().animate({
         scrollTop: $(".scroll-send").offset().top
       }, 1000);
     });
+
+    if ($(window).width() > 800) {
+      $(".toggle").addClass("transparent");
+      $(window).scroll(function(){
+        if ($(this).scrollTop() < $(this).height() - 50) {
+          $(".toggle").addClass("transparent");
+        } else {
+          $(".toggle").removeClass("transparent");
+        }
+      });
+    }
   });
 </script>
 
@@ -50,7 +53,7 @@
 
   <div class="container-fluid white scroll-send">
     <div class="row">
-      <div class="container buffer fade">
+      <div class="container buffer">
         <div class="col-md-12">
           <%= render 'about_summary' %>
         </div>
@@ -74,7 +77,7 @@
   <% unless @jobs.empty? %>
   <div class="container-fluid white">
     <div class="row">
-      <div class="container buffer fade">
+      <div class="container buffer">
         <div class="col-md-12">        
           <% @jobs.each do |job| %>
           <%= render 'jobs/display', size: :small, job: job, col_size: 'col-md-4', img_type: "img-responsive" %>

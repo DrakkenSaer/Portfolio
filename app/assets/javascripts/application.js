@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require fancybox
 //= require bootstrap-sprockets
 //= require turbolinks

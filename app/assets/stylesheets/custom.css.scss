@@ -197,6 +197,20 @@ textarea {
 
 /* home page */
 
+header {
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.transparent{
+  background: none !important;
+  border: none !important;
+  a, .active{
+    color: white !important;
+  }
+}
 .white {
   background-color: white !important;
 }
@@ -224,7 +238,7 @@ textarea {
     height: 100%;
   }
   .buffer {
-    padding: 200px 0;
+    padding: 125px 0;
   }  
   section {
     height: 100vh;
@@ -283,8 +297,22 @@ textarea {
 }
 
 .summary {
+  font-weight: bold;
+  letter-spacing: 2px;
   font-size: 125%;
   font-weight: 500;
+  width: 80%;
+  @extend .center;
+  hr {
+    margin: 75px 0;
+    width: 70%;
+    border: none;
+    height: 5px;
+    color: #ccc; /* old IE */
+    background-color: #ccc; /* Modern Browsers */
+    $radius: 20px;
+    @include border_rounding
+ }
 }
 
 .about {
