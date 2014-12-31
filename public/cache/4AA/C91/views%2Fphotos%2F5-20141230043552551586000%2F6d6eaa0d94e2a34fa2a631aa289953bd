@@ -1,12 +1,0 @@
-o: ActiveSupport::Cache::Entry:@valueI"2<div class="row">
-  <div class="col-md-4 portfolio">
-  <ul class="center">    
-    <li><a class="img-responsive img-rounded img-darken fancybox" href="/system/photos/images/000/000/005/large/bg.png?1419914149" rel="gallery" title="dteyet"><img alt="Bg" class="img-responsive img-rounded" src="/system/photos/images/000/000/005/small/bg.png?1419914149" /></a></li>
-    <li>
-      <a href="/photos/5/edit">Edit photo</a> | 
-      <a data-confirm="Are you sure?" data-method="delete" href="/photos/5" rel="nofollow">Delete photo</a>
-    </li>
-  </ul>
-</div>
-</div>
-:ET:@created_atf1420001547.3066204:@expires_in0

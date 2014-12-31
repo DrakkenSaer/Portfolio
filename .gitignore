@@ -25,3 +25,5 @@ doc/
 .idea
 .secret
 s3_keys
+/public/cache
+/public/system
