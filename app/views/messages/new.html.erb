@@ -1,8 +1,13 @@
 <% provide(:title, 'Contact me') %>
 
+<!-- cache static data -->
+<% cache do %>
+
 <h1>Contact me</h1>
 
 <div class="contact">
   <%= render 'contact_summary' %>
   <%= render 'messages/form' %>
 </div>
+
+<% end %>

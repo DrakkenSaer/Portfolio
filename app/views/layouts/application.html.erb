@@ -14,34 +14,32 @@
     <meta name="description" content="Get help building your website from a Ruby on Rails dev">
     <meta name="author" content="Drakken Saer">
     <meta name="robots" content="index, follow">
-    <script>
-      $(document).ready(function (){
-        (function() {
-          if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
-            var msViewportStyle = document.createElement("style");
-            msViewportStyle.appendChild(
-              document.createTextNode("@-ms-viewport{width:auto!important}")
-            );
-            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-          }
-        })();
-      });
-    </script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
     <%= render "layouts/header" %>
+    
+    <!-- conditional container logic used for CSS needs for specific pages -->
     <div id="main" class=<%= page_base(yield(:container)) %>>
+      
+      <!-- for page flash alerts -->
       <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> alert-dismissible container" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span   class="sr-only">Close</span></button>
         <%= value %>
       </div>
       <% end %>
+      
+      <!-- page content goes here -->
       <%= yield %>
-    </div>
+    
+    </div>  
     <%= render "layouts/footer" %>
   </body>
+  
+  <!-- for page-specific CSS or JS -->
+  <%= yield :page_script %>
+  
 </html>

@@ -1,26 +1,25 @@
 <% provide(:title, "Modeling") %>
+<%= content_for :page_script, javascript_include_tag('page-specific/photos-index') %>
 
 <h1>Modeling</h1>
 
+<!-- ability to add item to database if signed in -->
 <% if signed_in? %>
 <%= link_to 'Add new photo', new_photo_path, class: 'center' %>
 <% end %>
 
+<!-- Russian doll caching model data and then render results to page -->
+<% cache(@photos) do %>
 <% @photos.each_slice(3) do |slice| %>
+<% cache(slice) do %>
 <div class="row">
   <% slice.each do |photo| %>
   <%= render 'photos/display', photo: photo, size: 'small', col_size: "col-md-4", img_type: "img-responsive img-rounded" %>
   <% end %>
 </div>
 <% end %>
+<% end %>
+<% end %>
 
+<!-- paginate model data -->
 <%= will_paginate @photos %>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $galleryHolder = $('<div id="gallery_holder"></div>').appendTo(document.body);
-    $('a.fancybox').fancybox({
-      parent: $galleryHolder
-    });
-  });
-</script>

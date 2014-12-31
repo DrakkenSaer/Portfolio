@@ -2,12 +2,17 @@
 
 <h1>Messages</h1>
 
+<!-- Russian doll cache model data and then render it onto page -->
+<% cache(@messages) do %>
 <div class="contact">
   <% @messages.each_slice(2) do |slice| %>
+  <% cache(slice) do %>
   <div class="row">
     <% slice.each do |message| %>
     <%= render 'messages/display', message: message, col_size: 'col-md-6' %>
     <% end %>
   </div>
   <% end %>
+  <% end %>
 </div>
+<% end %>

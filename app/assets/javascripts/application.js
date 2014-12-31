@@ -16,4 +16,4 @@
 //= require fancybox
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+//= require_tree ./global

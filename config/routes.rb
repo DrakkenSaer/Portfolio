@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'resume/index'
+
   root 'pages#home'
   
   resources :jobs, :projects
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   resources :messages, except: [:edit, :update, :show]
 
+  match 'resume', to: 'resume#index', via: :get
   match 'modeling', to: 'photos#index', via: :get
   match 'portfolio', to: 'pages', via: :get
   match 'contact', to: 'messages#new', via: :get

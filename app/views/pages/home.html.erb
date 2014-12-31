@@ -1,38 +1,8 @@
 <% provide(:title, 'Home'); provide(:container, 'page-wrapper') %>
+<%= content_for :page_script, javascript_include_tag('page-specific/home') %>
 
-<script>
-  $(document).ready(function (){
-    $("body").css("padding-top", 0);
-    $("section").css("height", $(window).height());
-    $(".dark-overlay").css("height", $(window).height());
-    $(".v-center").css("padding-top", $("section").height()/4);
-    $("header").addClass("toggle");
-
-    $(window).resize(function() {
-      $("section").css( "height", $(window).height());
-      $(".dark-overlay").css( "height", $(window).height());
-      $(".v-center").css( "padding-top", $("section").height()/4);
-    });
-
-    $(".scroll-button").click(function(e) {
-      e.preventDefault();
-      $('html:not(:animated),body:not(:animated)').stop().animate({
-        scrollTop: $(".scroll-send").offset().top
-      }, 1000);
-    });
-
-    if ($(window).width() > 800) {
-      $(".toggle").addClass("transparent");
-      $(window).scroll(function(){
-        if ($(this).scrollTop() < $(this).height() - 50) {
-          $(".toggle").addClass("transparent");
-        } else {
-          $(".toggle").removeClass("transparent");
-        }
-      });
-    }
-  });
-</script>
+<!-- cache static page data -->
+<% cache do %>
 
 <div class="home">
   <div class="bg-ocean">
@@ -74,13 +44,17 @@
     </div>
   </section>
 
+  <!-- Russian-doll cache model entries with display data -->
   <% unless @jobs.empty? %>
+  <% cache(@jobs) do %>
   <div class="container-fluid white">
     <div class="row">
       <div class="container buffer">
         <div class="col-md-12">        
           <% @jobs.each do |job| %>
+          <% cache(job) do %>
           <%= render 'jobs/display', size: :small, job: job, col_size: 'col-md-4', img_type: "img-responsive" %>
+          <% end %>
           <% end %>
         </div>
         <div class="center">
@@ -92,4 +66,6 @@
     </div>
   </div>
   <% end %>
+  <% end %>
 </div>
+<% end %>

@@ -1,0 +1,79 @@
+o: ActiveSupport::Cache::Entry:@valueI"À
+<div class="home">
+  <div class="bg-ocean">
+  </div>
+  <section class="bg-mountains">
+    <div class="dark-overlay">
+    </div>
+    <div class="container v-center">
+      <div class="jumbotron">
+        <h1>Web dev & design</h1>
+        <p>
+          Made fast, simple, and easy
+        </p>
+        <a class="scroll-button center" href=""></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-fluid white scroll-send">
+    <div class="row">
+      <div class="container buffer">
+        <div class="col-md-12">
+          <div class="summary">
+  <p>
+    Hi there! I'm Adela (or Drakken, as I prefer). I'm a web developer with some design skills (as you can see from this website!), a musician with a home studio, as well as an alternative model for various photographers. I'm a bit of a weirdo and a nerd! I'm highly enthusiastic about functionality when it comes to coding, and passionate for detail when it comes to my modeling! I'm an Oregonian so I love my coffee! =) 
+  </p>
+  <hr>
+  <p>
+    Ever since I was a child I've been very interested in technology. I built my very first website using DreamWeaver when I was in the 6th grade. I've since moved onto more sophisticated ways to build web applications, however my enthusiasm has remained the same. My interest was never limited to just programming either; When I was young I always dreamed about becoming an astronaut. I loved keeping up with videos that NASA put out about their latest discoveries! The sky is the limit they say, but I don't plan on stopping there, I want to grow in as many fields as I possibly can!
+  </p>
+</div>
+        </div>
+        <div class="center">
+          <div class="btn-group">
+            <a class="btn btn-default btn-lg" href="/about">About me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container v-center">
+      <div class="jumbotron">
+        <h1>Cool tricks for your webpage</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Russian-doll cache model entries with display data -->
+  <div class="container-fluid white">
+    <div class="row">
+      <div class="container buffer">
+        <div class="col-md-12">        
+          <div class="col-md-4 job">
+  <h1><a class="img-responsive img-darken center" href="/jobs/3"><img alt="Convergys logo" class="img-responsive" src="/system/jobs/images/000/000/003/small/convergys-logo.jpg?1419912329" /></a></h1>
+  <ul class="center">
+    <li>kljhjkjklhl</li>
+  </ul>
+</div>
+
+          <div class="col-md-4 job">
+  <h1><a class="img-responsive img-darken center" href="/jobs/4"><img alt="Xerox logo (2)" class="img-responsive" src="/system/jobs/images/000/000/004/small/xerox-logo_(2).bmp?1419925477" /></a></h1>
+  <ul class="center">
+    <li>jjjjjjjj</li>
+  </ul>
+</div>
+
+        </div>
+        <div class="center">
+          <div class="btn-group">
+            <a class="btn btn-default btn-lg" href="/jobs">Work history</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+:ET:@created_atf1420001424.073166:@expires_in0
