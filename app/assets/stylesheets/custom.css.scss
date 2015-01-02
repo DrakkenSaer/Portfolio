@@ -131,6 +131,11 @@ h1, h2, h3, h4, h5, btn {
 /* header */
 
 header {
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
   font-family: 'Berkshire Swash', cursive;
   .navbar-brand {
     color: white !important;
@@ -197,13 +202,6 @@ textarea {
 
 /* home page */
 
-header {
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
-}
 .transparent{
   background: none !important;
   border: none !important;
@@ -304,7 +302,7 @@ header {
   width: 80%;
   @extend .center;
   hr {
-    margin: 75px 0;
+    margin: 75px auto;
     width: 70%;
     border: none;
     height: 5px;
@@ -323,6 +321,16 @@ header {
   }
   h2 {
     text-align: center;
+  }
+}
+
+/* resume page */
+.resume {
+  width: 500px;
+  font-size: 125%;
+  @extend .center;
+  div {
+    margin-bottom: 3em;
   }
 }
 

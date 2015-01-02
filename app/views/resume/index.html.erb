@@ -1,2 +1,47 @@
-<% provide(:title, 'Resume'); provide(:container, 'page-wrapper') %>
+<% provide(:title, 'Resume') %>
 
+
+<!-- cache infrequently changing data to expire based on new model data -->
+<% cache(@jobs) do %>
+<div class="resume">
+  <div id="header">
+    <h2>Adela (Drakken) Coutu</h2>
+    <address>
+      26180 SW CANYON CREEK RD<br>
+      APT 104<br>
+      WILSONVILLE, OR<br>
+      97070
+    </address>
+    <a href="mailto:shadowdrakkeen@gmail.com">shadowdrakkeen@gmail.com</a>
+  </div>
+  <div id="position">
+    <h2>Position desired</h2>
+    Ruby on Rails developer
+  </div>
+  <div id="qualifications">
+    <h2>Qualifications</h2>
+    2+ years experience with web technologies<br>
+    Solid organizational and planning skills<br>
+    Knowledge of SEO tactics and practices<br>
+    Experience with UI & design<br>
+
+    <h2>Skills</h2>
+    Ruby on Rails, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS
+  </div>
+  <div id="history">
+    <h2>Work History</h2>
+    <% @jobs.each do |job| %>
+    <div>
+      <a href="<%= job_path(job) %>"><b><%= job.title %></b></a><br>
+      <%= job.company %><br>
+      <% if !job.years.empty? %><%= job.years %><br><% end %>
+      <%= job.description %><br>
+    </div>
+    <% end %>
+  </div>
+  <div id="education">
+  </div>
+  <div id="references">
+  </div>
+</div>
+<% end %>

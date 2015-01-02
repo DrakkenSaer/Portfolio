@@ -10,8 +10,8 @@
     <%= csrf_meta_tags %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="web developer, web design, ruby on rails, css, bootstrap, jquery">
-    <meta name="description" content="Get help building your website from a Ruby on Rails dev">
+    <meta name="keywords" content="web developer, web design, ruby on rails, css, bootstrap, jquery, website builder, ruby, php">
+    <meta name="description" content="Hi there! I'm Adela (or Drakken as I prefer). I'm a web developer with some design skills (as you can see from this website!), a musician with a home studio, as well as an alternative model for various photographers. I'm a bit of a weirdo and a nerd! I'm highly enthusiastic about functionality when it comes to coding, and passionate for detail when it comes to my modeling! I'm an Oregonian so I love my coffee! =)">
     <meta name="author" content="Drakken Saer">
     <meta name="robots" content="index, follow">
     <!--[if lt IE 9]>
@@ -19,7 +19,8 @@
     <![endif]-->
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <!-- do not render on resume page -->
+    <%= render "layouts/header" unless current_page?(resume_index_path) %>
     
     <!-- conditional container logic used for CSS needs for specific pages -->
     <div id="main" class=<%= page_base(yield(:container)) %>>
@@ -35,8 +36,9 @@
       <!-- page content goes here -->
       <%= yield %>
     
-    </div>  
-    <%= render "layouts/footer" %>
+    </div>
+    <!-- do not render on resume page -->
+    <%= render "layouts/footer" unless current_page?(resume_index_path) %>
   </body>
   
   <!-- for page-specific CSS or JS -->
