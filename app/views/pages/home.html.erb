@@ -1,13 +1,12 @@
 <% provide(:title, 'Home'); provide(:container, 'page-wrapper') %>
+<%= content_for :page_script, javascript_include_tag('page-specific/videoBG') %>
 <%= content_for :page_script, javascript_include_tag('page-specific/home') %>
 
 <!-- cache static page data -->
 <% cache do %>
 
 <div class="home">
-  <div class="bg-ocean">
-  </div>
-  <section class="bg-mountains">
+  <section class="bg-main">
     <div class="dark-overlay">
     </div>
     <div class="container v-center">
@@ -21,7 +20,7 @@
     </div>
   </section>
 
-  <div class="container-fluid white scroll-send">
+  <div class="container-fluid scroll-send white">
     <div class="row">
       <div class="container buffer">
         <div class="col-md-12">
@@ -37,6 +36,7 @@
   </div>
 
   <section>
+    <div class="bg-ocean"></div>
     <div class="container v-center">
       <div class="jumbotron">
         <h1>Cool tricks for your webpage</h1>

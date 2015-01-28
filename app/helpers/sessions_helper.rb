@@ -12,7 +12,7 @@ module SessionsHelper
   end
   
   def signed_in_user
-    redirect_to root_path, notice: "You do not have sufficient priviledges to view this page." unless signed_in?
+    redirect_to root_path, notice: "You do not have sufficient privileges to view this page." unless signed_in?
   end
 
   def current_user=(user)

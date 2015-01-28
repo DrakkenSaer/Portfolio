@@ -4,7 +4,14 @@ $(document).ready(function (){
   $(".dark-overlay").css("height", $(window).height());
   $(".v-center").css("padding-top", $("section").height()/4);
   $("header").addClass("toggle");
-
+  $('.bg-main').videoBG({
+    poster: 'assets/WaterfallBG/Waterfall.jpg',
+    mp4: 'assets/WaterfallBG/Waterfall.mp4',
+    ogv: 'assets/WaterfallBG/Waterfall.ogv',
+    webm: 'assets/WaterfallBG/Waterfall.webm',
+    scale: false
+  });
+  
   $(window).resize(function() {
     $("section").css( "height", $(window).height());
     $(".dark-overlay").css( "height", $(window).height());

@@ -209,8 +209,8 @@ textarea {
     color: white !important;
   }
 }
-.white {
-  background-color: white !important;
+.white{
+  background-color: white;
 }
 .page-wrapper .alert{
   position: absolute;
@@ -240,10 +240,7 @@ textarea {
   }  
   section {
     height: 100vh;
-    &.bg-mountains {
-      background: image-url("mountains.jpg") no-repeat center center; 
-      background-size: cover;
-    } 
+    position: relative;
     .dark-overlay {
       background-color: black;
       height: 100vh;
@@ -261,6 +258,13 @@ textarea {
         background: none !important;
         color: white !important;
         text-align: center;
+        #slide-up{
+          height: 80px;
+          h1{padding:0;margin:0;}
+        }
+        #slide-down{
+          height: 20px;
+        }
         .scroll-button {
           font-size: 2em;
           margin-top: 10%;

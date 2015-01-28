@@ -1,6 +1,7 @@
 module ApplicationHelper
+  
   def full_title(page_title)
-    base_title = "Saer Designs"
+    base_title = 'Saer Designs'
     if page_title.empty?
       base_title
     else
@@ -13,10 +14,11 @@ module ApplicationHelper
   end
 
   def header_link(title, path)
-    current_page?(path) ? link_to(title, path, class: "nav-link active") : link_to(title, path, class: "nav-link")
+    current_page?(path) ? link_to(title, path, class: 'nav-link active') : link_to(title, path, class: 'nav-link')
   end
 
   def page_base(container)
-    container.empty? ? "container" : "#{container}"
+    container.empty? ? 'container' : "#{container}"
   end
+  
 end

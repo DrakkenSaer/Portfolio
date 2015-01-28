@@ -27,3 +27,4 @@ doc/
 s3_keys
 /public/cache
 /public/system
+.env
