@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @jobs = Job.all.limit(3)
+    @jobs = Job.first(3)
   end
   
   def about

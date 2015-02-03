@@ -202,6 +202,11 @@ textarea {
 
 /* home page */
 
+.bg-main{
+  background: image-url("WaterfallBG/Waterfall.gif") no-repeat center center;
+  background-size: cover;
+  width: 100%;
+}
 .transparent{
   background: none !important;
   border: none !important;

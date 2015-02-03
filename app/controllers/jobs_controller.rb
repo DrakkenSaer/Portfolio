@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :signed_in_user, except: [:show, :index]
   
   def index
-    @jobs = Job.paginate(:page => params[:page])
+    @jobs = Job.paginate(:page => params[:page]).order(:created_at)
     if !signed_in? && @jobs.empty?
       redirect_to root_path
     end

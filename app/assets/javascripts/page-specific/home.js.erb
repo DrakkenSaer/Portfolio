@@ -5,12 +5,14 @@ $(document).ready(function (){
   $(".v-center").css("padding-top", $("section").height()/4);
   $("header").addClass("toggle");
   
+  //resize content for mobile-friendliness
   $(window).resize(function() {
     $("section").css( "height", $(window).height());
     $(".dark-overlay").css( "height", $(window).height());
     $(".v-center").css( "padding-top", $("section").height()/4);
   });
 
+  //glyph scroll button functionality
   $(".scroll-button").click(function(e) {
     e.preventDefault();
     $('html:not(:animated),body:not(:animated)').stop().animate({
@@ -18,7 +20,8 @@ $(document).ready(function (){
     }, 1000);
   });
 
-  if ($(window).width() > 800) {
+  //disable transparent nav bar on mobile browsers, toggle nav breaks transparency
+  if (isNotMobile()) {
     $(".toggle").addClass("transparent");
     $(window).scroll(function(){
       if ($(this).scrollTop() < $(this).height() - 50) {
@@ -29,12 +32,20 @@ $(document).ready(function (){
     });
   }
 
-  $('.bg-main').videoBG({
-    poster: "<%= asset_path('WaterfallBG/Waterfall.jpg') %>",
-    mp4: "<%= asset_path('WaterfallBG/Waterfall.mp4') %>",
-    ogv: "<%= asset_path('WaterfallBG/Waterfall.ogv') %>",
-    webm: "<%= asset_path('WaterfallBG/Waterfall.webm') %>",
-    autoplay: true,
-    loop: true
-  });
+  //fall back to GIF for mobile browsers, otherwise use VideoBG
+  if(isNotMobile()) {
+    $('.bg-main').css("background", "none")
+    $('.bg-main').videoBG({
+      poster: "<%= asset_path('WaterfallBG/Waterfall.jpg') %>",
+      mp4: "<%= asset_path('WaterfallBG/Waterfall.mp4') %>",
+      ogv: "<%= asset_path('WaterfallBG/Waterfall.ogv') %>",
+      webm: "<%= asset_path('WaterfallBG/Waterfall.webm') %>",
+      autoplay: true,
+      loop: true,
+      scale: true,
+      zIndex: 0,
+      fullscreen: true,
+      width: "100%"
+    });
+  }
 });

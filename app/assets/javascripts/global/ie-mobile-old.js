@@ -1,3 +1,4 @@
+//MS recommended issue to fix viewport on windows phone 7
 $(document).ready(function (){
   (function() {
     if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
