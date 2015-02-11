@@ -206,6 +206,9 @@ textarea {
   background: image-url("WaterfallBG/Waterfall.gif") no-repeat center center;
   background-size: cover;
   width: 100%;
+  video{
+    width: 100%;
+  }
 }
 .transparent{
   background: none !important;
