@@ -241,10 +241,13 @@ textarea {
   section {
     height: 100vh;
     position: relative;   
-    .bg-main{
+    &.bg-main{
       background: image-url("WaterfallBG/Waterfall.gif") no-repeat center center;
       background-size: cover;
-      width: 100%
+      width: 100%;
+    }
+    .bg-video{
+      width: 100%;
     }
     .dark-overlay {
       background-color: black;

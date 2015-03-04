@@ -47,7 +47,7 @@ $(document).ready(function (){
   //fall back to GIF for mobile browsers, otherwise use VideoBG
   if(isNotMobile()) {
     $('.bg-main').css("background", "none")
-    $('.bg-main').videoBG({
+    $('.bg-video').videoBG({
       poster: "<%= asset_path('WaterfallBG/Waterfall.jpg') %>",
       mp4: "<%= asset_path('WaterfallBG/Waterfall.mp4') %>",
       ogv: "<%= asset_path('WaterfallBG/Waterfall.ogv') %>",
