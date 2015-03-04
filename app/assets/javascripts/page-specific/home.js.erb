@@ -20,17 +20,29 @@ $(document).ready(function (){
     }, 1000);
   });
 
-  //disable transparent nav bar on mobile browsers, toggle nav breaks transparency
-  if (isNotMobile()) {
-    $(".toggle").addClass("transparent");
-    $(window).scroll(function(){
-      if ($(this).scrollTop() < $(this).height() - 50) {
+  //disable transparent nav bar on mobile browsers as "toggle" for nav breaks transparency
+  function navbarTransparency(){
+    if (isNotMobile()) {
+      if (isNotMobile() && $(this).scrollTop() < $(this).height() - 50) {
         $(".toggle").addClass("transparent");
-      } else {
-        $(".toggle").removeClass("transparent");
       }
-    });
+      $(window).scroll(function(){
+        if (isNotMobile() && $(this).scrollTop() < $(this).height() - 50) {
+          $(".toggle").addClass("transparent");
+        } else {
+          $(".toggle").removeClass("transparent");
+        }
+      });
+    } else {
+      $(".toggle").removeClass("transparent");
+    }
   }
+
+  navbarTransparency();
+
+  $(window).resize(function() {
+    navbarTransparency();
+  });
 
   //fall back to GIF for mobile browsers, otherwise use VideoBG
   if(isNotMobile()) {
@@ -46,5 +58,5 @@ $(document).ready(function (){
       zIndex: 0,
       fullscreen: true
     });
-  }
+  }  
 });
