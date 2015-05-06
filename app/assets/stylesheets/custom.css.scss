@@ -244,10 +244,6 @@ textarea {
     &.bg-main{
       background: image-url("WaterfallBG/Waterfall.gif") no-repeat center center;
       background-size: cover;
-      width: 100%;
-    }
-    .bg-video{
-      width: 100%;
     }
     .dark-overlay {
       background-color: black;
@@ -258,7 +254,7 @@ textarea {
       filter: alpha(opacity=40); /* For IE8 and earlier */
     }
     .v-center {
-      padding-top: 15vh;
+      padding-top: 25vh;
     }
     .container {
       position: relative;
