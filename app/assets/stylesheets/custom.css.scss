@@ -148,6 +148,19 @@ header {
     .active {
       color: $gray-lighter !important; 
     }
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease;
+    }
+    &:hover:after {
+      width: 100%;
+      background: white;
+    }
+
   }
 }
 
