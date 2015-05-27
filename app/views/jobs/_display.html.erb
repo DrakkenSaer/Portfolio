@@ -9,7 +9,7 @@
     <% if !job.contact.empty? %><li><b>Company contact</b></li><li><%= job.contact %></li><% end %>
     <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
     <% if !job.skills.empty? %><li><b>Skills</b></li><li><%= job.skills %></li><% end %>
-    <% if !job.references.find(1).reference.empty? %>
+    <% if !job.references.first.reference.first.empty? %>
       <li><b>Professional References</b></li>
         <% job.references.each do |person| %>
         <li><%= person.reference %></li>
