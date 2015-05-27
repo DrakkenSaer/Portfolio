@@ -62,7 +62,7 @@ textarea {
   text-align: center;
 }
 
-ul {
+ul, li {
   list-style: none;
 }
 
@@ -85,6 +85,18 @@ a, btn {
   &:hover, &:active, &:link, &:visited {
     text-decoration: inherit;
   }
+}
+
+hr.thick {
+  height: 5px;
+  color: #ccc; /* old IE */
+  background-color: #ccc; /* Modern Browsers */
+}
+
+hr.thin {
+  height: 2px;
+  color: #ccc; /* old IE */
+  background-color: #ccc; /* Modern Browsers */
 }
 
 .width-100 {
@@ -347,11 +359,22 @@ textarea {
 
 /* resume page */
 .resume {
-  width: 500px;
   font-size: 125%;
-  @extend .center;
+  font-family: Calibri !important;
+  h1, h2, h3 {
+    font-family: inherit !important;
+  }
+  #resume-body, #resume-header{
+    @extend .center;
+  }
   div {
     margin-bottom: 3em;
+  }
+  #resume-body {
+    width: 700px;
+    h2 {
+      text-decoration: underline;
+    }
   }
 }
 

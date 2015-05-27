@@ -9,6 +9,12 @@
     <% if !job.contact.empty? %><li><b>Supervisor contact</b></li><li><%= job.contact %></li><% end %>
     <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
     <% if !job.skills.empty? %><li><b>Skills</b></li><li><%= job.skills %></li><% end %>
+    <% if job.references.any? %>
+      <li><b>Professional References</b></li>
+        <% job.references.each do |person| %>
+        <li><%= person.reference %></li>
+      <% end %>
+    <% end %>
     <% if signed_in? %> 
     <li>
       <%= link_to 'Edit job', edit_job_path(job) %> | 

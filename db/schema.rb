@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102050612) do
+ActiveRecord::Schema.define(version: 20150521045549) do
 
   create_table "jobs", force: true do |t|
     t.string   "title"
@@ -60,16 +60,14 @@ ActiveRecord::Schema.define(version: 20150102050612) do
     t.datetime "image_updated_at"
   end
 
-  create_table "resumes", force: true do |t|
-    t.text     "heading"
-    t.string   "position"
-    t.text     "qualifications"
-    t.text     "education"
-    t.text     "history"
-    t.text     "references"
+  create_table "references", force: true do |t|
+    t.string   "reference"
+    t.integer  "job_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "references", ["job_id"], name: "index_references_on_job_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

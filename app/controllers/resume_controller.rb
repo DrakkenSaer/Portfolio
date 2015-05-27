@@ -1,7 +1,7 @@
 class ResumeController < ApplicationController
 
   def index
-    @jobs = Job.all.limit(3)
+    @jobs = Job.last(3)
   end
 
 end

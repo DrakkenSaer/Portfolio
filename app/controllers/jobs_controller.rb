@@ -14,6 +14,7 @@ class JobsController < ApplicationController
   
   def new
     @job = Job.new
+    5.times { @job.references.build }
   end
   
   def create
@@ -51,7 +52,7 @@ class JobsController < ApplicationController
   private
   
   def job_params
-    params.require(:job).permit(:title, :company, :years, :description, :manager, :contact, :skills, :image)
+    params.require(:job).permit(:title, :company, :years, :description, :manager, :contact, :skills, :image, references_attributes: [:job_id, :id, :reference])
   end
 
 end
