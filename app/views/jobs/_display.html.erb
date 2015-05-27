@@ -6,10 +6,10 @@
     <li><b>Company</b></li><li><%= job.company %></li>
     <% if !job.years.empty? %><li><b>Years at job</b></li><li><%= job.years %></li><% end %>
     <% if !job.manager.empty? %><li><b>Supervisor</b></li><li><%= job.manager %></li><% end %>
-    <% if !job.contact.empty? %><li><b>Supervisor contact</b></li><li><%= job.contact %></li><% end %>
+    <% if !job.contact.empty? %><li><b>Company contact</b></li><li><%= job.contact %></li><% end %>
     <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
     <% if !job.skills.empty? %><li><b>Skills</b></li><li><%= job.skills %></li><% end %>
-    <% if job.references.any? %>
+    <% if !job.references.first.reference.empty? %>
       <li><b>Professional References</b></li>
         <% job.references.each do |person| %>
         <li><%= person.reference %></li>

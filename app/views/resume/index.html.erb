@@ -47,11 +47,11 @@
         <% if !job.years.empty? %><%= job.years %><br><% end %>
         <%= job.description %><br>
         <% if job.references.any? %>
-        <br>
-        <b>Professional References</b>
-        <% job.references.each do |person| %>
-        <li><%= person.reference %></li>
-        <% end %>
+          <br>
+          <b>Professional References</b>
+          <% job.references.each do |person| %>
+            <li><%= person.reference %></li>
+          <% end %> 
         <% end %>
       </div>
       <% end %>
