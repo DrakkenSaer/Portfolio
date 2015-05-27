@@ -10,7 +10,6 @@ class JobsController < ApplicationController
   
   def show
     @job = Job.find(params[:id])
-    @references = @job.references
   end
   
   def new
