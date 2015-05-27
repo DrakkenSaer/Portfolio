@@ -46,7 +46,7 @@
         <%= job.company %><br>
         <% if !job.years.empty? %><%= job.years %><br><% end %>
         <%= job.description %><br>
-        <% if job.references.any? %>
+        <% if !job.references.first.reference.empty? %>
           <br>
           <b>Professional References</b>
           <% job.references.each do |person| %>
