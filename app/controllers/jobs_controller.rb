@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   
   def show
     @job = Job.find(params[:id])
+    @references = @job.references.order(:id)
   end
   
   def new
@@ -29,6 +30,7 @@ class JobsController < ApplicationController
   
   def edit
     @job = Job.find(params[:id])
+    @references = @job.references.order(:id)
   end
   
   def update

@@ -2,7 +2,6 @@
 
 
 <!-- cache infrequently changing data to expire based on new model data -->
-<% cache(@jobs) do %>
 <div class="resume">
   <div id="resume-header">
     <h2>Ian (Drakken or Adela) Coutu</h2>
@@ -49,7 +48,7 @@
         <% if !job.references.first.reference.first.empty? %>
           <br>
           <b>Professional References</b>
-          <% job.references.each do |person| %>
+          <% job.references.order(:id).each do |person| %>
             <li><%= person.reference %></li>
           <% end %>
         <% end %>
@@ -60,4 +59,3 @@
     </div>
   </div>
 </div>
-<% end %>
