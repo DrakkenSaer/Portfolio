@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150521045549) do
     t.string   "manager"
     t.string   "contact"
     t.string   "skills"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"

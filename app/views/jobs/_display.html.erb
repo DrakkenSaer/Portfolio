@@ -7,6 +7,7 @@
     <% if !job.years.empty? %><li><b>Years at job</b></li><li><%= job.years %></li><% end %>
     <% if !job.manager.empty? %><li><b>Supervisor</b></li><li><%= job.manager %></li><% end %>
     <% if !job.contact.empty? %><li><b>Company contact</b></li><li><%= job.contact %></li><% end %>
+    <% if !job.address.empty? %><li><b>Workplace address</b></li><li><%= job.address %></li><% end %>
     <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
     <% if !job.skills.empty? %><li><b>Skills</b></li><li><%= job.skills %></li><% end %>
     <% if !@references.first.reference.first.empty? %>

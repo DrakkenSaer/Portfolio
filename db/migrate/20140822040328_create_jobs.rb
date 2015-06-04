@@ -8,6 +8,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :manager
       t.string :contact
       t.string :skills
+      t.string :address
       
       t.timestamps
     end
