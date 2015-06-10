@@ -5,14 +5,18 @@
 <!-- Russian doll cache model data and then render it onto page -->
 <% cache(@messages) do %>
 <div class="contact">
-  <% @messages.each_slice(2) do |slice| %>
-  <% cache(slice) do %>
-  <div class="row">
-    <% slice.each do |message| %>
-    <%= render 'messages/display', message: message, col_size: 'col-md-6' %>
+  <% if @messages.empty? %>
+    <h3 class="center"> Nothing new to show! </h3>
+  <% else %>
+    <% @messages.each_slice(2) do |slice| %>
+      <% cache(slice) do %>
+      <div class="row">
+        <% slice.each do |message| %>
+        <%= render 'messages/display', message: message, col_size: 'col-md-6' %>
+        <% end %>
+      </div>
+      <% end %>
     <% end %>
-  </div>
-  <% end %>
   <% end %>
 </div>
 <% end %>

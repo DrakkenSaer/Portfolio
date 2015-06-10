@@ -15,5 +15,6 @@
 //= require jquery-ui
 //= require fancybox
 //= require bootstrap-sprockets
+//= require bootstrap-switch
 //= require turbolinks
 //= require_tree ./global
