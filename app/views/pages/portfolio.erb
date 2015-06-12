@@ -13,13 +13,13 @@
 <div class="row">
   <% unless @project.nil? %>
     <% cache(@project) do %>
-      <%= render 'pages/display', title: "Projects", object: @project, size: :medium, link: projects_path, col_size: "col-md-6", img_type: "img-responsive" %>
+      <%= render 'portfolio_display', title: "Projects", object: @project, size: :medium, link: projects_path, col_size: "col-md-6", img_type: "img-responsive" %>
     <% end %>
   <% end %>
 
   <% unless @photo.nil? %>
     <% cache(@photo) do %>
-      <%= render 'pages/display', title: "Modeling", object: @photo, size: :medium, link: photos_path, col_size: "col-md-6", img_type: "img-responsive" %>
+      <%= render 'portfolio_display', title: "Modeling", object: @photo, size: :medium, link: photos_path, col_size: "col-md-6", img_type: "img-responsive" %>
     <% end %>
   <% end %>
 </div>

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '4.1.5'
+gem 'angularjs-rails'
 gem 'jquery-ui-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -20,14 +21,12 @@ gem "bootstrap-switch-rails"
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'spring'
+  gem 'rspec-rails', '~> 3.0'
 end
   
 group :doc do
   gem 'sdoc', '~> 0.4.0'
-end
-
-group :development do
-  gem 'spring'
 end
 
 group :production do

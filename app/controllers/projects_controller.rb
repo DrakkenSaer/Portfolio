@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :signed_in_user, except: [:show, :index]
   
   def index
-    @projects = Project.paginate(:page => params[:page])
+    @projects = Project.order(:id).paginate(:page => params[:page])
     if !signed_in? && @projects.empty? 
       redirect_to root_path
     end
