@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="portfolio">
+<html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Berkshire+Swash', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Abel', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Oregano', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  'application' %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Berkshire+Swash' %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Abel' %>
+    <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Oregano' %>
+    <%= javascript_include_tag 'application', controller_name %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,7 +23,7 @@
     <%= render "layouts/header" unless current_page?(resume_index_path) %>
     
     <!-- conditional container logic used for CSS needs for specific pages -->
-    <div id="main" class=<%= page_base(yield(:container)) %>>
+    <div ng-view id="main" class=<%= page_base(yield(:container)) %>>
       
       <!-- for page flash alerts -->
       <% flash.each do |key, value| %>

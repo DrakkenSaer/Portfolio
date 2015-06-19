@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require angular
 //= require fancybox
 //= require bootstrap-sprockets
 //= require bootstrap-switch
 //= require turbolinks
 //= require_tree ./global
-//= require_tree ./angular

@@ -5,7 +5,7 @@
 <!-- cache static page data -->
 <% cache do %>
 
-<div class="home" ng-controller="HomeController">
+<div class="home">
   <section class="bg-main">
     <div id="bg-video" class="width-100"></div>
     <div class="dark-overlay"></div>
@@ -20,6 +20,8 @@
     </div>
   </section>
 
+  <h1>{{title}}</h1>
+  
   <div class="container-fluid scroll-send white">
     <div class="row">
       <div class="container buffer">
