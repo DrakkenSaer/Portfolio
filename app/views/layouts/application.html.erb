@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app" ng-strict-di>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <title ng-bind="'Saer Designs | ' + title">Saer Designs</title>
     <%= stylesheet_link_tag  'application' %>
     <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Berkshire+Swash' %>
     <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Abel' %>

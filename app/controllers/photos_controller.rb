@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :signed_in_user, except: [:show, :index]
   
   def index
-    @photos = Photo.order(:id).paginate(:page => params[:page])
+    @photos = Photo.order(:id).all
     if !signed_in? && @photos.empty?
       redirect_to root_path
     end
