@@ -20,10 +20,10 @@
   </head>
   <body>
     <!-- do not render on resume page -->
-    <%= render "layouts/header" unless current_page?(resume_index_path) %>
-    
+    <div ng-include="'layouts/header.html'"></div>
+
     <!-- conditional container logic used for CSS needs for specific pages -->
-    <div ng-view id="main" class=<%= page_base(yield(:container)) %>>
+    <div ng-view id="main">
       
       <!-- for page flash alerts -->
       <% flash.each do |key, value| %>

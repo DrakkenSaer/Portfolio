@@ -11,9 +11,17 @@ app.config([
     return $routeProvider
       .when('/', {
       templateUrl: "pages/home.html",
-      controller: 'SomeController',
       title: "Home"
     })
+      .when('/about', {
+      templateUrl: "pages/about.html",
+      title: "About me"
+    })
+      .when('/about_partial', {
+      templateUrl: "pages/about_partial.html"
+    })
+    
+
       .otherwise({
       
     });
