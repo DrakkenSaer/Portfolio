@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.3'
 gem 'jquery-ui-rails'
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'bootstrap-sass', '~> 3.3.3'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
@@ -15,6 +15,7 @@ gem 'fancybox2-rails', '~> 0.2.8'
 gem "bootstrap-switch-rails"
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem "bower-rails", "~> 0.10.0"
 
 group :development, :test do
   gem 'sqlite3'

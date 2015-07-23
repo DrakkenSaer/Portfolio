@@ -1,4 +1,4 @@
-<header class="navbar navbar-inverse navbar-fixed-top width-100">
+<header class="navbar navbar-inverse navbar-fixed-top width-100" ng-controller="HeaderCtrl">
   <div class="container">
     <nav>
       <div class="navbar-header">
@@ -12,11 +12,11 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About me</a></li>
-          <li><a href="#contact" class="nav-link">Contact me</a></li>
-          <li><a href="#job" class="nav-link">Work experience</a></li>
-          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="/" class="nav-link" ng-class="{active:isActive('/')}">Home</a></li>
+          <li><a href="#about" class="nav-link" ng-class="{active:isActive('/about')}">About me</a></li>
+          <li><a href="#contact" class="nav-link" ng-class="{active:isActive('/contact')}">Contact me</a></li>
+          <li><a href="#jobs" class="nav-link" ng-class="{active:isActive('/jobs')}">Work experience</a></li>
+          <li><a href="#portfolio" class="nav-link" ng-class="{active:isActive('/portfolio')}">Portfolio</a></li>
         </ul>
       </div>
     </nav>

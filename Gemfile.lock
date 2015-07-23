@@ -57,6 +57,7 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     bootstrap-switch-rails (3.3.3)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -216,8 +217,9 @@ DEPENDENCIES
   angularjs-rails
   aws-sdk (~> 1.5.7)
   bcrypt (~> 3.1.7)
-  bootstrap-sass (~> 3.3.3)
+  bootstrap-sass (~> 3.3.5)
   bootstrap-switch-rails
+  bower-rails (~> 0.10.0)
   byebug
   coffee-rails (~> 4.1.0)
   fancybox2-rails (~> 0.2.8)

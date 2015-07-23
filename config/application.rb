@@ -19,6 +19,8 @@ module Portfolio
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.mp4 *.webm *.ogv *.woff *.ttf *.eot)
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2|mp4|webm|ogv|swf)$)
   end
 end

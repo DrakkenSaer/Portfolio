@@ -19,5 +19,6 @@
 //= require angular
 //= require angular-route
 //= require angular-rails-templates
+//= require angular-video-bg/angular-video-bg
 //= require_tree ../templates
 //= require_tree ./

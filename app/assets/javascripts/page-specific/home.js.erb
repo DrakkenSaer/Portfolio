@@ -1,6 +1,4 @@
 $(document).ready(function (){
-  //counter absolute bg-main position being overlayed by nav
-  $("body").css("padding-top", 0);
 
   //adjust height for mobile devices
   if (!isNotMobile()) {
@@ -18,7 +16,6 @@ $(document).ready(function (){
   });
 
   //disable transparent nav bar on mobile browsers as "toggle" for nav breaks transparency
-  $("header").addClass("toggle");
   function navbarTransparency(){
     if (isNotMobile()) {
       if (isNotMobile() && $(this).scrollTop() < $(this).height() - 50) {
@@ -42,19 +39,4 @@ $(document).ready(function (){
     navbarTransparency();
   });
 
-  //fall back to GIF for mobile browsers, otherwise use VideoBG
-  if(isNotMobile()) {
-    $('.bg-main').css("background", "black")
-    $('#bg-video').videoBG({
-      poster: "<%= asset_path('WaterfallBG/Waterfall.jpg') %>",
-      mp4: "<%= asset_path('WaterfallBG/Waterfall.mp4') %>",
-      ogv: "<%= asset_path('WaterfallBG/Waterfall.ogv') %>",
-      webm: "<%= asset_path('WaterfallBG/Waterfall.webm') %>",
-      autoplay: true,
-      loop: true,
-      scale: true,
-      zIndex: 0,
-      fullscreen: true
-    });
-  }  
 });
