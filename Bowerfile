@@ -1,4 +1,4 @@
 # A sample Bowerfile
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
-asset 'angular-video-bg'
+asset 'angular-video-bg', "~0.3"

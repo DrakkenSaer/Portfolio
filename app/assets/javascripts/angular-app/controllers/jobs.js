@@ -1,3 +1,3 @@
-app.controller('JobsCtrl',['$scope', function($scope) {
+app.controller('JobsCtrl',['$scope', '$resource', '$routeParams', function($scope, $resource, $routeParams) {
   
 }]);

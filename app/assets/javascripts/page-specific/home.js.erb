@@ -7,14 +7,6 @@ $(document).ready(function (){
     $(".v-center").css("padding-top", $("section").height()/4);
   }
 
-  //glyph scroll button functionality
-  $(".scroll-button").click(function(e) {
-    e.preventDefault();
-    $('html:not(:animated),body:not(:animated)').stop().animate({
-      scrollTop: $(".scroll-send").offset().top
-    }, 1000);
-  });
-
   //disable transparent nav bar on mobile browsers as "toggle" for nav breaks transparency
   function navbarTransparency(){
     if (isNotMobile()) {

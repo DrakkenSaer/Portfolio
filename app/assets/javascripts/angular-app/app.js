@@ -1,5 +1,5 @@
 (function() {
-  app = angular.module('app', ['templates', 'ngRoute', 'angularVideoBg']);
+  app = angular.module('app', ['templates', 'ngRoute', 'ngResource', 'angularVideoBg']);
 
   app.config([
     '$httpProvider', function($httpProvider) {

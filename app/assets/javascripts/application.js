@@ -18,6 +18,7 @@
 //= require bootstrap-switch
 //= require angular
 //= require angular-route
+//= require angular-resource
 //= require angular-rails-templates
 //= require angular-video-bg/angular-video-bg
 //= require_tree ../templates
