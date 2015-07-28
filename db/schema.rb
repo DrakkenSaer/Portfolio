@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150610011613) do
 
-  create_table "jobs", force: true do |t|
+  create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.string   "company"
     t.text     "description"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150610011613) do
     t.datetime "image_updated_at"
   end
 
-  create_table "messages", force: true do |t|
+  create_table "messages", force: :cascade do |t|
     t.string   "email"
     t.string   "subject"
     t.text     "body"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150610011613) do
     t.datetime "updated_at"
   end
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "title"
     t.string   "photographer"
     t.datetime "created_at"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150610011613) do
     t.boolean  "is_primary",         default: false
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
     t.text     "description"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150610011613) do
     t.boolean  "is_primary",         default: false
   end
 
-  create_table "references", force: true do |t|
+  create_table "references", force: :cascade do |t|
     t.string   "reference"
     t.integer  "job_id"
     t.datetime "created_at"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20150610011613) do
 
   add_index "references", ["job_id"], name: "index_references_on_job_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
     t.string   "remember_token"

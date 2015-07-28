@@ -21,7 +21,8 @@
       })
         .when('/jobs', {
         templateUrl: "jobs/index.html",
-        title: "Work history"
+        title: "Work history",
+        controller: "JobsCtrl"
       })
 
 

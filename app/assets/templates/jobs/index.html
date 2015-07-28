@@ -1,18 +1,12 @@
 <h1>Work history</h1>
 
-<% if signed_in? %>
-<%= link_to 'Add new work experience', new_job_path, class: 'center' %>
-<% end %>
-
-<!-- Russian doll cache model data -->
-<% cache(@jobs) do %>
-  <% @jobs.each_slice(2) do |slice| %>
-    <% cache(slice) do %>
-    <div class="row">
-      <% slice.each do |job| %>
-      <%= render 'jobs/display', size: :medium, job: job, col_size: 'col-md-6', img_type: "img-responsive" %>
-      <% end %>
-    </div>
-    <% end %>
-  <% end %>
-<% end %>
+<div ng-repeat-start="job in jobs">
+  <div class="col-md-6 job">
+    <h1><a class="img-responsive img-darken center" href="#"><img alt="{{job.company}}" class="img-responsive" src="{{job.image}}"/></a></h1>
+    <ul class="center">
+      <li>{{job.title}}</li>
+    </ul>
+  </div>
+</div>
+<div class="row" ng-repeat-end ng-if="($index + 1) % 2 == 0"></div>
+<div class="row"></div>

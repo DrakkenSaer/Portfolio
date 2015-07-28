@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
+
+  scope :api, defaults: {format: :json} do
+    resources :jobs
+  end
+
   
-  resources :jobs, :projects
+  resources :projects
   resources :photos, except: [:show]
   resources :sessions, only: [:create]
   resources :messages, except: [:edit, :update, :show]

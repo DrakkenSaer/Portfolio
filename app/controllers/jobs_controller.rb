@@ -3,6 +3,7 @@ class JobsController < ApplicationController
   
   def index
     @jobs = Job.all
+    
     if !signed_in? && @jobs.empty?
       redirect_to root_path
     end

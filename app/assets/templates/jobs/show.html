@@ -1,0 +1,25 @@
+<div class="col-md-6 col-md-offset-3 job">
+   <h1><img alt="{{job.company}}" class="img-responsive center" src="{{job.image}}" /></h1>
+  <ul class="center"> 
+    <li><h2>{{job.title}}</h2></li>
+    <li><b>Company</b></li><li>{{job.company}}</li>
+    <li ng-show=""><b>Years at job</b></li><li>{{job.years}</li>
+    <li ng-show=""><b>Supervisor</b></li><li>{{job.manager}}</li>
+    <li ng-show=""><b>Company contact</b></li><li><{{job.contact}}</li>
+    <li ng-show=""><b>Workplace address</b></li><li>{{job.address}}</li>
+    <li><b>Description</b></li><li><%= word_wrap(job.description, line_width: 50) %></li>
+    <li ng-show=""><b>Skills</b></li><li>{{job.skills}}</li>
+    <div ng-show="">
+      <li><b>Professional References</b></li>
+        <% @references.each do |person| %>
+        <li><%= person.reference %></li>
+      <% end %>
+        </div>
+          <% if signed_in? %> 
+    <li>
+      <%= link_to 'Edit job', edit_job_path(job) %> | 
+      <%= link_to 'Delete job', job, method: :delete,  data:{confirm: "Are you sure?"} %>
+    </li>
+    <% end %>
+  </ul>
+</div>
