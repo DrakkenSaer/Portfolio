@@ -1,0 +1,1 @@
+json.extract! @job, :id, :title, :company, :description, :years, :manager, :contact, :skills, :address

@@ -24,6 +24,11 @@
         title: "Work history",
         controller: "JobsCtrl"
       })
+        .when('/jobs/:jobId', {
+        templateUrl: "jobs/show.html",
+        title: "Work history",
+        controller: "JobCtrl"
+      })
 
 
 
