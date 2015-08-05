@@ -1,6 +1,6 @@
 app.controller('JobsCtrl',[
-  '$scope', '$resource', '$routeParams', '$http', '$location', 
-  function($scope, $resource, $routeParams, $http, $location) {
+  '$scope', '$routeParams', '$http', '$location', 
+  function($scope, $routeParams, $http, $location) {
     $scope.jobs = []
     $http.get('/api/jobs').
     success(function(data) {
@@ -18,7 +18,7 @@ app.controller('JobCtrl',[
     var Job;
 
     Job = $resource('/api/jobs/:jobId', {
-      recipeId: "@id",
+      jobId: "@id",
       format: 'json'
     });
 

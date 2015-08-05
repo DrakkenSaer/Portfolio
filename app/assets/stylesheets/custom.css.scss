@@ -94,7 +94,7 @@ a, btn {
   -ms-transition: all 0.5s linear;
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
-  &:hover, &:active, &:link, &:visited {
+  &:hover, &:active, &:link {
     text-decoration: inherit;
   }
 }

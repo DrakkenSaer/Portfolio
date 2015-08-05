@@ -8,7 +8,9 @@
   ]);
 
   app.config([
-    '$routeProvider', function($routeProvider) {
+    '$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+      $locationProvider.html5Mode(true);
       return $routeProvider
         .when('/', {
         templateUrl: "pages/home.html",

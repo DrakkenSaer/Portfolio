@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="app" ng-strict-di>
   <head>
+    <base href="/">
     <title ng-bind="'Saer Designs | ' + title">Saer Designs</title>
     <%= stylesheet_link_tag  'application' %>
     <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Berkshire+Swash' %>
     <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Abel' %>
     <%= stylesheet_link_tag  'http://fonts.googleapis.com/css?family=Oregano' %>
-    <%= javascript_include_tag 'application', controller_name %>
+    <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,10 +38,16 @@
     
     </div>
     <!-- do not render on resume page -->
-    <%= render "layouts/footer" unless current_page?(resume_index_path) %>
+    <div ng-include="'layouts/footer.html'"></div>
+    
+    <div class="container-fluid white">
+      <div class="container">
+        <% if Rails.env.development? %>
+        <%= debug(params) %>
+        <div ng-controller="TestCtrl" class="debug_dump">{{test}}</div>
+        <% end %>
+      </div>
+    </div>
+    
   </body>
-  
-  <!-- for page-specific CSS or JS -->
-  <%= yield :page_script %>
-  
 </html>

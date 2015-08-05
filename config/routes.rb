@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  
+  resources :jobs
   resources :projects
   resources :photos, except: [:show]
   resources :sessions, only: [:create]
