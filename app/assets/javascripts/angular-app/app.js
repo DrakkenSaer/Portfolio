@@ -1,11 +1,5 @@
 (function() {
-  app = angular.module('app', ['templates', 'ngRoute', 'ngResource', 'angularVideoBg']);
-
-  app.config([
-    '$httpProvider', function($httpProvider) {
-      return $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-    }
-  ]);
+  app = angular.module('app', ['templates', 'ngRoute', 'ngResource', 'angularVideoBg', 'ng-token-auth']);
 
   app.config([
     '$routeProvider', '$locationProvider',
@@ -19,19 +13,23 @@
       })
         .when('/about', {
         templateUrl: "pages/about.html",
-        title: "About me"
+        title: "About Me"
       })
         .when('/jobs', {
         templateUrl: "jobs/index.html",
-        title: "Work history",
+        title: "Work History",
         controller: "JobsCtrl"
       })
         .when('/jobs/:jobId', {
         templateUrl: "jobs/show.html",
-        title: "Work history",
+        title: "Work History",
         controller: "JobCtrl"
       })
-
+        .when('/login', {
+        templateUrl: "sessions/new.html",
+        title: "Admin Login",
+        controller: "SessionsCtrl"
+      })
 
 
         .otherwise({

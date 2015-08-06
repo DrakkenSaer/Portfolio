@@ -1,9 +1,0 @@
-<% provide(:title, "Sign in") %>
-<h1>Login</h1>
-
-<!-- render signin form and then leave fields disabled if signed in already -->
-<% if signed_in? %>
-<%= render 'sessions/form', status: true %>
-<% else %>
-<%= render 'sessions/form', status: false %>
-<% end %>

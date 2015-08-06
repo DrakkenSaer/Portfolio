@@ -21,5 +21,7 @@
 //= require angular-resource
 //= require angular-rails-templates
 //= require angular-video-bg/angular-video-bg
+//= require angular-cookie/angular-cookie
+//= require ng-token-auth/dist/ng-token-auth
 //= require_tree ../templates
 //= require_tree ./

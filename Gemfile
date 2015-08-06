@@ -8,14 +8,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk', '~> 1.5.7'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem "bootstrap-switch-rails"
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
-gem "bower-rails", "~> 0.10.0"
+gem 'bower-rails', '~> 0.10.0'
+gem 'devise_token_auth'
+gem 'omniauth'
 
 group :development, :test do
   gem 'sqlite3'

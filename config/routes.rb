@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   scope :api, defaults: {format: :json} do
+    mount_devise_token_auth_for 'User', at: 'auth'
     resources :jobs
   end
 
@@ -14,12 +15,10 @@ Rails.application.routes.draw do
   resources :resume, only: [:index]
 
   match 'modeling', to: 'photos#index', via: :get
-  match 'portfolio', to: 'pages', via: :get
+  match 'portfolio', to: 'pages#portfolio', via: :get
   match 'contact', to: 'messages#new', via: :get
-  match 'about', to: 'pages', via: :get
+  match 'about', to: 'pages#about', via: :get
   match 'login', to: 'sessions#new', via: :get
-  match 'logout', to: 'sessions#destroy', via: :delete
-  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

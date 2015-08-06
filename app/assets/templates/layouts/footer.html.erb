@@ -9,6 +9,8 @@
           <li><a href="https://github.com/drakkensaer/portfolio">Source code</a></li>
           <li><a href="https://github.com/drakkensaer">GitHub</a></li>
           <li><a href="/resume" target="_blank">Resume</a></li>
+          <li ng-show="user.id"><a href="messages">Messages</a></li>
+          <li ng-show="user.id"><a href ng-click='signOut()'>Logout</a></li>
         </ul>
       </nav>
     </footer>  

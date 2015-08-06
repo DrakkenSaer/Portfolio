@@ -1,26 +1,27 @@
-<div class="col-md-6 col-md-offset-3 job">
-   <h1><img alt="{{job.company}}" class="img-responsive center" src="{{job.image}}"/></h1>
-  <ul class="center"> 
-    <li><h2>{{job.title}}</h2></li>
-    <li><b>Company</b></li><li>{{job.company}}</li>
-    <li ng-show="job.years"><b>Years at job</b></li><li>{{job.years}}</li>
-    <li ng-show="job.manager"><b>Supervisor</b></li><li>{{job.manager}}</li>
-    <li ng-show="job.contact"><b>Company contact</b></li><li>{{job.contact}}</li>
-    <li ng-show="job.address"><b>Workplace address</b></li><li>{{job.address}}</li>
-    <li><b>Description</b></li><li class="word-wrap">{{job.description}}</li>
-    <li ng-show="job.skills"><b>Skills</b></li><li>{{job.skills}}</li>
-    <div ng-show="job.references">
-      <li><b>Professional References</b></li>
-      <li ng-repeat="reference in job.references">{{reference.reference}}</li>
-    </div>
-    <li>
-      <%= link_to 'Edit job', edit_job_path(job) %> | 
-      <%= link_to 'Delete job', job, method: :delete,  data:{confirm: "Are you sure?"} %>
-    </li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 job">
+    <h1><img alt="{{job.company}}" class="img-responsive center" src="{{job.image}}"/></h1>
+    <ul class="center"> 
+      <li><h2>{{job.title}}</h2></li>
+      <li><b>Company</b></li><li>{{job.company}}</li>
+      <li ng-show="job.years"><b>Years at job</b></li><li>{{job.years}}</li>
+      <li ng-show="job.manager"><b>Supervisor</b></li><li>{{job.manager}}</li>
+      <li ng-show="job.contact"><b>Company contact</b></li><li>{{job.contact}}</li>
+      <li ng-show="job.address"><b>Workplace address</b></li><li>{{job.address}}</li>
+      <li><b>Description</b></li><li class="word-wrap">{{job.description}}</li>
+      <li ng-show="job.skills"><b>Skills</b></li><li>{{job.skills}}</li>
+      <div ng-show="job.references">
+        <li><b>Professional References</b></li>
+        <li ng-repeat="reference in job.references">{{reference.reference}}</li>
+      </div>
+      <li>
+        <a href ng-show="user.id">Edit Job</a> | 
+        <a data-confirm="Are you sure?" data-method="delete" href ng-show="user.id" rel="nofollow">Delete job</a>
+      </li>
+    </ul>
+  </div>
+
+  <button ng-click="back()" class="btn btn-default">
+    &larr; Back
+  </button>
 </div>
-      
-      <button ng-click="back()" class="btn btn-default">
-        &larr; Back
-      </button>
