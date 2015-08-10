@@ -21,3 +21,8 @@ jobs = Job.all
   reference = "Example - example@hotmail.com"
   jobs.each { |job| job.references.create!(reference: reference) }
 end
+
+Project.create(title: "Example Project 1", link: "Google.com", description: "This was easy.", image_file_name: "project1.jpg", image_content_type: "image/jpg", image_file_size: "1500")
+
+
+Photo.create(title: "Example Photo 1", photographer: "Drakken Saer", image_file_name: "photo1.jpg", image_content_type: "image/jpg", image_file_size: "1500")

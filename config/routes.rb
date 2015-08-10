@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   scope :api, defaults: {format: :json} do
     mount_devise_token_auth_for 'User', at: 'auth'
     resources :jobs
+    resources :projects
+    resources :photos, except: [:show]
   end
 
   resources :jobs
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   match 'contact', to: 'messages#new', via: :get
   match 'about', to: 'pages#about', via: :get
   match 'login', to: 'sessions#new', via: :get
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

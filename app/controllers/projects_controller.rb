@@ -2,10 +2,7 @@ class ProjectsController < ApplicationController
   before_action :signed_in_user, except: [:show, :index]
   
   def index
-    @projects = Project.order(:id).all
-    if !signed_in? && @projects.empty? 
-      redirect_to root_path
-    end
+    @projects = Project.all
   end
   
   def show

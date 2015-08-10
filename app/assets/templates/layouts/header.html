@@ -16,8 +16,8 @@
           <li><a href="/" class="nav-link" ng-class="{active:isActive('/')}">Home</a></li>
           <li><a href="about" class="nav-link" ng-class="{active:isActive('/about')}">About me</a></li>
           <li><a href="contact" class="nav-link" ng-class="{active:isActive('/contact')}">Contact me</a></li>
-          <li><a href="jobs" class="nav-link" ng-class="{active:isActive('/jobs')}">Work experience</a></li>
-          <li><a href="portfolio" class="nav-link" ng-class="{active:isActive('/portfolio')}">Portfolio</a></li>
+          <li><a href="jobs" class="nav-link" ng-class="{active:isActive('/jobs')}" ng-show="user.id || jobs[0]">Work experience</a></li>
+          <li><a href="portfolio" class="nav-link" ng-class="{active:isActive('/portfolio')}" ng-show="user.id || projects[0] || photos[0]">Portfolio</a></li>
         </ul>
       </div>
     </nav>
