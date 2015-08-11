@@ -1,5 +1,7 @@
 <h1>Work history</h1>
 
+<a href="jobs/new" class="center" ng-show="user.id">Add new work experience</a>
+
 <div ng-repeat-start="job in jobs">
   <div class="col-md-6 job">
     <h1><a class="img-responsive img-darken center" href ng-click="view(job.id)"><img alt="{{job.company}}" class="img-responsive" src="{{job.image}}"/></a></h1>

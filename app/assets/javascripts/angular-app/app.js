@@ -20,6 +20,16 @@
         title: "Work History",
         controller: "JobsCtrl"
       })
+        .when('/jobs/new', {
+        templateUrl: "jobs/new.html",
+        title: "Add Work History",
+        controller: "NewJobCtrl",
+        resolve: {
+          auth: ['$auth', function($auth) {
+            return $auth.validateUser();
+          }]
+        }
+      })
         .when('/jobs/:jobId', {
         templateUrl: "jobs/show.html",
         title: "Work History",

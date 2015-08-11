@@ -1,5 +1,5 @@
 app.controller('JobsCtrl',[
-  '$scope', '$routeParams', '$http', '$location', 
+  '$scope', '$routeParams', '$http', '$location',
   function($scope, $routeParams, $http, $location) {
     $scope.jobs = []
     $http.get('/api/jobs').
@@ -9,6 +9,10 @@ app.controller('JobsCtrl',[
 
     $scope.view = function(jobId) {
       return $location.path("/jobs/" + jobId);
+    };
+
+    if($scope.jobs.length == 0 && $scope.user.id == null){
+      return $location.path("/");
     };
   }]);
 
