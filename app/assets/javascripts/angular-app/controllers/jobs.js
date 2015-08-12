@@ -1,24 +1,16 @@
 app.controller('JobsCtrl',[
-  '$scope', '$routeParams', '$http', '$location',
-  function($scope, $routeParams, $http, $location) {
+  '$scope', '$stateParams', '$http', '$location',
+  function($scope, $stateParams, $http, $location) {
     $scope.jobs = []
     $http.get('/api/jobs').
     success(function(data) {
       $scope.jobs = data
     });
-
-    $scope.view = function(jobId) {
-      return $location.path("/jobs/" + jobId);
-    };
-
-    if($scope.jobs.length == 0 && $scope.user.id == null){
-      return $location.path("/");
-    };
   }]);
 
 app.controller('JobCtrl',[
-  '$scope', '$resource', '$routeParams', '$http', '$location',
-  function($scope, $resource, $routeParams, $http, $location) {
+  '$scope', '$resource', '$stateParams', '$http', '$location',
+  function($scope, $resource, $stateParams, $http, $location) {
     var Job;
 
     Job = $resource('/api/jobs/:jobId', {
@@ -27,7 +19,7 @@ app.controller('JobCtrl',[
     });
 
     Job.get({
-      jobId: $routeParams.jobId
+      jobId: $stateParams.jobId
     }, (function(job) {
       return $scope.job = job;
     }), (function(httpResponse) {
@@ -37,4 +29,18 @@ app.controller('JobCtrl',[
     $scope.back = function() {
       return $location.path("/jobs");
     };
+  }]);
+
+app.controller('NewJobCtrl',[
+  '$scope', '$resource', '$routeParams', '$http', '$location',
+  function($scope, $resource, $routeParams, $http, $location) {
+
+
+  }]);
+
+app.controller('EditJobCtrl',[
+  '$scope', '$resource', '$routeParams', '$http', '$location',
+  function($scope, $resource, $routeParams, $http, $location) {
+
+
   }]);

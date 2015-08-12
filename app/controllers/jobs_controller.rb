@@ -1,5 +1,4 @@
 class JobsController < ApplicationController
-  before_action :signed_in_user, except: [:show, :index]
   
   def index
     @jobs = Job.all

@@ -23,5 +23,6 @@
 //= require angular-video-bg/angular-video-bg
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
+//= require angular-ui-router/release/angular-ui-router
 //= require_tree ../templates
 //= require_tree ./

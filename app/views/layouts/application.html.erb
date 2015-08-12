@@ -23,7 +23,7 @@
     <!-- do not render on resume page -->
     <div ng-include="'layouts/header.html'"></div>
     <!-- conditional container logic used for CSS needs for specific pages -->
-    <div ng-view id="main">
+    <div ui-view id="main">
       
       <!-- for page flash alerts -->
       <% flash.each do |key, value| %>

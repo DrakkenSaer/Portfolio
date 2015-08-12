@@ -1,52 +1,58 @@
 (function() {
-  app = angular.module('app', ['templates', 'ngRoute', 'ngResource', 'angularVideoBg', 'ng-token-auth']);
+  app = angular.module('app', [
+    'templates', 
+    'ngRoute', 
+    'ngResource', 
+    'angularVideoBg', 
+    'ng-token-auth',
+    'ui.router'
+  ]);
 
   app.config([
-    '$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+    '$stateProvider', '$locationProvider', '$urlRouterProvider', 
+    function($stateProvider, $locationProvider, $urlRouterProvider) {
       $locationProvider.html5Mode(true);
-      return $routeProvider
-        .when('/', {
+      $urlRouterProvider.otherwise("/");
+
+      $stateProvider
+        .state('home', {
+        url: "/",
         templateUrl: "pages/home.html",
         title: "Home",
         controller: "HomeCtrl"
       })
-        .when('/about', {
+        .state('about', {
+        url: "/about",
         templateUrl: "pages/about.html",
         title: "About Me"
       })
-        .when('/jobs', {
+        .state('jobs', {
+        url: "/jobs",
         templateUrl: "jobs/index.html",
         title: "Work History",
         controller: "JobsCtrl"
       })
-        .when('/jobs/new', {
-        templateUrl: "jobs/new.html",
-        title: "Add Work History",
-        controller: "NewJobCtrl",
-        resolve: {
-          auth: ['$auth', function($auth) {
-            return $auth.validateUser();
-          }]
-        }
-      })
-        .when('/jobs/:jobId', {
+        .state('jobs.show', {
+        url: "/:jobId",
         templateUrl: "jobs/show.html",
         title: "Work History",
         controller: "JobCtrl"
       })
-        .when('/login', {
+        .state('jobs.new', {
+        url: "/jobs/new",
+        templateUrl: "jobs/new.html",
+        title: "Add Work History",
+        controller: "NewJobCtrl",
+      })
+        .state('login', {
+        url: "/login",
         templateUrl: "sessions/new.html",
         title: "Admin Login",
         controller: "SessionsCtrl"
-      })
-
-
-        .otherwise({
-
       });
     }
   ]);
+
 
   app.run(function() {
     return console.log('angular app running');

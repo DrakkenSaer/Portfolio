@@ -1,14 +1,15 @@
 <h1>Work history</h1>
 
-<a href="jobs/new" class="center" ng-show="user.id">Add new work experience</a>
+<div ui-view>
+  <a href="jobs/new" class="center" ng-show="user.id">Add new work experience</a>
 
-<div ng-repeat-start="job in jobs">
-  <div class="col-md-6 job">
-    <h1><a class="img-responsive img-darken center" href ng-click="view(job.id)"><img alt="{{job.company}}" class="img-responsive" src="{{job.image}}"/></a></h1>
-    <ul class="center">
-      <li>{{job.title}}</li>
-    </ul>
+  <div ng-repeat="job in jobs" ng-class-even="row">
+    <div class="col-md-6 job">
+      <h1><a class="img-responsive img-darken center" ui-sref="jobs.show({jobId: job.id})"><img alt="{{job.company}}" class="img-responsive" src="{{job.image}}"/></a></h1>
+      <ul class="center">
+        <li>{{job.title}}</li>
+      </ul>
+    </div>
   </div>
+  <div class="row"></div>
 </div>
-<div class="row" ng-repeat-end ng-if="($index + 1) % 2 == 0"></div>
-<div class="row"></div>
