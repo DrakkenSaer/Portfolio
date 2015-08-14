@@ -1,16 +1,21 @@
 app.controller('JobsCtrl',[
-  '$scope', '$stateParams', '$http', '$state',
-  function($scope, $stateParams, $http, $state) {
-    $scope.jobs = []
-    $http.get('/api/jobs').
-    success(function(data) {
-      $scope.jobs = data
+  '$scope', '$state', '$resource',
+  function($scope, $state, $resource) {
+    var Jobs = $resource('/api/jobs/', {
+      format: 'json'
     });
+    
+    Jobs.query(function(jobs) {
+      $scope.jobs = jobs;
+    }, function(httpResponse) {
+      $scope.jobs = null;
+    });
+    
+    console.log($scope.jobs)
 
-
-    if($scope.jobs.length == 0 && $scope.user.id == null){
+    if(0 == 1 && $scope.user.id == null){
       $state.go('home');
-      return console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
+      console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
     };
   }
 ]);
@@ -18,9 +23,7 @@ app.controller('JobsCtrl',[
 app.controller('JobCtrl',[
   '$scope', '$resource', '$stateParams', '$state',
   function($scope, $resource, $stateParams, $state) {
-    var Job;
-
-    Job = $resource('/api/jobs/:jobId', {
+    var Job = $resource('/api/jobs/:jobId', {
       jobId: "@id",
       format: 'json'
     });
@@ -28,9 +31,9 @@ app.controller('JobCtrl',[
     Job.get({
       jobId: $stateParams.jobId
     }, (function(job) {
-      return $scope.job = job;
+      $scope.job = job;
     }), (function(httpResponse) {
-      return $scope.job = null;
+      $scope.job = null;
     }));
 
     $scope.back = function() {
