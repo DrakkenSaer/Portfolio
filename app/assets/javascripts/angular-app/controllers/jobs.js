@@ -1,19 +1,9 @@
 app.controller('JobsCtrl',[
-  '$scope', '$state', '$resource',
-  function($scope, $state, $resource) {
-    var Jobs = $resource('/api/jobs/', {
-      format: 'json'
-    });
-    
-    Jobs.query(function(jobs) {
-      $scope.jobs = jobs;
-    }, function(httpResponse) {
-      $scope.jobs = null;
-    });
-    
-    console.log($scope.jobs)
+  '$scope', '$state', '$resource', 'jobs',
+  function($scope, $state, $resource, jobs) {
+    $scope.jobs = jobs.data;
 
-    if(0 == 1 && $scope.user.id == null){
+    if($scope.jobs == 0 && $scope.user.id == null){
       $state.go('home');
       console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
     };

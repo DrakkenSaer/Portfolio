@@ -1,4 +1,4 @@
-app.factory('Job', ['$resource', function($resource) {
+app.factory('JobUpdate', ['$resource', function($resource) {
   return $resource('/api/jobs/:id.json', null, {
     'update': { method:'PUT' }
   });

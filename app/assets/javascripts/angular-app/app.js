@@ -29,7 +29,12 @@ app.config([
       url: "/jobs",
       templateUrl: "jobs/index.html",
       title: "Work History",
-      controller: "JobsCtrl"
+      controller: "JobsCtrl",
+      resolve: {
+        jobs: ['$http', function($http){
+          return $http({ method: 'GET', url:'/api/jobs' });
+        }]
+      }
     })
       .state('jobs.show', {
       url: "/:jobId",
