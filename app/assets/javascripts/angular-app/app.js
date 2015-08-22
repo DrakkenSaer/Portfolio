@@ -1,6 +1,5 @@
 app = angular.module('app', [
   'templates', 
-  'ngRoute', 
   'ngResource', 
   'angularVideoBg', 
   'ng-token-auth',
@@ -18,7 +17,12 @@ app.config([
       url: "/",
       templateUrl: "pages/home.html",
       title: "Home",
-      controller: "HomeCtrl"
+      controller: "HomeCtrl",
+      resolve: {
+        jobs: ['$http', function($http){
+          return $http({ method: 'GET', url:'/api/home' });
+        }]
+      }
     })
       .state('about', {
       url: "/about",
@@ -37,7 +41,7 @@ app.config([
       }
     })
       .state('jobs.show', {
-      url: "/:jobId",
+      url: "/{jobId:int}",
       templateUrl: "jobs/show.html",
       title: "Work History",
       controller: "JobCtrl"

@@ -12,12 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require fancybox
 //= require bootstrap-sprockets
 //= require bootstrap-switch
 //= require angular
-//= require angular-route
 //= require angular-resource
 //= require angular-rails-templates
 //= require angular-video-bg/angular-video-bg

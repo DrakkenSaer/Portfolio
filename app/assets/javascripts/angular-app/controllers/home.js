@@ -1,5 +1,7 @@
-app.controller('HomeCtrl',['$scope', '$location', function($scope, $location) {
-    $scope.isNotActive = function(route) {
-        return route != $location.path();
-    };
+app.controller('HomeCtrl',['$scope', '$location', 'jobs', function($scope, $location, jobs) {
+  $scope.isNotActive = function(route) {
+    return route != $location.path();
+  };
+
+  $scope.jobs = jobs.data;
 }]);

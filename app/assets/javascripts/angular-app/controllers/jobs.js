@@ -29,11 +29,12 @@ app.controller('JobCtrl',[
     $scope.back = function() {
       $state.go('jobs');
     };
-  }]);
+  }
+]);
 
 app.controller('NewJobCtrl',[
-  '$scope', '$resource', '$stateParams', '$http', '$location',
-  function($scope, $resource, $stateParams, $http, $location) {
+  '$scope', 
+  function($scope) {
 
 
   }

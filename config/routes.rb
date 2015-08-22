@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :jobs
     resources :projects
     resources :photos, except: [:show]
+    match 'home', to: 'pages#home', via: :get
   end
 
   resources :jobs
