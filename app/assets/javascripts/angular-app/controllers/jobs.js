@@ -13,32 +13,36 @@ app.controller('JobsCtrl',[
 app.controller('JobCtrl',[
   '$scope', '$resource', '$stateParams', '$state',
   function($scope, $resource, $stateParams, $state) {
-    var Job = $resource('/api/jobs/:jobId', {
-      jobId: "@id",
+    var Job = $resource('/api/jobs/:id', {
+      id: "@id",
       format: 'json'
     });
 
     Job.get({
-      jobId: $stateParams.jobId
+      id: $stateParams.id
     }, (function(job) {
       $scope.job = job;
     }), (function(httpResponse) {
       $scope.job = null;
     }));
 
-    $scope.back = function() {
+    $scope.back = function(){
       $state.go('jobs');
     };
   }
 ]);
 
 app.controller('NewJobCtrl',[
-  '$scope', 
-  function($scope) {
+  '$scope', '$resource', 'JobFactory',
+  function($scope, $resource, JobFactory) {
+    var job = new JobFactory();
 
-
+    $scope.submit = function(data){
+      job.$save(data); 
+    }
   }
 ]);
+
 
 app.controller('EditJobCtrl',[
   '$scope', '$resource', '$stateParams', '$http', '$location',

@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  respond_to 'json'
   
   def index
     @jobs = Job.all
@@ -17,10 +18,10 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      flash[:success] = "Job created!"
-      redirect_to @job
+ #     flash[:success] = "Job created!"
+ #     render 'index'
     else
-      render 'new'
+      render json: @job.errors, status: :unprocessable_entity
     end
   end
   

@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form name="form" ng-submit="submit(job)" accept-charset="UTF-8" enctype="multipart/form-data">
+      <input name="utf8" 
+             type="hidden" 
+             value="&#x2713;" 
+             style="display:none" />
+
+      <label for="job_title">Title</label>
+      <input ng-model="job.title" 
+             class="form-control" 
+             id="job_title" 
+             name="job[title]" 
+             type="text" 
+             required />
+
+      <label for="job_company">Company</label>
+      <input ng-model="job.company" 
+             class="form-control" 
+             id="job_company" 
+             name="job[company]" 
+             type="text" 
+             required />
+
+      <label for="job_years">Years</label>
+      <input ng-model="job.years" 
+             class="form-control" 
+             id="job_years" 
+             name="job[years]" 
+             type="text" />
+
+      <label for="job_manager">Manager</label>
+      <input ng-model="job.manager" 
+             class="form-control" 
+             id="job_manager" 
+             name="job[manager]" 
+             type="text" />
+
+      <label for="job_contact">Contact</label>
+      <input ng-model="job.contact" 
+             class="form-control" 
+             id="job_contact" 
+             name="job[contact]" 
+             type="text" />
+
+      <label for="job_address">Address</label>
+      <input ng-model="job.address" 
+             class="form-control" 
+             id="job_address" 
+             name="job[address]" 
+             type="text" />
+
+      <label for="job_description">Description</label>
+      <textarea ng-model="job.description" 
+                class="form-control" 
+                id="job_description" 
+                name="job[description]" 
+                required>
+      </textarea>
+
+      <label for="job_skills">Skills</label>
+      <input ng-model="job.skills" 
+             class="form-control" 
+             id="job_skills" 
+             name="job[skills]" 
+             type="text" />
+
+      <label for="job_references">References</label>
+      <br>
+
+      <input ng-model="job.references[0]" 
+             class="form-control" 
+             id="job_references_attributes_0_reference" 
+             name="job[references_attributes][0][reference]" 
+             type="text" />
+
+      <input ng-model="job.references[1]"  
+             class="form-control" 
+             id="job_references_attributes_1_reference" 
+             name="job[references_attributes][1][reference]" 
+             type="text" />
+
+      <input ng-model="job.references[2]" 
+             class="form-control" 
+             id="job_references_attributes_2_reference" 
+             name="job[references_attributes][2][reference]" 
+             type="text" />
+
+      <input ng-model="job.references[3]" 
+             class="form-control" 
+             id="job_references_attributes_3_reference" 
+             name="job[references_attributes][3][reference]" 
+             type="text" />
+
+      <input ng-model="job.references[4]" 
+             class="form-control" 
+             id="job_references_attributes_4_reference" 
+             name="job[references_attributes][4][reference]" 
+             type="text" />
+
+      <label for="job_image">Image</label>
+      <input ng-model="job.image" 
+             class="width-100" 
+             id="job_image" 
+             name="job[image]" 
+             type="file" 
+              />
+
+      <div class="center">
+        <div class="btn-group">  
+          <input class="btn btn-large btn-primary" 
+                 name="commit" 
+                 type="submit" 
+                 value="Submit" />
+        </div>
+      </div>
+    </form>  
+  </div>
+</div>
+
+<pre>form = {{job | json}}</pre>

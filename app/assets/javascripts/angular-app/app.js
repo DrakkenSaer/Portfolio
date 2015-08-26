@@ -41,10 +41,15 @@ app.config([
       }
     })
       .state('jobs.show', {
-      url: "/{jobId:int}",
+      url: "/{id:int}",
       templateUrl: "jobs/show.html",
       title: "Work History",
-      controller: "JobCtrl"
+      controller: "JobCtrl",
+      resolve: {
+        job: [function(){
+          
+        }]
+      }
     })
       .state('jobs.new', {
       url: "/new",
