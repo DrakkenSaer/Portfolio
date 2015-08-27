@@ -3,7 +3,8 @@ app = angular.module('app', [
   'ngResource', 
   'angularVideoBg', 
   'ng-token-auth',
-  'ui.router'
+  'ui.router',
+  'angularFileUpload'
 ]);
 
 app.config([

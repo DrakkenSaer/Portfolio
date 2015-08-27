@@ -11,34 +11,31 @@ app.controller('JobsCtrl',[
 ]);
 
 app.controller('JobCtrl',[
-  '$scope', '$resource', '$stateParams', '$state',
-  function($scope, $resource, $stateParams, $state) {
-    var Job = $resource('/api/jobs/:id', {
-      id: "@id",
-      format: 'json'
-    });
+  '$scope', '$stateParams', '$state', 'JobFactory',
+  function($scope, $stateParams, $state, JobFactory) {
+    var Job = new JobFactory();
 
-    Job.get({
-      id: $stateParams.id
-    }, (function(job) {
+    Job.$get({id: $stateParams.id}, (function(job) {
       $scope.job = job;
     }), (function(httpResponse) {
       $scope.job = null;
     }));
-
-    $scope.back = function(){
-      $state.go('jobs');
-    };
   }
 ]);
 
 app.controller('NewJobCtrl',[
-  '$scope', '$resource', 'JobFactory',
-  function($scope, $resource, JobFactory) {
-    var job = new JobFactory();
-
-    $scope.submit = function(data){
-      job.$save(data); 
+  '$scope', '$state', 'JobFactory','FileUploader',
+  function($scope, $state, JobFactory, FileUploader) {
+    $scope.errors = {};
+    
+    $scope.save = function(data) {
+      var job = new JobFactory(data);
+      
+      job.$save(function() {
+        $state.path('/jobs');
+      }, function(response) {
+        $scope.errors = response.data;
+      });
     }
   }
 ]);
