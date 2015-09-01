@@ -4,7 +4,7 @@ app = angular.module('app', [
   'angularVideoBg', 
   'ng-token-auth',
   'ui.router',
-  'angularFileUpload'
+  'ngFileUpload'
 ]);
 
 app.config([
@@ -38,7 +38,7 @@ app.config([
       resolve: {
         jobs: ['$http', function($http){
           return $http({ method: 'GET', url:'/api/jobs' });
-        }]
+        }],
       }
     })
       .state('jobs.show', {
@@ -48,7 +48,7 @@ app.config([
       controller: "JobCtrl",
       resolve: {
         job: [function(){
-          
+
         }]
       }
     })
@@ -57,6 +57,22 @@ app.config([
       templateUrl: "jobs/new.html",
       title: "Add Work History",
       controller: "NewJobCtrl",
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
+        }
+      }
+    })
+      .state('jobs.edit', {
+      url: "/{id:int}/edit",
+      templateUrl: "jobs/edit.html",
+      title: "Edit Work History",
+      controller: "EditJobCtrl",
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
+        }
+      }
     })
       .state('login', {
       url: "/login",

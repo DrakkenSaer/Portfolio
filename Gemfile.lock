@@ -40,10 +40,9 @@ GEM
       railties (>= 3.1)
       sprockets (~> 2)
       tilt
-    angularjs-file-upload-rails (1.1.6)
     angularjs-rails (1.4.4)
     arel (6.0.3)
-    autoprefixer-rails (5.2.1.2)
+    autoprefixer-rails (5.2.1.3)
       execjs
       json
     aws-sdk (1.5.8)
@@ -61,11 +60,6 @@ GEM
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (6.0.2)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -188,7 +182,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    sass (3.4.16)
+    sass (3.4.18)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -214,7 +208,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicorn (4.9.0)
@@ -235,14 +229,12 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
-  angularjs-file-upload-rails (~> 1.1.6)
   angularjs-rails
   aws-sdk (~> 1.5.7)
   bootstrap-sass (~> 3.3.5)
   bootstrap-switch-rails
   bower-rails (~> 0.10.0)
   byebug
-  carrierwave
   coffee-rails (~> 4.1.0)
   devise_token_auth
   fancybox2-rails (~> 0.2.8)

@@ -10,18 +10,23 @@
       <li ng-show="job.address"><b>Workplace address</b></li><li>{{job.address}}</li>
       <li><b>Description</b></li><li class="word-wrap">{{job.description}}</li>
       <li ng-show="job.skills"><b>Skills</b></li><li>{{job.skills}}</li>
-      <div ng-show="job.references">
+      <div ng-show="job.references[0]">
         <li><b>Professional References</b></li>
-        <li ng-repeat="reference in job.references">{{reference.reference}}</li>
+        <li ng-repeat="reference in job.references track by $index">{{reference}}</li>
       </div>
-      <li>
-        <a href ng-show="user.id">Edit Job</a> | 
-        <a data-confirm="Are you sure?" data-method="delete" href ng-show="user.id" rel="nofollow">Delete job</a>
+      <li ng-show="user.id">
+        <div class="btn-group">
+          <a ui-sref="jobs.edit({id: job.id})" 
+             class="btn btn-large btn-primary">Edit Job</a>
+        </div>
+        <div class="btn-group">
+          <a data-confirm="Are you sure?" 
+           data-method="delete" 
+           href 
+           rel="nofollow" 
+           class="btn btn-large btn-danger">Delete job</a>
+        </div>
       </li>
     </ul>
-  </div>
-
-  <div class="btn-group">
-    <a href="jobs" class="btn btn-default btn-lg">&larr; Back</a>
   </div>
 </div>

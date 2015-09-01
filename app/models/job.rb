@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
   has_many :references, dependent: :destroy
-  accepts_nested_attributes_for :references
+  accepts_nested_attributes_for :references, limit: 5
   
   validates :title, :company, :description, presence: true, uniqueness: true, length: {minimum: 6}
 

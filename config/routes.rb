@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'pages#home'
 
   scope :api, defaults: {format: :json} do
@@ -13,7 +12,6 @@ Rails.application.routes.draw do
   resources :jobs
   resources :projects
   resources :photos, except: [:show]
-  resources :sessions, only: [:create]
   resources :messages, except: [:edit, :update, :show]
   resources :resume, only: [:index]
 

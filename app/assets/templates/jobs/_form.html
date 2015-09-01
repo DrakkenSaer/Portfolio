@@ -1,11 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <form name="form" ng-submit="save(job)" accept-charset="UTF-8" enctype="multipart/form-data">
-      <input name="utf8" 
-             type="hidden" 
-             value="&#x2713;" 
-             style="display:none" />
-
+    <form ng-submit="save(job)" accept-charset="UTF-8" enctype="multipart/form-data">
       <label for="job_title">Title</label>
       <input ng-model="job.title" 
              class="form-control" 
@@ -30,6 +25,7 @@
              id="job_years" 
              name="job[years]" 
              type="text" />
+      <div ng-repeat="error in errors.years" class="alert alert-danger">Years {{error}}</div>
 
       <label for="job_manager">Manager</label>
       <input ng-model="job.manager" 
@@ -37,6 +33,7 @@
              id="job_manager" 
              name="job[manager]" 
              type="text" />
+      <div ng-repeat="error in errors.manager" class="alert alert-danger">Manager {{error}}</div>
 
       <label for="job_contact">Contact</label>
       <input ng-model="job.contact" 
@@ -44,6 +41,7 @@
              id="job_contact" 
              name="job[contact]" 
              type="text" />
+      <div ng-repeat="error in errors.contact" class="alert alert-danger">Contact {{error}}</div>
 
       <label for="job_address">Address</label>
       <input ng-model="job.address" 
@@ -51,6 +49,7 @@
              id="job_address" 
              name="job[address]" 
              type="text" />
+      <div ng-repeat="error in errors.address" class="alert alert-danger">Address {{error}}</div>
 
       <label for="job_description">Description</label>
       <textarea ng-model="job.description" 
@@ -67,15 +66,17 @@
              id="job_skills" 
              name="job[skills]" 
              type="text" />
+      <div ng-repeat="error in errors.skills" class="alert alert-danger">Skills {{error}}</div>
 
       <label for="job_references">References</label>
-      <br>
 
       <input ng-model="job.references[0]" 
              class="form-control" 
              id="job_references_attributes_0_reference" 
              name="job[references_attributes][0][reference]" 
              type="text" />
+      
+      {{job.references[0]}}
 
       <input ng-model="job.references[1]"  
              class="form-control" 
@@ -106,8 +107,10 @@
              class="width-100" 
              id="job_image" 
              name="job[image]" 
-             type="file" 
-              />
+             type="file"
+             ngf-select
+             accept="image/*" 
+             ngf-max-size="5MB" />
       <div ng-repeat="error in errors.image" class="alert alert-danger">Image {{error}}</div>
 
       <div class="center">
@@ -117,9 +120,10 @@
                  type="submit" 
                  value="Submit" />
         </div>
+        <div class="btn-group">
+          <a ng-click="back()" href class="btn btn-large btn-default">&larr; Cancel</a>
+        </div>
       </div>
     </form>  
   </div>
 </div>
-
-<pre>form = {{job | json}}</pre>

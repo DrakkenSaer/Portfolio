@@ -18,10 +18,10 @@
 //= require angular
 //= require angular-resource
 //= require angular-rails-templates
-//= require angularjs-file-upload
 //= require angular-video-bg/angular-video-bg
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-ui-router/release/angular-ui-router
+//= require ng-file-upload/ng-file-upload
 //= require_tree ../templates
 //= require_tree ./

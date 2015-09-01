@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   respond_to 'json'
   
   def index
@@ -7,36 +8,30 @@ class JobsController < ApplicationController
   
   def show
     @job = Job.find(params[:id])
-    @references = @job.references.order(:id)
+    @references = @job.references
   end
   
   def new
-    @job = Job.new
-    5.times { @job.references.build }
   end
   
   def create
     @job = Job.new(job_params)
     if @job.save
- #     flash[:success] = "Job created!"
- #     render 'index'
+      render json: @job.attributes.merge(image: @job.image.url(:medium)), status: :created
     else
       render json: @job.errors, status: :unprocessable_entity
     end
   end
   
   def edit
-    @job = Job.find(params[:id])
-    @references = @job.references.order(:id)
   end
   
   def update
     @job = Job.find(params[:id])
     if @job.update!(job_params)
-      flash[:success] = "Job saved!"
-      redirect_to @job
+      render json: @job.attributes.merge(image: @job.image.url(:large))
     else
-      render 'edit'
+      render json: @job.errors, status: :unprocessable_entity
     end
   end
   

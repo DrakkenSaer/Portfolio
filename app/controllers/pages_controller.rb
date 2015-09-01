@@ -17,4 +17,7 @@ class PagesController < ApplicationController
     @jobs = Job.last(3)
   end
   
+  def login
+  end
+  
 end

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :signed_in_user, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create]
 
   def index
     @messages = Message.all
