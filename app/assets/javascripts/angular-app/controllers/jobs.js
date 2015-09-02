@@ -35,20 +35,7 @@ app.controller('NewJobCtrl',[
       Upload.upload({
         url: '/api/jobs',
         method: 'POST',
-        fields: {
-          'job[title]': job.title,
-          'job[company]': job.company,
-          'job[description]': job.description,
-          'job[years]': job.years,
-          'job[manager]': job.manager,
-          'job[contact]': job.contact,
-          'job[skills]': job.skills,
-          'job[address]': job.address,
-          'job[references_attributes][0][reference]': job.references[0],
-          'job[references_attributes][1][reference]': job.references[1],
-          'job[references_attributes][2][reference]': job.references[2],
-          'job[references_attributes][3][reference]': job.references[3],
-          'job[references_attributes][4][reference]': job.references[4] },
+        data: job,
         file: file,
         fileFormDataName: 'job[image]'
       }).progress(function (evt) {
@@ -87,25 +74,7 @@ app.controller('EditJobCtrl',[
       Upload.upload({
         url: '/api/jobs/' + job.id,
         method: 'PUT',
-        fields: {
-          'job[title]': job.title,
-          'job[company]': job.company,
-          'job[description]': job.description,
-          'job[years]': job.years,
-          'job[manager]': job.manager,
-          'job[contact]': job.contact,
-          'job[skills]': job.skills,
-          'job[address]': job.address,
-          'job[references_attributes][0][reference]': job.references[0],
-          'job[references_attributes][1][reference]': job.references[1],
-          'job[references_attributes][2][reference]': job.references[2],
-          'job[references_attributes][3][reference]': job.references[3],
-          'job[references_attributes][4][reference]': job.references[4],
-          'job[references_attributes][0][id]': 1,
-          'job[references_attributes][1][id]': 2,
-          'job[references_attributes][2][id]': 3,
-          'job[references_attributes][3][id]': 4,
-          'job[references_attributes][4][id]': 5 },
+        data: job,
         file: file,
         fileFormDataName: 'job[image]'
       }).progress(function (evt) {

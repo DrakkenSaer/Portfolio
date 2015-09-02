@@ -16,7 +16,7 @@ class JobsController < ApplicationController
   
   def create
     @job = Job.new(job_params)
-    if @job.save
+    if @job.save!
       render json: @job.attributes.merge(image: @job.image.url(:medium)), status: :created
     else
       render json: @job.errors, status: :unprocessable_entity
@@ -28,7 +28,8 @@ class JobsController < ApplicationController
   
   def update
     @job = Job.find(params[:id])
-    if @job.update!(job_params)
+    puts params[:data]
+    if @job.update!(params[:data])
       render json: @job.attributes.merge(image: @job.image.url(:large))
     else
       render json: @job.errors, status: :unprocessable_entity
