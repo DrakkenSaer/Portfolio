@@ -23,5 +23,6 @@
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-ui-router/release/angular-ui-router
 //= require ng-file-upload/ng-file-upload
+//= require angular-flash-messages/angular-flash
 //= require_tree ../templates
 //= require_tree ./

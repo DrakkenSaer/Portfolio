@@ -1,4 +1,18 @@
-<div class="<%= col_size %>">
+<% provide(:title, 'Messages') %>
+
+<h1>Messages</h1>
+
+<!-- Russian doll cache model data and then render it onto page -->
+<% cache(@messages) do %>
+<div class="contact">
+  <% if @messages.empty? %>
+    <h3 class="center"> Nothing new to show! </h3>
+  <% else %>
+    <% @messages.each_slice(2) do |slice| %>
+      <% cache(slice) do %>
+      <div class="row">
+        <% slice.each do |message| %>
+          <div class="<%= col_size %>">
   <ul>
     <li><b>Sender's email: </b><%= message.email %></li>
     <li><b>Subject: </b><%= message.subject %></li>
@@ -20,3 +34,10 @@
     </li>
   </ul>
 </div>
+        <% end %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

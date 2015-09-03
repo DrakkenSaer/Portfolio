@@ -4,7 +4,8 @@ app = angular.module('app', [
   'angularVideoBg', 
   'ng-token-auth',
   'ui.router',
-  'ngFileUpload'
+  'ngFileUpload',
+  'flash'
 ]);
 
 app.config([
@@ -79,6 +80,23 @@ app.config([
       templateUrl: "sessions/new.html",
       title: "Admin Login",
       controller: "SessionsCtrl"
+    })
+      .state('contact', {
+      url: "/contact",
+      templateUrl: "messages/new.html",
+      title: "Contact Me",
+      controller: "NewMessageCtrl"
+    })
+      .state('messages', {
+      url: "/messages",
+      templateUrl: "messages/index.html",
+      title: "Messages",
+      controller: "MessagesCtrl",
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
+        }
+      }
     });
   }
 ]);

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <form ng-submit="save(job)" accept-charset="UTF-8" enctype="multipart/form-data">
+    <form ng-submit="save(job)" accept-charset="UTF-8" enctype="multipart/form-data" novalidate>
       <label for="job_title">Title</label>
       <input ng-model="job.title" 
              class="form-control" 
@@ -68,33 +68,38 @@
              type="text" />
       <div ng-repeat="error in errors.skills" class="alert alert-danger">Skills {{error}}</div>
 
+      <!-- Regarding nested forms
+http://www.angularjshub.com/examples/forms/nestedforms/
+http://www.dahuatu.com/oYwKqzYPyE.html
+-->
+      
       <label for="job_references">References</label>
 
-      <input ng-model="job.references[0]" 
+      <input ng-model="job.references[0].reference" 
              class="form-control" 
              id="job_references_attributes_0_reference" 
              name="job[references_attributes][0][reference]" 
              type="text" />
       
-      <input ng-model="job.references[1]"  
+      <input ng-model="job.references[1].reference"
              class="form-control" 
              id="job_references_attributes_1_reference" 
              name="job[references_attributes][1][reference]" 
              type="text" />
 
-      <input ng-model="job.references[2]" 
+      <input ng-model="job.references[2].reference"
              class="form-control" 
              id="job_references_attributes_2_reference" 
              name="job[references_attributes][2][reference]" 
              type="text" />
 
-      <input ng-model="job.references[3]" 
+      <input ng-model="job.references[3].reference"
              class="form-control" 
              id="job_references_attributes_3_reference" 
              name="job[references_attributes][3][reference]" 
              type="text" />
 
-      <input ng-model="job.references[4]" 
+      <input ng-model="job.references[4].reference"
              class="form-control" 
              id="job_references_attributes_4_reference" 
              name="job[references_attributes][4][reference]" 

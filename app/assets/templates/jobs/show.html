@@ -12,7 +12,7 @@
       <li ng-show="job.skills"><b>Skills</b></li><li>{{job.skills}}</li>
       <div ng-show="job.references[0]">
         <li><b>Professional References</b></li>
-        <li ng-repeat="reference in job.references track by $index">{{reference}}</li>
+        <li ng-repeat="reference in job.references track by $index">{{reference.reference}}</li>
       </div>
       <li ng-show="user.id">
         <div class="btn-group">

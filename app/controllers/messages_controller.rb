@@ -1,21 +1,21 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
+  respond_to 'json'
+
 
   def index
     @messages = Message.all
   end
     
   def new
-    @message = Message.new
   end
   
   def create
     @message = Message.new(message_params)
     if @message.save
-      flash[:success] = "Message sent!"
-      redirect_to contact_path
+      render nothing: true, status: :created
     else
-      render 'new'
+      render json: @message.errors, status: :unprocessable_entity
     end
   end
   

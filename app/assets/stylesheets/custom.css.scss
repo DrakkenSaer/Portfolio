@@ -2,6 +2,28 @@
 @import "bootstrap";
 @import "bootstrap3-switch";
 
+/* angular */
+
+// ng-flash
+
+.success, .warning, .info, .danger {
+  @extend .alert;
+}
+
+.success {
+  @extend .alert-success;
+}
+
+.info {
+  @extend .alert-info;
+}
+
+.danger {
+  @extend .alert-danger;
+}
+
+
+
 /* mixins, variables, etc. */
 
 @mixin box_sizing {

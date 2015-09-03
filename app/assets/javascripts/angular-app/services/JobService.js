@@ -3,9 +3,3 @@ app.factory('JobFactory', ['$resource', function($resource) {
     'update': { method:'PUT' },
   });
 }]);
-
-app.factory('JobsFactory', ['$resource', function($resource) {
-  return $resource('/api/jobs', null, {
-    
-  });
-}]);
