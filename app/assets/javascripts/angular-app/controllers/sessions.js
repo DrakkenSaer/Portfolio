@@ -1,7 +1,16 @@
-app.controller('SessionsCtrl', ['$scope', function ($scope) {
+app.controller('SessionsCtrl', ['$scope', 'flash', function ($scope, flash) {
   $scope.$on('auth:login-error', function(ev, reason) {
     $scope.error = reason.errors[0];
   })
+
+  $scope.$on('auth:login-success', function() {
+    $scope.error = null;
+  })
+  
+  // WIP - fix this flash
+  if ($scope.user) {
+    flash('info', 'You are already signed in!')
+  }
 }]);
 
 

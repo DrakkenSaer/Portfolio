@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div ng-include="'shared/error_messages.html'"></div>
-    <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}" novalidate>
+    <form name="form" ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}" novalidate>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email"
@@ -14,6 +14,11 @@
                ng-disabled="user.id"
                placeholder="example@example.com"
                required />
+        <div ng-class="{'alert alert-danger':form.email.$invalid}" 
+             ng-show="form.$submitted || form.email.$touched">
+          <div ng-show="form.email.$error.required">Email can't be blank.</div>
+          <div ng-show="form.email.$error.email">Email format must be valid (example@example.com).</div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -26,16 +31,21 @@
                ng-disabled="user.id"
                placeholder="example123"
                required />
+        <div ng-class="{'alert alert-danger':form.password.$invalid}" 
+             ng-show="form.$submitted || form.password.$touched">
+          <div ng-show="form.password.$error.required">Password can't be blank.</div>
+        </div>
       </div>
-      
-      
-        <div class="center btn-group">  
+
+      <div class="center">
+        <div class="btn-group">  
           <input class="btn btn-large btn-primary" 
                  name="commit" 
                  type="submit" 
                  value="Submit"
-                 ng-disabled="user.id" />
+                 ng-disabled="user.id || form.$invalid" />
         </div>
+      </div>
     </form>
   </div>
 </div>

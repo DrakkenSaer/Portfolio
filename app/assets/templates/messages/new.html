@@ -9,57 +9,63 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <form name="form" ng-submit="save(message)" accept-charset="UTF-8" novalidate>
-        <label for="email">Email</label>
-        <input ng-model="message.email"
-               class="form-control" 
-               id="email" 
-               name="email" 
-               type="email"
-               placeholder="example@saerdesigns.com"
-               ng-disabled="form.$submitted"
-               ng-minlength="6"
-               required />
-        <div ng-class="{'alert alert-danger':form.email.$invalid || errors.email != null}" 
-             ng-show="form.$submitted || form.email.$touched || errors">
-          <div ng-repeat="error in errors.email">Email {{error}}</div>
-          <div ng-show="form.email.$error.required">Email can't be blank.</div>
-          <div ng-show="form.email.$error.minlength">Email is too short (minimum is 6 characters).</div>
-          <div ng-show="form.email.$error.email">Email format must be valid (example@example.com).</div>
+      <form name="form" ng-submit="save(message)" accept-charset="UTF-8" role="form" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input ng-model="message.email"
+                 class="form-control" 
+                 id="email" 
+                 name="email" 
+                 type="email"
+                 placeholder="example@saerdesigns.com"
+                 ng-disabled="message.id"
+                 ng-minlength="6"
+                 required />
+          <div ng-class="{'alert alert-danger':form.email.$invalid || errors.email != null}" 
+               ng-show="form.$submitted || form.email.$touched || errors">
+            <div ng-repeat="error in errors.email">Email {{error}}</div>
+            <div ng-show="form.email.$error.required">Email can't be blank.</div>
+            <div ng-show="form.email.$error.minlength">Email is too short (minimum is 6 characters).</div>
+            <div ng-show="form.email.$error.email">Email format must be valid (example@example.com).</div>
+          </div>
         </div>
 
-        <label for="subject">Subject</label>
-        <input ng-model="message.subject"
-               class="form-control" 
-               id="subject" 
-               name="subject" 
-               type="text"
-               placeholder="I'd like to hire you!"
-               ng-disabled="form.$submitted"
-               ng-minlength="6"
-               required />
-        <div ng-class="{'alert alert-danger':form.subject.$invalid || errors.subject != null}" 
-             ng-show="form.$submitted || form.subject.$touched || errors">
-          <div ng-repeat="error in errors.subject">Subject {{error}}</div>
-          <div ng-show="form.subject.$error.required">Subject can't be blank.</div>
-          <div ng-show="form.subject.$error.minlength">Subject is too short (minimum is 6 characters).</div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input ng-model="message.subject"
+                 class="form-control" 
+                 id="subject" 
+                 name="subject" 
+                 type="text"
+                 placeholder="I'd like to hire you!"
+                 ng-disabled="message.id"
+                 ng-minlength="6"
+                 required />
+          <div ng-class="{'alert alert-danger':form.subject.$invalid || errors.subject != null}" 
+               ng-show="form.$submitted || form.subject.$touched || errors">
+            <div ng-repeat="error in errors.subject">Subject {{error}}</div>
+            <div ng-show="form.subject.$error.required">Subject can't be blank.</div>
+            <div ng-show="form.subject.$error.minlength">Subject is too short (minimum is 6 characters).</div>
+          </div>
         </div>
 
-        <label for="body">Body</label>
-        <textarea ng-model="message.body"
-                  class="form-control" 
-                  id="body" 
-                  name="body"
-                  placeholder="Say something nice!"
-                  ng-disabled="form.$submitted"
-                  ng-minlength="6"
-                  required >
-        </textarea>
-        <div ng-class="{'alert alert-danger':form.body.$invalid || errors.body != null}" 
-             ng-show="form.$submitted || form.body.$touched || errors">
-          <div ng-repeat="error in errors.body">Body {{error}}</div>
-          <div ng-show="form.body.$error.required">Body can't be blank.</div>
-          <div ng-show="form.body.$error.minlength">Body is too short (minimum is 6 characters).</div>
+        <div class="form-group">
+          <label for="body">Body</label>
+          <textarea ng-model="message.body"
+                    class="form-control" 
+                    id="body" 
+                    name="body"
+                    placeholder="Say something nice!"
+                    ng-disabled="message.id"
+                    ng-minlength="6"
+                    required >
+          </textarea>
+          <div ng-class="{'alert alert-danger':form.body.$invalid || errors.body != null}" 
+               ng-show="form.$submitted || form.body.$touched || errors">
+            <div ng-repeat="error in errors.body">Body {{error}}</div>
+            <div ng-show="form.body.$error.required">Body can't be blank.</div>
+            <div ng-show="form.body.$error.minlength">Body is too short (minimum is 6 characters).</div>
+          </div>
         </div>
 
         <div class="center">
@@ -68,7 +74,7 @@
                    name="commit" 
                    type="submit" 
                    value="Submit"
-                   ng-disabled="form.$submitted || form.$invalid" />
+                   ng-disabled="message.id || form.$invalid" />
           </div>
         </div>
       </form>  
