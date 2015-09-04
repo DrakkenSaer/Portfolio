@@ -38,10 +38,7 @@
 
     <div class="container-fluid white">
       <div class="container">
-        <% if Rails.env.development? %>
-        <%= debug(params) %>
-        <div ng-controller="TestCtrl" class="debug_dump">{{test}}</div>
-        <% end %>
+        <%= debug(params) if Rails.env.development? %>
       </div>
     </div>
 

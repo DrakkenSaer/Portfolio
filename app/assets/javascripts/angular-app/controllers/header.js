@@ -1,23 +1,29 @@
-app.controller('HeaderCtrl',['$scope', '$location', '$http', function($scope, $location, $http) {
-  $scope.isActive = function(route) {
-    return route === $location.path();
-  };
+(function() {
+  'use strict';
 
-  $scope.jobs = []
-  $http.get('/api/jobs').
-  success(function(data) {
-    $scope.jobs = data
-  });
+  angular
+    .module('controllers.header', [])
+    .controller('HeaderCtrl',['$scope', '$location', '$http', function($scope, $location, $http) {
+      $scope.isActive = function(route) {
+        return route === $location.path();
+      };
 
-  $scope.projects = []
-  $http.get('/api/projects').
-  success(function(data) {
-    $scope.projects = data
-  });
+      $scope.jobs = []
+      $http.get('/api/jobs').
+      success(function(data) {
+        $scope.jobs = data
+      });
 
-  $scope.photos = []
-  $http.get('/api/photos').
-  success(function(data) {
-    $scope.photos = data
-  });
-}]);
+      $scope.projects = []
+      $http.get('/api/projects').
+      success(function(data) {
+        $scope.projects = data
+      });
+
+      $scope.photos = []
+      $http.get('/api/photos').
+      success(function(data) {
+        $scope.photos = data
+      });
+    }]);
+})();
