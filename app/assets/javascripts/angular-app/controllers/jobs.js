@@ -6,7 +6,7 @@
     .controller('JobsCtrl', [
     '$scope', '$state', 'jobs',
     function($scope, $state, jobs) {
-      $scope.jobs = jobs.data;
+      $scope.jobs = jobs;
 
       if($scope.jobs == 0 && $scope.user.id == null){
         $state.go('home');
@@ -15,15 +15,9 @@
     }
   ])
     .controller('JobCtrl',[
-    '$scope', '$stateParams', 'JobFactory',
-    function($scope, $stateParams, JobFactory) {
-      var Job = new JobFactory();
-
-      Job.$get({id: $stateParams.id}, (function(job) {
-        $scope.job = job;
-      }), (function(httpResponse) {
-        $scope.job = null;
-      }));
+    '$scope', 'job',
+    function($scope, job) {
+      $scope.job = job;
     }
   ])
     .controller('NewJobCtrl',[

@@ -16,8 +16,8 @@
         title: "Home",
         controller: "HomeCtrl",
         resolve: {
-          jobs: ['$http', function($http){
-            return $http({ method: 'GET', url:'/api/home' });
+          jobs: ['$resource', function($resource){
+            return $resource('/api/home').query();
           }]
         }
       })
@@ -32,9 +32,9 @@
         title: "Work History",
         controller: "JobsCtrl",
         resolve: {
-          jobs: ['$http', function($http){
-            return $http({ method: 'GET', url:'/api/jobs' });
-          }],
+          jobs: ['JobFactory', function(JobFactory){
+            return JobFactory.query();
+          }]
         }
       })
         .state('jobs.show', {
@@ -43,8 +43,8 @@
         title: "Work History",
         controller: "JobCtrl",
         resolve: {
-          job: [function(){
-            //attempt to use resource here to resolve job JSON
+          job: ['$stateParams', 'JobFactory', function($stateParams, JobFactory){
+            return JobFactory.get({id: $stateParams.id});
           }]
         }
       })
@@ -74,12 +74,7 @@
         url: "/login",
         templateUrl: "sessions/new.html",
         title: "Admin Login",
-        controller: "SessionsCtrl",
-        resolve: {
-          user: ['$rootScope', function($rootScope) {
-            return $rootScope.user;
-          }]
-        }
+        controller: "SessionsCtrl"
       })
         .state('contact', {
         url: "/contact",
