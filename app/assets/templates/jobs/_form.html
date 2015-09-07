@@ -6,105 +6,98 @@
           role="form"
           name="form"
           novalidate>
-
+      <div ng-include="'shared/error_messages.html'"></div>
+    
       <div class="form-group">
-        <label for="job_title">Title</label>
+        <label for="title">Title</label>
         <input ng-model="job.title" 
                class="form-control" 
-               id="job_title" 
-               name="job[title]" 
+               id="title" 
+               name="title" 
                type="text" 
                ng-minlength="6"
                required />
-        <div ng-class="{'alert alert-danger':form.title.$invalid || errors.title != null}" 
-             ng-show="form.$submitted || form.title.$touched || errors">
-          <div ng-repeat="error in errors.title">Title {{error}}</div>
+        <div ng-class="{'alert alert-danger':form.title.$invalid}" ng-show="form.$submitted || form.title.$touched">
           <div ng-show="form.title.$error.required">Title can't be blank.</div>
           <div ng-show="form.title.$error.minlength">Title is too short (minimum is 6 characters).</div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="job_company">Company</label>
+        <label for="company">Company</label>
         <input ng-model="job.company" 
                class="form-control" 
-               id="job_company" 
-               name="job[company]" 
+               id="company" 
+               name="company" 
                type="text" 
                ng-minlength="6"
                required />
-        <div ng-class="{'alert alert-danger':form.company.$invalid || errors.company != null}" 
-             ng-show="form.$submitted || form.company.$touched || errors">
-          <div ng-repeat="error in errors.company">Company {{error}}</div>
+        <div ng-class="{'alert alert-danger':form.company.$invalid}" 
+             ng-show="form.$submitted || form.company.$touched">
           <div ng-show="form.company.$error.required">Company can't be blank.</div>
           <div ng-show="form.company.$error.minlength">Company is too short (minimum is 6 characters).</div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="job_years">Years</label>
+        <label for="years">Years</label>
         <input ng-model="job.years" 
                class="form-control" 
-               id="job_years" 
-               name="job[years]" 
+               id="years" 
+               name="years" 
                type="text" />
-        <div ng-repeat="error in errors.years" class="alert alert-danger">Years {{error}}</div>
       </div>
 
       <div class="form-group">
-        <label for="job_manager">Manager</label>
+        <label for="manager">Manager</label>
         <input ng-model="job.manager" 
                class="form-control" 
-               id="job_manager" 
-               name="job[manager]" 
+               id="manager" 
+               name="manager" 
                type="text" />
-        <div ng-repeat="error in errors.manager" class="alert alert-danger">Manager {{error}}</div>
       </div>
 
       <div class="form-group">
-        <label for="job_contact">Contact</label>
+        <label for="contact">Contact</label>
         <input ng-model="job.contact" 
                class="form-control" 
-               id="job_contact" 
-               name="job[contact]" 
+               id="contact" 
+               name="contact" 
                type="text" />
-        <div ng-repeat="error in errors.contact" class="alert alert-danger">Contact {{error}}</div>
       </div>
 
       <div class="form-group">
-        <label for="job_address">Address</label>
+        <label for="address">Address</label>
         <input ng-model="job.address" 
                class="form-control" 
-               id="job_address" 
-               name="job[address]" 
+               id="address" 
+               name="address" 
                type="text" />
-        <div ng-repeat="error in errors.address" class="alert alert-danger">Address {{error}}</div>
       </div>
 
       <div class="form-group">
-        <label for="job_description">Description</label>
+        <label for="description">Description</label>
         <textarea ng-model="job.description" 
                   class="form-control" 
-                  id="job_description" 
-                  name="job[description]" 
+                  id="description" 
+                  name="description"
+                  minlength="6"
                   required>
         </textarea>
-        <div ng-class="{'alert alert-danger':form.description.$invalid || errors.description != null}" 
-             ng-show="form.$submitted || form.description.$touched || errors">
-          <div ng-repeat="error in errors.description">Description {{error}}</div>
+        <div ng-class="{'alert alert-danger':form.description.$invalid}" 
+             ng-show="form.$submitted || form.description.$touched">
           <div ng-show="form.description.$error.required">Description can't be blank.</div>
           <div ng-show="form.description.$error.minlength">Description is too short (minimum is 6 characters).</div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="job_skills">Skills</label>
+        <label for="skills">Skills</label>
         <input ng-model="job.skills" 
                class="form-control" 
-               id="job_skills" 
-               name="job[skills]" 
+               id="skills" 
+               name="skills" 
                type="text" />
-        <div ng-repeat="error in errors.skills" class="alert alert-danger">Skills {{error}}</div>
       </div>
 
       <!-- Regarding nested forms
@@ -145,16 +138,15 @@ http://www.dahuatu.com/oYwKqzYPyE.html
              type="text" />
 
       <div class="form-group">
-        <label for="job_image">Image</label>
+        <label for="image">Image</label>
         <input ng-model="job.image" 
                class="width-100" 
-               id="job_image" 
-               name="job[image]" 
+               id="image" 
+               name="image" 
                type="file"
                ngf-select
                accept="image/*" 
                ngf-max-size="5MB" />
-        <div ng-repeat="error in errors.image" class="alert alert-danger">Image {{error}}</div>
       </div>
 
       <div class="center">

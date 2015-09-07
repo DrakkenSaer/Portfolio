@@ -74,7 +74,12 @@
         url: "/login",
         templateUrl: "sessions/new.html",
         title: "Admin Login",
-        controller: "SessionsCtrl"
+        controller: "SessionsCtrl",
+        resolve: {
+          user: ['$rootScope', function($rootScope) {
+            return $rootScope.user;
+          }]
+        }
       })
         .state('contact', {
         url: "/contact",

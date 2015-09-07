@@ -1,3 +1,6 @@
-<div class="alert alert-danger" role="alert" ng-show="error">
-  {{error}}
+<div class="alert alert-danger" role="alert" ng-show="error" ng-repeat="error in errors" ng-controller="ErrorsCtrl">
+  <b class="capitalize">{{keys[$index]}}</b>
+  <div ng-repeat="(key, val) in error">
+    {{val}}
+  </div>
 </div>

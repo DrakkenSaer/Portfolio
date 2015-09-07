@@ -7,6 +7,7 @@
     'controllers.home',
     'controllers.jobs',
     'controllers.messages',
-    'controllers.sessions'
+    'controllers.sessions',
+    'controllers.error_messages'
   ]);
 })();

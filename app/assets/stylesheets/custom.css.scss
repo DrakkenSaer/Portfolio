@@ -2,7 +2,10 @@
 @import "bootstrap";
 @import "bootstrap3-switch";
 
-/* angular */
+/* 
+* =====================================================================
+*                        AngularJS
+*/
 
 // ng-flash
 
@@ -23,6 +26,12 @@
 }
 
 
+
+
+/* 
+* =====================================================================
+*                        Everything Else
+*/
 
 /* mixins, variables, etc. */
 
@@ -157,6 +166,13 @@ h1, h2, h3, h4, h5, btn {
   letter-spacing: 0.5em;
   @extend .center;
 }
+
+/* texts */
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 
 /* images */
 

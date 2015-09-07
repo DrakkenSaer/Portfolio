@@ -10,10 +10,7 @@
     function($scope, $state, MessageFactory) {    
 
     }
-  ]);
-
-  angular
-    .module('controllers.messages', [])
+  ])
     .controller('NewMessageCtrl',[
     '$scope', 'MessageFactory', 'flash',
     function($scope, MessageFactory, flash) {

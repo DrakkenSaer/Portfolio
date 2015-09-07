@@ -5,11 +5,11 @@
     .module('controllers.sessions', [])
     .controller('SessionsCtrl', ['$scope', 'flash', function ($scope, flash) {      
       $scope.$on('auth:login-error', function(ev, reason) {
-        $scope.error = reason.errors[0];
+        $scope.errors = reason;
       });
       
       $scope.$on('auth:login-success', function() {
-        $scope.error = null;
+        $scope.errors = null;
       });
 
       // WIP - fix this flash

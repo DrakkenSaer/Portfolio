@@ -43,7 +43,7 @@
           fileFormDataName: 'job[image]'
         }).progress(function (evt) {
           $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-          console.log('Progress: ' + $scope.progress + '% ' + evt.config.file.name);
+          console.log('Progress: ' + $scope.progress + '%');
         }).success(function (data, status, headers, config) {
           console.log('File ' + config.file.name + 'uploaded. Response: ' + data);
           $scope.jobs.push(data);
@@ -81,7 +81,7 @@
           fileFormDataName: 'job[image]'
         }).progress(function (evt) {
           $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-          console.log('Progress: ' + $scope.progress + '% ' + evt.config.file.name);
+          console.log('Progress: ' + $scope.progress + '%');
         }).success(function (data, status, headers, config) {
           console.log('File ' + config.file.name + 'uploaded. Response: ' + data);
           $scope.jobs.push(data);
