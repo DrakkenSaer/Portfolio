@@ -24,5 +24,7 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require ng-file-upload/ng-file-upload
 //= require angular-flash-messages/angular-flash
+//= require angular-scroll/angular-scroll
+//= require ng-parallax/angular-parallax
 //= require_tree ../templates
 //= require_tree ./

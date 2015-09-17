@@ -15,6 +15,8 @@
     'ui.router',
     'ngFileUpload',
     'flash',
+    'duScroll',
+    'duParallax',
     'app.routes',
     'app.directives',
     'app.controllers',

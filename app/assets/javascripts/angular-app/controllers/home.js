@@ -3,7 +3,9 @@
 
   angular
     .module('controllers.home', [])
-    .controller('HomeCtrl',['$scope', 'jobs', function($scope, jobs) {
+    .value('duScrollDuration', 1000)
+    .controller('HomeCtrl',['$scope', 'jobs', 'parallaxHelper', function($scope, jobs, parallaxHelper) {
       $scope.jobs = jobs;
+       $scope.background = parallaxHelper.createAnimator(-0.3, 150, -150);
     }]);
 })();
