@@ -1,43 +1,20 @@
-<% provide(:title, 'Messages') %>
-
 <h1>Messages</h1>
 
-<!-- Russian doll cache model data and then render it onto page -->
-<% cache(@messages) do %>
 <div class="contact">
-  <% if @messages.empty? %>
-    <h3 class="center"> Nothing new to show! </h3>
-  <% else %>
-    <% @messages.each_slice(2) do |slice| %>
-      <% cache(slice) do %>
-      <div class="row">
-        <% slice.each do |message| %>
-          <div class="<%= col_size %>">
-  <ul>
-    <li><b>Sender's email: </b><%= message.email %></li>
-    <li><b>Subject: </b><%= message.subject %></li>
-    <% if message.body.length > 200 %>
-    <li><b>Body: </b><%= truncate(message.body, length: 200) %>
-    <%= link_to '...Read more', '', class: "read-more-#{message.id}" %>
-    <script>
-      $('.read-more-<%= message.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<b>Body: </b><%= escape_javascript message.body %>')
-      })
-    </script>
-    </li>
-    <% else %>
-    <li><b>Body: </b><%= message.body %></li>
-    <% end %>
-    <li> 
-      <%= link_to 'Delete message', message, method: :delete,  data:{confirm: "Are you sure?"} %>
-    </li>
-  </ul>
+  <div ui-view>
+    <div ng-hide="messages[0]">
+      <h3 class="center">Nothing new to show!</h3>
+    </div>
+
+    <table class="table table-striped">
+      <tr ng-repeat="message in messages">
+        <td>{{message.created_at | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+        <td>{{message.email}}</td>
+        <td class="word-wrap"><b>{{message.subject}}</b></td>
+        <td>
+          <a ui-sref="messages.show({id: message.id})">View message</a>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
-        <% end %>
-      </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-<% end %>

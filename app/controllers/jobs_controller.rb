@@ -8,7 +8,6 @@ class JobsController < ApplicationController
   
   def show
     @job = Job.find(params[:id])
-    @references = @job.references
   end
   
   def new
@@ -16,7 +15,7 @@ class JobsController < ApplicationController
   
   def create
     @job = Job.new(job_params)
-    if @job.save
+    if @job.save!
       render json: @job.attributes.merge(image: @job.image.url(:medium)), status: :created
     else
       render json: @job.errors, status: :unprocessable_entity
@@ -38,9 +37,9 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.image = nil
-    @job.destroy!
-    flash[:success] = "Job destroyed!"
-    redirect_to jobs_path
+    if @job.destroy!
+      render nothing: true
+    end
   end
   
   private

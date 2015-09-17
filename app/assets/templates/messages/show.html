@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 job">
+    <ul class="center"> 
+      <li><h3>Sender's Email</h3></li>
+      <li>{{message.email}}</li>
+      <li><h3>Message Subject</h3></li>
+      <li class="word-wrap">{{message.subject}}</li>
+      <li><h3>Message Body</h3></li>
+      <li class="word-wrap">{{message.body}}</li>
+      <li>
+        <div class="btn-group">
+          <a ui-sref="^" class="btn btn-large btn-default">&larr; Back</a>
+        </div>
+        <div class="btn-group">
+          <a ng-confirm-click
+             confirmed-click="delete(message)"
+             href
+             rel="nofollow"
+             class="btn btn-large btn-danger">Delete Message</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

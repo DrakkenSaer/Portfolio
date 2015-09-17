@@ -1,11 +1,7 @@
-<% provide(:title, 'Resume') %>
-
-
-<!-- cache infrequently changing data to expire based on new model data -->
 <div class="resume">
   <div id="resume-header">
     <h2>Ian (Drakken or Adela) Coutu</h2>
-    <%= link_to "www.saerdesigns.com", root_path %>
+    <a ui-sref="home">www.saerdesigns.com</a>
     <address>
       26180 SW CANYON CREEK RD<br>
       APT 104<br>
@@ -16,9 +12,9 @@
       678-439-8431
     </ul>
     <ul class="nav pull-right">
-      <%= mail_to "shadowdrakkeen@gmail.com", "shadowdrakkeen@gmail.com" %>
+      <a href="mailto:shadowdrakkeen@gmail.com">shadowdrakkeen@gmail.com</a>
     </ul><br>
-    <hr class="thick"><hr class="thin">
+    <hr> 
   </div>
   <div id="resume-body">
     <div id="position">
@@ -39,21 +35,17 @@
     </div>
     <div id="history">
       <h2>Work History</h2>
-      <% @jobs.each do |job| %>
-      <div>
-        <a href="<%= job_path(job) %>"><h3><%= job.title %></h3></a><br>
-        <%= job.company %><br>
-        <% if !job.years.empty? %><%= job.years %><br><% end %>
-        <%= job.description %><br>
-        <% if !job.references.first.reference.first.empty? %>
-          <br>
-          <b>Professional References</b>
-          <% job.references.order(:id).each do |person| %>
-            <li><%= person.reference %></li>
-          <% end %>
-        <% end %>
+      <div ng-repeat="job in jobs">
+        <li><a ui-sref='jobs({id: job.id})'><h3>{{job.title}}</h3></a></li>
+        <li>{{job.company}}</li>
+        <li ng-show="job.years">{{job.years}}</li>
+        <li class="word-wrap">{{job.description}}</li>
+        <br>
+        <div ng-show="job.references[0]">
+          <li><b>Professional References</b></li>
+          <li ng-repeat="person in job.references track by $index">{{person.reference}}</li>
+        </div>
       </div>
-      <% end %>
     </div>
     <div id="education">
     </div>

@@ -4,27 +4,28 @@
 
 /* 
 * =====================================================================
-*                        AngularJS
+*                           AngularJS
 */
 
 // ng-flash
 
-.success, .warning, .info, .danger {
-  @extend .alert;
-}
+#flash-messages {
+  .success, .warning, .info, .danger {
+    @extend .alert;
+  }
 
-.success {
-  @extend .alert-success;
-}
+  .success {
+    @extend .alert-success;
+  }
 
-.info {
-  @extend .alert-info;
-}
+  .info {
+    @extend .alert-info;
+  }
 
-.danger {
-  @extend .alert-danger;
+  .danger {
+    @extend .alert-danger;
+  }
 }
-
 
 
 
@@ -32,6 +33,10 @@
 * =====================================================================
 *                        Everything Else
 */
+
+
+
+/* ===================== Universal ===================== */
 
 /* mixins, variables, etc. */
 
@@ -59,7 +64,7 @@ $radius: 0;
   @include box_sizing;
 }
 
-/* universal */
+/* contextual CSS */
 
 html {
   overflow-y: scroll;
@@ -80,31 +85,6 @@ body {
   padding-top: 70px;
 }
 
-section {
-  overflow: hidden !important;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.word-wrap {
-  /* wrap long text and urls */
-  white-space: pre; /* CSS 2.0 */
-  white-space: pre-wrap; /* CSS 2.1 */
-  white-space: pre-line; /* CSS 3.0 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  white-space: -moz-pre-wrap; /* Mozilla */
-  word-wrap: break-word; /* IE 5+ */
-} 
-
-.center {
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-
 ul, li {
   list-style: none;
 }
@@ -118,7 +98,42 @@ ul, li {
   }
 }
 
-a, btn {
+/* textual CSS */
+
+.word-wrap {
+  /* wrap long text and urls */
+  white-space: pre; /* CSS 2.0 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3.0 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  word-wrap: break-word; /* IE 5+ */
+} 
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* positional CSS */
+
+.center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.width-100 {
+  min-width: 100%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* CSS for links */
+
+a {
   text-decoration: none;
   -webkit-transition: all 0.5s linear;
   -moz-transition: all 0.5s linear;
@@ -130,51 +145,18 @@ a, btn {
   }
 }
 
-hr.thick {
-  height: 5px;
-  color: #ccc; /* old IE */
-  background-color: #ccc; /* Modern Browsers */
+.btn-group {
+  margin-top: 2.5%;
 }
 
-hr.thin {
-  height: 2px;
-  color: #ccc; /* old IE */
-  background-color: #ccc; /* Modern Browsers */
-}
-
-.width-100 {
-  min-width: 100%;
-}
-
-.absolute {
-  position: absolute;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 0.2em;
-  letter-spacing: 0.22em;
+.btn {
+  border: 1px solid $gray-lighter;
   text-transform: uppercase;
-  font-weight: 900;
+  letter-spacing: 0.2em;
+  padding: 1em 3em;
 }
 
-h1, h2, h3, h4, h5, btn {
-  font-family: 'Oregano', cursive;
-}
-
-.pagination {
-  letter-spacing: 0.5em;
-  @extend .center;
-}
-
-/* texts */
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-
-/* images */
+/* CSS for images */
 
 .img-darken {
   display: inline-block;
@@ -190,14 +172,24 @@ h1, h2, h3, h4, h5, btn {
   }
 }
 
-/* header */
+/* CSS for headers */
+
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+h1, h2, h3, h4, h5, btn {
+  font-family: 'Oregano', cursive;
+}
+
+
+/* ===================== Header ===================== */
 
 header {
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
   font-family: 'Berkshire Swash', cursive;
   .navbar-brand {
     color: white !important;
@@ -213,7 +205,7 @@ header {
     &:after {
       content: '';
       display: block;
-      height: 2px;
+      height: 1px;
       width: 0;
       background: transparent;
       transition: width .5s ease, background-color .5s ease;
@@ -225,81 +217,41 @@ header {
   }
 }
 
-/* footer */
+
+/* ===================== Footer ===================== */
 
 footer {
   margin-top: 45px;
-  color: $gray-light;
   border-top: 3px solid $gray-lighter !important;
   a {
     color: $gray;
     &:hover {
       color: $gray-darker !important;
-      background: none !important;
     }
   }
 }
 
-/* forms */
 
-input, textarea, select, .uneditable-input {
+/* ===================== Forms ===================== */
+
+input, textarea, select {
   margin-bottom: 15px;
 }
 
 textarea {
   height: 300px;
+  resize: vertical;
 }
 
-#error_explanation {
-  color: #f00;
-  ul {
-    margin: 0 0 18px 0;
-  }
-}
 
-.field_with_errors {
-  @extend .has-error;
-}
+/* ===================== Home Page ===================== */
 
-.alert-notice {
-  @extend .alert-warning
-}
-
-.btn {
-  border: 1px solid $gray-lighter;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  padding: 1em 3em;
-  $radius: 300px;
-  @include border_rounding
-}
-
-/* home page */
-
-.transparent{
-  background: none !important;
-  border: none !important;
-  a, .active{
-    color: white !important;
-  }
-}
 .white{
   background-color: white;
 }
-.page-wrapper .alert{
-  position: absolute;
-  z-index: 500;
-  margin-top: 70px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .home {
-  .btn-group {
-    margin-top: 5%;
-  }
-  .bg-ocean {
+  #sliding-bg {
     background: image-url("blue-ocean.jpg") no-repeat center center;
     background-size: cover;
     z-index: -1;
@@ -315,11 +267,11 @@ textarea {
   section {
     height: 100vh;
     position: relative;   
-    &.bg-main{
+    &#bg-main{
       background-color: black;
       margin-top: -70px;
     }
-    .dark-overlay {
+    #dark-overlay {
       background-color: black;
       height: 100vh;
       width: 100%;
@@ -355,7 +307,8 @@ textarea {
   }
 }
 
-/* job & portfolio page */
+
+/* ===================== Portfolio & Job pages ===================== */
 
 .job, .portfolio {
   ul {
@@ -367,17 +320,10 @@ textarea {
 }
 
 
-/* contact page & about page */
-
-.contact {
-  padding-top: 4em;
-  form { 
-    padding-top: 5em;
-  }
-}
+/* ===================== Contact, Messages & About pages ===================== */
 
 .summary {
-  font-weight: bold;
+  padding: 1em 0;
   letter-spacing: 2px;
   font-size: 125%;
   font-weight: 500;
@@ -396,7 +342,6 @@ textarea {
 }
 
 .about {
-  padding-top: 4em;
   h1 {
     margin-top: 3em;
     margin-bottom: 1em;
@@ -406,10 +351,15 @@ textarea {
   }
 }
 
-/* resume page */
+
+/* ===================== Resume ===================== */
+
 .resume {
   font-size: 125%;
   font-family: Calibri !important;
+  hr {
+    border: 2px dashed #C0C0C0;
+  }
   h1, h2, h3 {
     font-family: inherit !important;
   }

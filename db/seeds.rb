@@ -28,9 +28,11 @@ Project.create(title: "Example Project 1", link: "Google.com", description: "Thi
 Photo.create(title: "Example Photo 1", photographer: "Drakken Saer", image_file_name: "photo1.jpg", image_content_type: "image/jpg", image_file_size: "1500")
 
 
-5.times do
+2.times do
   email = "example@saerdesigns.com"
   subject = "I'd like to hire you!"
   body = "Let's discuss the details further."
   Message.create(email: email, subject: subject, body: body)
 end
+
+Message.create(email: "fan@fandom.com", subject: "Just a fan!", body: "I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding, I'm just a huge fan of your coding!")

@@ -4,27 +4,35 @@
   angular
     .module('controllers.jobs', [])
     .controller('JobsCtrl', [
-    '$scope', '$state', 'jobs',
-    function($scope, $state, jobs) {
+    '$scope', '$state', 'jobs', 'flash',
+    function($scope, $state, jobs, flash) {
       $scope.jobs = jobs;
-
+      
       if($scope.jobs == 0 && $scope.user.id == null){
         $state.go('home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
-      };
+      }
     }
   ])
     .controller('JobCtrl',[
-    '$scope', 'job',
-    function($scope, job) {
+    '$scope', '$state', 'job', 'JobFactory', 'flash',
+    function($scope, $state, job, JobFactory, flash) { 
       $scope.job = job;
+    
+      $scope.delete = function(job){
+        var Job = new JobFactory(job);
+        Job.$delete(function(success) {
+          $state.go('^', {jobs: $scope.jobs.splice(job, 1)});
+          flash('Message deleted successfully!');
+        });
+      }
     }
   ])
     .controller('NewJobCtrl',[
     '$scope', '$state', 'Upload',
     function($scope, $state, Upload) {
       $scope.back = function(){
-        $state.go('jobs')
+        $state.go('^');
       }
 
       $scope.save = function(job) {
@@ -50,19 +58,12 @@
     }
   ])
     .controller('EditJobCtrl',[
-    '$scope', '$stateParams', '$state', 'JobFactory', 'Upload',
-    function($scope, $stateParams, $state, JobFactory, Upload) {    
-      var Job = new JobFactory();
-
-      Job.$get({id: $stateParams.id}, (function(job) {
-        job.image = null;
-        $scope.job = job;
-      }), (function(httpResponse) {
-        $scope.job = null;
-      }));
+    '$scope', '$stateParams', '$state', 'job', 'Upload',
+    function($scope, $stateParams, $state, job, Upload) {    
+      $scope.job = job;
 
       $scope.back = function(){
-        $state.go('jobs.show', {id: $stateParams.id})
+        $state.go('^.show', {id: $stateParams.id});
       }
 
       $scope.save = function(job) {

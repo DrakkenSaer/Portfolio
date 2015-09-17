@@ -15,12 +15,12 @@
     'ui.router',
     'ngFileUpload',
     'flash',
-    'app.tools',
     'app.routes',
     'app.directives',
     'app.controllers',
     'app.services'
-  ]).run(function() {
+  ])
+    .run(function() {
     return console.log('Angular: Up and running');
   });
 })();

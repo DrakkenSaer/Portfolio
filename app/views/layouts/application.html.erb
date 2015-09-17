@@ -16,8 +16,8 @@
     <meta name="author" content="Drakken Saer">
     <meta name="robots" content="index, follow">
     <!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
     <!-- do not render on resume page -->
@@ -27,12 +27,12 @@
     <div flash:messages class="container" role="alert"></div>
 
     <!-- conditional container logic used for CSS needs for specific pages -->
-    <div ui-view id="main">
-
-      <!-- page content goes here -->
-      <%= yield %>
-
+    <div update-container id="main">
+      <div ui-view>
+        <%= yield %>
+      </div>
     </div>
+
     <!-- do not render on resume page -->
     <div ng-include="'layouts/footer.html'"></div>
 
@@ -41,6 +41,5 @@
         <%= debug(params) if Rails.env.development? %>
       </div>
     </div>
-
   </body>
 </html>

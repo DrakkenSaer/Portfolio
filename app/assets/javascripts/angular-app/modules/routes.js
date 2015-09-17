@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   angular
     .module('app.routes', [])
     .config([
@@ -14,10 +14,11 @@
         url: "/",
         templateUrl: "pages/home.html",
         title: "Home",
+        container: "page-wrapper",
         controller: "HomeCtrl",
         resolve: {
           jobs: ['$resource', function($resource){
-            return $resource('/api/home').query();
+            return $resource('/api/home').query().$promise;
           }]
         }
       })
@@ -33,7 +34,7 @@
         controller: "JobsCtrl",
         resolve: {
           jobs: ['JobFactory', function(JobFactory){
-            return JobFactory.query();
+            return JobFactory.query().$promise;
           }]
         }
       })
@@ -44,7 +45,7 @@
         controller: "JobCtrl",
         resolve: {
           job: ['$stateParams', 'JobFactory', function($stateParams, JobFactory){
-            return JobFactory.get({id: $stateParams.id});
+            return JobFactory.get({id: $stateParams.id}).$promise;
           }]
         }
       })
@@ -54,7 +55,7 @@
         title: "Add Work History",
         controller: "NewJobCtrl",
         resolve: {
-          auth: ['$auth', function($auth) {
+          auth: ['$auth', function($auth){
             return $auth.validateUser();
           }]
         }
@@ -65,8 +66,11 @@
         title: "Edit Work History",
         controller: "EditJobCtrl",
         resolve: {
-          auth: ['$auth', function($auth) {
+          auth: ['$auth', function($auth){
             return $auth.validateUser();
+          }],
+          job: ['$stateParams', 'JobFactory', function($stateParams, JobFactory){
+            return JobFactory.get({id: $stateParams.id}).$promise;
           }]
         }
       })
@@ -74,7 +78,12 @@
         url: "/login",
         templateUrl: "sessions/new.html",
         title: "Admin Login",
-        controller: "SessionsCtrl"
+        controller: "SessionsCtrl",
+        resolve: {
+          http: ['$http', function($http){
+            return $http.get('login');
+          }]
+        }
       })
         .state('contact', {
         url: "/contact",
@@ -88,8 +97,32 @@
         title: "Messages",
         controller: "MessagesCtrl",
         resolve: {
-          auth: ['$auth', function($auth) {
+          auth: ['$auth', function($auth){
             return $auth.validateUser();
+          }],
+          messages: ['$stateParams', 'MessageFactory', function($stateParams, MessageFactory){
+            return MessageFactory.query().$promise;
+          }]
+        }
+      })
+        .state('messages.show', {
+        url: "/{id:int}",
+        templateUrl: "messages/show.html",
+        controller: "MessageCtrl",
+        resolve: {
+          message: ['$stateParams', 'MessageFactory', function($stateParams, MessageFactory){
+            return MessageFactory.get({id: $stateParams.id}).$promise;
+          }]
+        }
+      })
+        .state('resume', {
+        url: "/resume",
+        templateUrl: "resume/index.html",
+        title: "Resume",
+        controller: "ResumeCtrl",
+        resolve: {
+          jobs: ['$resource', function($resource){
+            return $resource('/api/resume').query().$promise;
           }]
         }
       });

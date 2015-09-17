@@ -12,19 +12,24 @@
       <li ng-show="job.skills"><b>Skills</b></li><li>{{job.skills}}</li>
       <div ng-show="job.references[0]">
         <li><b>Professional References</b></li>
-        <li ng-repeat="reference in job.references track by $index">{{reference.reference}}</li>
+        <li ng-repeat="person in job.references track by $index">{{person.reference}}</li>
       </div>
+      <li>
+        <div class="btn-group">
+          <a ui-sref="^" class="btn btn-large btn-default">&larr; Back</a>
+        </div>
+      </li>
       <li ng-show="user.id">
         <div class="btn-group">
           <a ui-sref="jobs.edit({id: job.id})" 
              class="btn btn-large btn-primary">Edit Job</a>
         </div>
         <div class="btn-group">
-          <a data-confirm="Are you sure?" 
-           data-method="delete" 
-           href 
-           rel="nofollow" 
-           class="btn btn-large btn-danger">Delete job</a>
+          <a ng-confirm-click
+             confirmed-click="delete(job)"
+             href
+             rel="nofollow"
+             class="btn btn-large btn-danger">Delete Job</a>
         </div>
       </li>
     </ul>

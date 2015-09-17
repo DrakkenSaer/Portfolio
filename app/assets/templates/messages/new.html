@@ -1,11 +1,9 @@
 <h1>Contact me</h1>
 
 <div class="contact">
-  <div class="summary">
-    <p>
-      Want to say hello, or drop me an email? Feel free, I don't bite, I promise! I'll do my best to get back to you as soon as possible, I usually reply within 24 hours on weekdays. Thanks for contacting me!
-    </p>
-  </div>
+  <p class="summary">
+    Want to say hello, or drop me an email? Feel free, I don't bite, I promise! I'll do my best to get back to you as soon as possible, I usually reply within 24 hours on weekdays. Thanks for contacting me!
+  </p>
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -21,6 +19,7 @@
                  placeholder="example@saerdesigns.com"
                  ng-disabled="message.id"
                  ng-minlength="6"
+                 maxlength="50"
                  required />
           <div ng-class="{'alert alert-danger':form.email.$invalid}" ng-show="form.$submitted || form.email.$touched">
             <div ng-show="form.email.$error.required">Email can't be blank.</div>
@@ -39,6 +38,7 @@
                  placeholder="I'd like to hire you!"
                  ng-disabled="message.id"
                  ng-minlength="6"
+                 maxlength="50"
                  required />
           <div ng-class="{'alert alert-danger':form.subject.$invalid}" ng-show="form.$submitted || form.subject.$touched">
             <div ng-show="form.subject.$error.required">Subject can't be blank.</div>

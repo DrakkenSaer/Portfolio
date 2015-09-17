@@ -8,6 +8,6 @@ end
 
 class Message < ActiveRecord::Base
   validates :email, :subject, :body, presence: true, length: {minimum: 6}
+  validates :email, :subject, length: {maximum: 50}
   validates :email, email: true
-
 end

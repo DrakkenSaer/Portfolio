@@ -6,7 +6,7 @@
     .controller('HeaderCtrl',['$scope', '$location', '$http', function($scope, $location, $http) {
       $scope.isActive = function(route) {
         return route === $location.path();
-      };
+      }
 
       $scope.jobs = []
       $http.get('/api/jobs').

@@ -1,1 +1,3 @@
-json.extract! @message, :id, :email, :subject, :body
+json.array!(@messages) do |message|
+  json.(message, :id, :email, :subject, :body, :created_at)
+end

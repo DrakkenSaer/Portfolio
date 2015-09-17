@@ -1,14 +1,27 @@
 (function() {
   'use strict';
 
-  //http://dillonbuchanan.com/programming/ruby-on-rails-angularjs-resources/
-
   angular
     .module('controllers.messages', [])
     .controller('MessagesCtrl',[
-    '$scope', '$state', 'MessageFactory',
-    function($scope, $state, MessageFactory) {    
+    '$scope', 'messages', 'MessageFactory', 'flash',
+    function($scope, messages, MessageFactory, flash) {
+      $scope.messages = messages;
+      $scope.messages.created_at = new Date();
+    }
+  ])
+    .controller('MessageCtrl',[
+    '$scope', '$state', 'message', 'MessageFactory', 'flash',
+    function($scope, $state, message, MessageFactory, flash) {
+      $scope.message = message;
 
+      $scope.delete = function(message){
+        var Message = new MessageFactory(message);
+        Message.$delete(function(success) {
+          $state.go('^', {messages: $scope.messages.splice(message, 1)});
+          flash('Message deleted successfully!');
+        });
+      }
     }
   ])
     .controller('NewMessageCtrl',[
@@ -16,13 +29,13 @@
     function($scope, MessageFactory, flash) {
       $scope.save = function(message) {
         var Message = new MessageFactory(message);
-        Message.$save(function(response) {
-          $scope.message = response;
+        Message.$save(function(success) {
+          $scope.message = success;
           $scope.errors = null;
           flash('Message sent successfully!');
           console.log('Message sent successfully!');
-        }, function(response) {
-          $scope.errors = response.data;
+        }, function(error) {
+          $scope.errors = error.data;
         });
       }
     }

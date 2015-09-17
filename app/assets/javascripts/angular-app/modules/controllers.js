@@ -8,6 +8,7 @@
     'controllers.jobs',
     'controllers.messages',
     'controllers.sessions',
-    'controllers.error_messages'
+    'controllers.error_messages',
+    'controllers.resume'
   ]);
 })();
