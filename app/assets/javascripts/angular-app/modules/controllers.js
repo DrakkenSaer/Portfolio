@@ -9,6 +9,7 @@
     'controllers.messages',
     'controllers.sessions',
     'controllers.error_messages',
-    'controllers.resume'
+    'controllers.resume',
+    'controllers.portfolio'
   ]);
 })();

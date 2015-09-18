@@ -3,7 +3,6 @@
 
   angular
     .module('app.directives', [
-    'directives.universal',
-    'directives.home'
+    'directives.universal'
   ]);
 })();

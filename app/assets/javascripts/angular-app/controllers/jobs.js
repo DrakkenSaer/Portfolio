@@ -8,8 +8,9 @@
     function($scope, $state, jobs, flash) {
       $scope.jobs = jobs;
       
-      if($scope.jobs == 0 && $scope.user.id == null){
-        $state.go('home');
+      //redirect if empty data model & not admin
+      if(jobs.length === 0 && $scope.user.id == null){
+        $state.go('root');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
       }
     }

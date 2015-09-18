@@ -22,19 +22,19 @@
     .module('app')
     .run(['$rootScope','$state','flash', function ($rootScope, $state, flash) {
       $rootScope.$on('auth:login-success', function() {
-        $state.go('home');
+        $state.go('root');
         flash('Redirected to home page: User logged in');
         console.log('Redirected to home page: User logged in');
       });
 
       $rootScope.$on('auth:logout-success', function() {
-        $state.go('home');
+        $state.go('root');
         flash('Redirected to home page: User logged out');
         console.log('Redirected to home page: User logged out');
       });
 
       $rootScope.$on('auth:validateUser', function(ev, reason) {
-        $state.path('home');
+        $state.path('root');
         flash('warning', reason[0]);
         console.log('Redirected to home page: Unauthorized request for secure page');
       });

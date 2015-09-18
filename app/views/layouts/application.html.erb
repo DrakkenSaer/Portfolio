@@ -20,10 +20,8 @@
     <![endif]-->
   </head>
   <body>
-    <!-- do not render on resume page (rails code prevents flicker) -->
-    <% unless current_page?('/resume') %>
+    <!-- do not render on resume page -->
     <div ng-hide="$state.includes('resume')" ng-include="'layouts/header.html'"></div>
-    <% end %>
     
     <!-- for page flash alerts -->
     <div flash:messages class="container" role="alert"></div>
@@ -35,10 +33,8 @@
       </div>
     </div>
 
-    <!-- do not render on resume page (rails code prevents flicker) -->
-    <% unless current_page?('/resume') %>
+    <!-- do not render on resume page -->
     <div ng-hide="$state.includes('resume')" ng-include="'layouts/footer.html'"></div>
-    <% end %>
     
     <div class="container-fluid white">
       <div class="container">

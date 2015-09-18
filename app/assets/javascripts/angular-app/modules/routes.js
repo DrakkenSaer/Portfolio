@@ -10,7 +10,7 @@
       $urlRouterProvider.otherwise("/");
 
       $stateProvider
-        .state('home', {
+        .state('root', {
         url: "/",
         templateUrl: "pages/home.html",
         title: "Home",
@@ -123,6 +123,42 @@
         resolve: {
           jobs: ['$resource', function($resource){
             return $resource('/api/resume').query().$promise;
+          }]
+        }
+      })
+        .state('portfolio', {
+        url: "/portfolio",
+        templateUrl: "pages/portfolio.html",
+        title: "Portfolio",
+        controller: "PortfolioCtrl",
+        resolve: {
+          photos: ['PhotoFactory', function(PhotoFactory){
+            return PhotoFactory.query().$promise;
+          }],
+          projects: ['ProjectFactory', function(ProjectFactory){
+            return ProjectFactory.query().$promise;
+          }]
+        }
+      })
+        .state('portfolio.photos', {
+        url: "/photos",
+        templateUrl: "photos/index.html",
+        title: "Photos",
+        controller: "PhotosCtrl",
+        resolve: {
+          photos: ['$resource', function($resource){
+
+          }]
+        }
+      })
+        .state('portfolio.projects', {
+        url: "/projects",
+        templateUrl: "projects/index.html",
+        title: "Projects",
+        controller: "ProjectsCtrl",
+        resolve: {
+          project: ['$resource', function($resource){
+
           }]
         }
       });

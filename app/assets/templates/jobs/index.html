@@ -5,7 +5,7 @@
 
   <div ng-repeat="job in jobs" ng-class-even="row">
     <div class="col-md-6 job">
-      <h1><a class="img-responsive img-darken center" ui-sref="jobs.show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image}}"/></a></h1>
+      <div class="center"><a class="img-responsive img-darken center" ui-sref="jobs.show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image}}"/></a></div>
       <ul class="center">
         <li>{{job.title}}</li>
       </ul>

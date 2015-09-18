@@ -3,9 +3,11 @@
 
   angular
     .module('controllers.header', [])
-    .controller('HeaderCtrl',['$scope', '$location', '$http', function($scope, $location, $http) {
+    .controller('HeaderCtrl',[
+    '$scope', '$state', '$http', 
+    function($scope, $state, $http) {
       $scope.isActive = function(route) {
-        return route === $location.path();
+        return route === $state.current.name;
       }
 
       $scope.jobs = []
