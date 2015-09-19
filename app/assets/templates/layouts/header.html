@@ -9,15 +9,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a ui-sref="root" class="navbar-brand">Saer Designs</a>
+        <a ui-sref="home" class="navbar-brand">Saer Designs</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="root" class="nav-link" ng-class="{active:isActive('root')}">Home</a></li>
-          <li><a ui-sref="about" class="nav-link" ng-class="{active:isActive('about')}">About me</a></li>
-          <li><a ui-sref="contact" class="nav-link" ng-class="{active:isActive('contact')}">Contact me</a></li>
-          <li><a ui-sref="jobs" class="nav-link" ng-class="{active:isActive('jobs')}" ng-show="user.id || jobs[0]">Work experience</a></li>
-          <li><a ui-sref="portfolio" class="nav-link" ng-class="{active:isActive('portfolio')}" ng-show="user.id || projects[0] || photos[0]">Portfolio</a></li>
+          <li><a ui-sref="root.home" class="nav-link" ng-class="{active:isActive('home')}">Home</a></li>
+          <li><a ui-sref="root.about" class="nav-link" ng-class="{active:isActive('about')}">About me</a></li>
+          <li><a ui-sref="root.contact" class="nav-link" ng-class="{active:isActive('contact')}">Contact me</a></li>
+          <li><a ui-sref="root.jobs" class="nav-link" ng-class="{active:isActive('jobs')}" ng-show="user.id || jobs[0]">Work experience</a></li>
+          <li><a ui-sref="root.portfolio" class="nav-link" ng-class="{active:isActive('portfolio')}" ng-show="user.id || projects[0] || photos[0]">Portfolio</a></li>
         </ul>
       </div>
     </nav>

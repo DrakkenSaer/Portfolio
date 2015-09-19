@@ -7,8 +7,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/drakkensaer/portfolio">Source code</a></li>
         <li><a href="https://github.com/drakkensaer">GitHub</a></li>
-        <li><a ui-sref="resume" target="_blank">Resume</a></li>
-        <li ng-show="user.id"><a ui-sref="messages">Messages</a></li>
+        <li><a ui-sref="root.resume" target="_blank">Resume</a></li>
+        <li ng-show="user.id"><a ui-sref="root.messages">Messages</a></li>
         <li ng-show="user.id"><a href ng-click='signOut()'>Logout</a></li>
       </ul>
     </nav>

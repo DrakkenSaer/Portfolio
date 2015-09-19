@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
 
   def home
-    @jobs = Job.last(3)
   end
   
   def about
@@ -14,7 +13,6 @@ class PagesController < ApplicationController
   end
   
   def resume
-    @jobs = Job.last(3)
   end
   
   def login

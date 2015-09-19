@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   scope :api, defaults: {format: :json} do
     mount_devise_token_auth_for 'User', at: 'auth'
-    resources :jobs, except: [:new, :edit]
-    resources :messages, except: [:new, :edit, :update]
-    resources :projects, except: [:new, :edit]
+    resources :jobs, except: [:new, :edit, :show]
+    resources :messages, except: [:new, :edit, :update, :show]
+    resources :projects, except: [:new, :edit, :show]
     resources :photos, except: [:new, :edit, :show]
     resources :resume, only: [:index]
-    match 'home', to: 'pages#home', via: :get
   end
 
   resources :jobs

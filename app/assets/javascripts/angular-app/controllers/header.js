@@ -7,7 +7,7 @@
     '$scope', '$state', '$http', 
     function($scope, $state, $http) {
       $scope.isActive = function(route) {
-        return route === $state.current.name;
+        return $state.includes('root.' + route);
       }
 
       $scope.jobs = []

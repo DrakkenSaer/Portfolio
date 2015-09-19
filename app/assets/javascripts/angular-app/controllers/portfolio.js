@@ -16,7 +16,7 @@
       
       //redirect based on data model and admin user - WIP
       if(photos.length === 0 && projects.length === 0 && $scope.user.id == null){
-        //$state.go('root');
+        //$state.go('home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
       } else if(photos.length === 0 && projects.length > 0 && $scope.user.id == null) {
         //$state.go('portfolio.projects');

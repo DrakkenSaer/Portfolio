@@ -22,7 +22,7 @@
     'app.controllers',
     'app.services'
   ])
-    .run(function() {
-    return console.log('Angular: Up and running');
-  });
+    .run(['$state', function($state){
+      return console.log('Angular: Up and running');
+    }]);
 })();
