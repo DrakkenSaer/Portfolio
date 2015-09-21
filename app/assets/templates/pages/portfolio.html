@@ -1,26 +1,26 @@
 <div ui-view>
   <h1>Portfolio</h1>
-  
+
   <div ng-show="user.id" class="row">
     <div class="col-md-6"><a ui-sref="^.photos.new" class="center">New Photo</a></div>
     <div class="col-md-6"><a ui-sref="^.projects.new" class="center">New Project</a></div>
   </div>
 
   <div class="row">
-    <div ng-show="display_project" class="col-md-6">
-      <div class="center">
-        <h2>Projects</h2>
-        <a ui-sref="^.projects" class="img-thumbnail img-darken">
-          <img ng-src="{{display_project.image}}" class="img-responsive" alt="{{display_project.title}}" />
-        </a>
-      </div>
-    </div>
-
     <div ng-show="display_photo" class="col-md-6">
       <div class="center">
         <h2>Photos</h2>
         <a ui-sref="^.photos" class="img-thumbnail img-darken">
           <img ng-src="{{display_photo.image}}" class="img-responsive" alt="{{display_photo.title}}" />
+        </a>
+      </div>
+    </div>
+
+    <div ng-show="display_project" class="col-md-6">
+      <div class="center">
+        <h2>Projects</h2>
+        <a ui-sref="^.projects" class="img-thumbnail img-darken">
+          <img ng-src="{{display_project.image}}" class="img-responsive" alt="{{display_project.title}}" />
         </a>
       </div>
     </div>

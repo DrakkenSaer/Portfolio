@@ -17,7 +17,8 @@
                type="text" 
                ng-minlength="6"
                required />
-        <div ng-class="{'alert alert-danger':form.title.$invalid}" ng-show="form.$submitted || form.title.$touched">
+        <div ng-class="{'alert alert-danger':form.title.$invalid}" 
+             ng-show="form.$submitted || form.title.$touched">
           <div ng-show="form.title.$error.required">Title can't be blank.</div>
           <div ng-show="form.title.$error.minlength">Title is too short (minimum is 6 characters).</div>
         </div>

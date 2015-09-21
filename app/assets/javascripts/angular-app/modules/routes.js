@@ -139,6 +139,12 @@
         templateUrl: "projects/index.html",
         title: "Projects",
         controller: "ProjectsCtrl"
+      })
+        .state('root.projects.new', {
+        url: "/new",
+        templateUrl: "projects/new.html",
+        title: "New Project",
+        controller: "NewProjectCtrl"
       });
     }
   ]);

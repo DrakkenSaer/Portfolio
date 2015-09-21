@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form ng-submit="save(project)" 
+          accept-charset="UTF-8"
+          enctype="multipart/form-data"
+          role="form"
+          name="form"
+          novalidate>
+      <div ng-include="'shared/error_messages.html'"></div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input ng-model="project.title"
+               class="form-control" 
+               id="title" 
+               name="title" 
+               type="text"
+               ng-minlength="6"
+               required />
+        <div ng-class="{'alert alert-danger':form.title.$invalid}" 
+             ng-show="form.$submitted || form.title.$touched">
+          <div ng-show="form.title.$error.required">Title can't be blank.</div>
+          <div ng-show="form.title.$error.minlength">Title is too short (minimum is 6 characters).</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea ng-model="project.description"
+                  class="form-control" 
+                  id="description" 
+                  name="description"
+                  ng-minlength="6"
+                  required >
+        </textarea>
+        <div ng-class="{'alert alert-danger':form.description.$invalid}" 
+             ng-show="form.$submitted || form.description.$touched">
+          <div ng-show="form.description.$error.required">Description can't be blank.</div>
+          <div ng-show="form.description.$error.minlength">Description is too short (minimum is 6 characters).</div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input ng-model="project.link"
+               class="form-control" 
+               id="link" 
+               name="link" 
+               type="text"
+               ng-minlength="6"
+               required />
+        <div ng-class="{'alert alert-danger':form.link.$invalid}" 
+             ng-show="form.$submitted || form.link.$touched">
+          <div ng-show="form.link.$error.required">Link can't be blank.</div>
+          <div ng-show="form.link.$error.minlength">Link is too short (minimum is 6 characters).</div>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <label for="is_primary">
+          <input ng-model="project.is_primary"
+                 id="is_primary" 
+                 name="is_primary" 
+                 type="checkbox" />
+          Primary
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input ng-model="project.image" 
+               class="width-100" 
+               id="image" 
+               name="image" 
+               type="file"
+               ngf-select
+               accept="image/*" 
+               ngf-max-size="5MB" />
+      </div>
+
+      <div class="center">
+        <div class="btn-group">  
+          <input class="btn btn-large btn-primary" 
+                 name="commit" 
+                 type="submit" 
+                 value="Submit" />
+        </div>
+        <div class="btn-group">
+          <a ng-click="back()" href class="btn btn-large btn-default">&larr; Cancel</a>
+        </div>
+      </div>
+    </form>  
+  </div>
+</div>
