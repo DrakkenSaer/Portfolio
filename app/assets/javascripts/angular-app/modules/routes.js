@@ -109,8 +109,10 @@
         templateUrl: "messages/show.html",
         controller: "MessageCtrl",
         resolve: {
-          message: ['$stateParams', 'MessageFactory', function($stateParams, MessageFactory){
-            return MessageFactory.get({id: $stateParams.id}).$promise;
+          message: ['$stateParams', 'messages', function($stateParams, messages){
+            return messages.filter(function(data) {
+              return data.id == $stateParams.id;
+            });
           }]
         }
       })

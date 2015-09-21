@@ -13,7 +13,7 @@
     .controller('MessageCtrl',[
     '$scope', '$state', 'message', 'MessageFactory', 'flash',
     function($scope, $state, message, MessageFactory, flash) {
-      $scope.message = message;
+      $scope.message = message[0];
 
       $scope.delete = function(message){
         var Message = new MessageFactory(message);

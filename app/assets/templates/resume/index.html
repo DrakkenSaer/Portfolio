@@ -19,7 +19,7 @@
   <div id="resume-body">
     <div id="position">
       <h2>Position desired</h2>
-      Ruby on Rails developer
+      Web developer / designer (Ruby on Rails & AngularJS)
     </div>
     <div id="qualifications">
       <h2>Qualifications</h2>
@@ -28,15 +28,16 @@
       Knowledge of SEO tactics and practices<br>
       Experience with UI & design<br>
       Knowledge of MVC implementations<br>
+      Knowledge of RESTful software architecture<br>
     </div>
     <div id="skills">
       <h2>Skills</h2>
-      Ruby on Rails, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS, SASS, Angular JS, PostgreSQL, WordPress, Windows, MacOS, Linux, LivePerson Administration, Windows Phone OS, Customer Service
+      Ruby on Rails, AngularJS, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS, SASS, Angular JS, PostgreSQL, WordPress, Windows OS, MacOS, Linux, LivePerson Administration, Windows Phone OS, Customer Service, Android OS
     </div>
     <div id="history">
       <h2>Work History</h2>
       <div ng-repeat="job in jobs">
-        <li><a ui-sref='jobs({id: job.id})'><h3>{{job.title}}</h3></a></li>
+        <li><a ui-sref='^.jobs.show({id: job.id})'><h3>{{job.title}}</h3></a></li>
         <li>{{job.company}}</li>
         <li ng-show="job.years">{{job.years}}</li>
         <li class="word-wrap">{{job.description}}</li>
