@@ -1,9 +1,9 @@
 # A sample Bowerfile
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
-asset 'angular-video-bg'
-asset 'ng-token-auth'
-asset 'angular-ui-router'
-asset 'ng-file-upload'
-asset 'angular-flash-messages'
 asset 'ng-parallax'
+asset 'ng-token-auth'
+asset 'ng-file-upload'
+asset 'angular-video-bg'
+asset 'angular-ui-router'
+asset 'angular-flash-messages'

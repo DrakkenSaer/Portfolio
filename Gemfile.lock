@@ -64,13 +64,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -85,8 +78,6 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
-    fancybox2-rails (0.2.8)
-      railties (>= 3.1.0, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
@@ -235,9 +226,7 @@ DEPENDENCIES
   bootstrap-switch-rails
   bower-rails (~> 0.10.0)
   byebug
-  coffee-rails (~> 4.1.0)
   devise_token_auth
-  fancybox2-rails (~> 0.2.8)
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
