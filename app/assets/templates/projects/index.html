@@ -2,15 +2,15 @@
   <h1>Projects</h1>
 
   <div ng-show="user.id">
-    <a ui-sref="^.projects.new" class="center">Add New Project</a>
+    <a ui-sref=".new" class="center">Add New Project</a>
   </div>
 
   <div ng-repeat="project in projects" ng-class="{row: $index % 3 == 2}">
-    <div class="col-md-4 portfolio">
+    <div class="col-md-4 project">
       <ul class="center">    
         <h2>{{project.title}}</h2>
         <li>
-          <a ui-sref="^.projects.show({id: project.id})" class="img-thumbnail img-darken">
+          <a ui-sref=".show({id: project.id})" class="img-thumbnail img-darken">
             <img ng-src="{{project.image}}" class="img-responsive" alt="{{project.title}}" />
           </a>
         </li>

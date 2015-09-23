@@ -11,6 +11,7 @@
     'controllers.error_messages',
     'controllers.resume',
     'controllers.portfolio',
-    'controllers.projects'
+    'controllers.projects',
+    'controllers.photos'
   ]);
 })();

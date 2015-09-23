@@ -5,8 +5,7 @@
     .module('controllers.portfolio', [])
     .controller('PortfolioCtrl',[
     '$scope', '$state', 'photos', 'projects', 
-    function($scope, $state, photos, projects) {
-    
+    function($scope, $state, photos, projects) {    
       $scope.photos = photos;
       $scope.projects = projects;
       

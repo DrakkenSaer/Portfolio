@@ -155,10 +155,11 @@ http://www.dahuatu.com/oYwKqzYPyE.html
           <input class="btn btn-large btn-primary" 
                  name="commit" 
                  type="submit" 
-                 value="Submit" />
+                 value="Submit"
+                 ng-disabled="message.id || form.$invalid" />
         </div>
         <div class="btn-group">
-          <a ng-click="back()" href class="btn btn-large btn-default">&larr; Cancel</a>
+          <a ui-sref="^" href class="btn btn-large btn-default">&larr; Cancel</a>
         </div>
       </div>
     </form>  

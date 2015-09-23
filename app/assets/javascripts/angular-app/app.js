@@ -22,7 +22,10 @@
     'app.controllers',
     'app.services'
   ])
-    .run(['$state', function($state){
+    .run(['$state', '$rootScope', '$stateParams', function($state, $rootScope, $stateParams){
       return console.log('Angular: Up and running');
+      $rootScope.back = function(){
+        $state.go('^', {id: $stateParams.id});
+      }
     }]);
 })();

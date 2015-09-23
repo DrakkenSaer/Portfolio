@@ -21,7 +21,8 @@
                  ng-minlength="6"
                  maxlength="50"
                  required />
-          <div ng-class="{'alert alert-danger':form.email.$invalid}" ng-show="form.$submitted || form.email.$touched">
+          <div ng-class="{'alert alert-danger':form.email.$invalid}" 
+               ng-show="form.$submitted || form.email.$touched">
             <div ng-show="form.email.$error.required">Email can't be blank.</div>
             <div ng-show="form.email.$error.minlength">Email is too short (minimum is 6 characters).</div>
             <div ng-show="form.email.$error.email">Email format must be valid (example@example.com).</div>
@@ -40,7 +41,8 @@
                  ng-minlength="6"
                  maxlength="50"
                  required />
-          <div ng-class="{'alert alert-danger':form.subject.$invalid}" ng-show="form.$submitted || form.subject.$touched">
+          <div ng-class="{'alert alert-danger':form.subject.$invalid}" 
+               ng-show="form.$submitted || form.subject.$touched">
             <div ng-show="form.subject.$error.required">Subject can't be blank.</div>
             <div ng-show="form.subject.$error.minlength">Subject is too short (minimum is 6 characters).</div>
           </div>
@@ -57,7 +59,8 @@
                     ng-minlength="6"
                     required >
           </textarea>
-          <div ng-class="{'alert alert-danger':form.body.$invalid}" ng-show="form.$submitted || form.body.$touched">
+          <div ng-class="{'alert alert-danger':form.body.$invalid}" 
+               ng-show="form.$submitted || form.body.$touched">
             <div ng-show="form.body.$error.required">Body can't be blank.</div>
             <div ng-show="form.body.$error.minlength">Body is too short (minimum is 6 characters).</div>
           </div>

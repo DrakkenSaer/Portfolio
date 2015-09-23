@@ -1,11 +1,11 @@
 <div ui-view>
   <h1>Work history</h1>
 
-  <a ui-sref="^.jobs.new" class="center" ng-show="user.id">Add new work experience</a>
+  <a ui-sref=".new" class="center" ng-show="user.id">Add new work experience</a>
 
   <div ng-repeat="job in jobs" ng-class-even="row">
     <div class="col-md-6 job">
-      <div class="center"><a class="img-responsive img-darken center" ui-sref="^.jobs.show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image_medium}}"/></a></div>
+      <div class="center"><a class="img-responsive img-darken center" ui-sref=".show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image_medium}}"/></a></div>
       <ul class="center">
         <li>{{job.title}}</li>
       </ul>

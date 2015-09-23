@@ -11,7 +11,9 @@
       <div class="center">
         <h2>Photos</h2>
         <a ui-sref="^.photos" class="img-thumbnail img-darken">
-          <img ng-src="{{display_photo.image}}" class="img-responsive" alt="{{display_photo.title}}" />
+          <img ng-src="{{display_photo.image_medium}}" 
+               class="img-responsive" 
+               alt="{{display_photo.title}}" />
         </a>
       </div>
     </div>
@@ -20,7 +22,9 @@
       <div class="center">
         <h2>Projects</h2>
         <a ui-sref="^.projects" class="img-thumbnail img-darken">
-          <img ng-src="{{display_project.image}}" class="img-responsive" alt="{{display_project.title}}" />
+          <img ng-src="{{display_project.image_medium}}" 
+               class="img-responsive" 
+               alt="{{display_project.title}}" />
         </a>
       </div>
     </div>

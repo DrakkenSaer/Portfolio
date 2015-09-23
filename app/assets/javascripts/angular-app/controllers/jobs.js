@@ -32,11 +32,7 @@
     .controller('EditJobCtrl',[
     '$scope', '$stateParams', '$state', 'job', 'Upload',
     function($scope, $stateParams, $state, job, Upload) {    
-      $scope.job = job;
-
-      $scope.back = function(){
-        $state.go('^', {id: $stateParams.id});
-      }
+      $scope.job = job[0];
 
       $scope.save = function(job) {
         var file = job.image;
@@ -63,10 +59,6 @@
     .controller('NewJobCtrl',[
     '$scope', '$state', 'Upload',
     function($scope, $state, Upload) {
-      $scope.back = function(){
-        $state.go('^');
-      }
-
       $scope.save = function(job) {
         var file = job.image;
         Upload.upload({

@@ -140,6 +140,25 @@
         title: "Projects",
         controller: "ProjectsCtrl"
       })
+        .state('root.projects.show', {
+        url: "/{id:int}",
+        templateUrl: "projects/show.html",
+        title: "Projects",
+        controller: "ProjectCtrl",
+        resolve: {
+          project: ['$stateParams', 'projects', function($stateParams, projects){
+            return projects.filter(function(data) {
+              return data.id == $stateParams.id;
+            });
+          }]
+        }
+      })
+        .state('root.projects.show.edit', {
+        url: "/edit",
+        templateUrl: "projects/edit.html",
+        title: "Edit Project",
+        controller: "EditProjectCtrl"
+      })
         .state('root.projects.new', {
         url: "/new",
         templateUrl: "projects/new.html",
