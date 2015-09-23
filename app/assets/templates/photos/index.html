@@ -1,0 +1,31 @@
+<div ui-view>
+  <h1>Photography</h1>
+
+  <a ui-sref=".new" class="center" ng-show="user.id">Add New Photo</a>
+
+  <div ng-repeat="photo in photos" ng-class="{row: $index % 3 == 2}">
+    <div class="col-md-4 photo">
+      <ul class="center">    
+        <li>
+          <a href="{{photo.image_large}}" 
+             class="img-responsive img-rounded img-darken" 
+             title="{{photo.title}}" 
+             rel="gallery">
+            <img ng-src="{{photo.image_small}}" 
+                 class="img-responsive img-rounded" 
+                 alt="{{photo.title}}" />
+          </a>
+        </li>
+        <li ng-show="user.id">
+          <a ui-sref=".show.edit({id: photo.id})">Edit Photo</a> |
+          <a ng-confirm-click
+             confirmed-click="delete(photo)"
+             href
+             rel="nofollow">
+            Delete Photo
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

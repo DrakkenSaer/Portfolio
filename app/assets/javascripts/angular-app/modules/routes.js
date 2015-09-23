@@ -131,8 +131,37 @@
         .state('root.photos', {
         url: "/photos",
         templateUrl: "photos/index.html",
-        title: "Photos",
+        title: "Photography",
         controller: "PhotosCtrl"
+      })
+        .state('root.photos.show', {
+        abstract: true,
+        template: '<ui-view/>',
+        url: "/{id:int}",
+        resolve: {
+          photo: ['$stateParams', 'photos', function($stateParams, photos){
+            return photos.filter(function(data) {
+              return data.id == $stateParams.id;
+            });
+          }]
+        }
+      })
+        .state('root.photos.show.edit', {
+        url: "/edit",
+        templateUrl: "photos/edit.html",
+        title: "Edit Photo",
+        controller: "EditPhotoCtrl",
+        resolve: {
+          auth: ['$auth', function($auth){
+            return $auth.validateUser();
+          }]
+        }
+      })
+      .state('root.photos.new', {
+        url: "/new",
+        templateUrl: "photos/new.html",
+        title: "New Photo",
+        controller: "NewPhotoCtrl"
       })
         .state('root.projects', {
         url: "/projects",

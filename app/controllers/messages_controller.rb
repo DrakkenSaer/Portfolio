@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
-  respond_to 'json'
 
   def index
     @messages = Message.all

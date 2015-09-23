@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  respond_to 'json'
   
   def index
     @jobs = Job.all

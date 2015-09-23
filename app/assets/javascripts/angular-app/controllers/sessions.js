@@ -16,7 +16,14 @@
         flash('info', 'You are already signed in!');
       }
     }]);
-
+  
+  angular
+    .module('app')
+    .config(['$authProvider', function($authProvider) {
+    $authProvider.configure({
+      apiUrl: '/api'
+    });
+  }]);
 
   angular
     .module('app')
