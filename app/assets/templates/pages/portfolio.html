@@ -2,8 +2,16 @@
   <h1>Portfolio</h1>
 
   <div ng-show="user.id" class="row">
-    <div class="col-md-6"><a ui-sref="^.photos.new" class="center">New Photo</a></div>
-    <div class="col-md-6"><a ui-sref="^.projects.new" class="center">New Project</a></div>
+    <div class="center col-md-6">
+      <div class="btn-group">
+        <a ui-sref="^.photos.new" class="btn btn-success">Add New Photo</a>
+      </div>
+    </div>
+    <div class="center col-md-6">
+      <div class="btn-group">
+        <a ui-sref="^.projects.new" class="btn btn-success">Add New Project</a>
+      </div>
+    </div>
   </div>
 
   <div class="row">

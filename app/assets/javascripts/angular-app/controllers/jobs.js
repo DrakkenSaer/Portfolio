@@ -10,7 +10,7 @@
       
       //redirect if empty data model & not admin
       if(jobs.length === 0 && $scope.user.id == null){
-        $state.go('home');
+        $state.go('^.home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
       }
     }

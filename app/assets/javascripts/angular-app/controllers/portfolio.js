@@ -15,13 +15,13 @@
       
       //redirect based on data model and admin user - WIP
       if(photos.length === 0 && projects.length === 0 && $scope.user.id == null){
-        //$state.go('home');
+        $state.go('^.home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
       } else if(photos.length === 0 && projects.length > 0 && $scope.user.id == null) {
-        //$state.go('portfolio.projects');
+        $state.go('^.projects');
         console.log('Redirected to projects page: Empty data model for photo');        
       } else if(photos.length > 0 && projects.length === 0 && $scope.user.id == null) {
-        //$state.go('^.photos');
+        $state.go('^.photos');
         console.log('Redirected to photos page: Empty data model for project');
       }
     }]);

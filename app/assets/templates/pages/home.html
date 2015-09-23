@@ -38,7 +38,7 @@
     </div>
   </section>
 
-  <div class="container-fluid buffer white" ng-show="jobs[0]">
+  <div class="container-fluid buffer white">
     <div class="row">
       <div ng-repeat="job in jobs" class="col-md-4 job">
         <h1><a class="img-responsive img-darken center" ui-sref="^.jobs.show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image_medium}}"/></a></h1>
@@ -47,7 +47,7 @@
         </ul>
       </div>
     </div>
-    <div class="center">
+    <div class="center" ng-show="jobs[0]">
       <div class="btn-group">
         <a class="btn btn-default btn-lg" ui-sref="^.jobs">Work history</a>
       </div>

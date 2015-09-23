@@ -3,8 +3,14 @@
 
   angular
     .module('controllers.projects', [])
-    .controller('ProjectsCtrl', ['$scope', 'projects', function($scope, projects) {    
+    .controller('ProjectsCtrl', ['$scope', '$state', 'projects', function($scope, $state, projects) {    
       $scope.projects = projects;
+      
+      //redirect if empty data model & not admin
+      if(projects.length === 0 && $scope.user.id == null){
+        $state.go('^.home');
+        console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
+      }
     }])
     .controller('ProjectCtrl', [
     '$scope', '$state', 'flash', 'project', 'ProjectFactory', 

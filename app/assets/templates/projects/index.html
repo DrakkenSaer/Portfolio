@@ -1,8 +1,12 @@
 <div ui-view>
   <h1>Projects</h1>
 
-  <a ui-sref=".new" class="center" ng-show="user.id">Add New Project</a>
-
+  <div class="center">
+    <div class="btn-group">
+      <a ui-sref=".new" class="btn btn-success" ng-show="user.id">Add New Project</a>
+    </div>
+  </div>
+  
   <div ng-repeat="project in projects" ng-class="{row: $index % 3 == 2}">
     <div class="col-md-4 project">
       <ul class="center">    

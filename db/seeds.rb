@@ -25,10 +25,16 @@ end
 Project.create(title: "Example Project 1", link: "Google.com", description: "This was easy.", image_file_name: "project1.jpg", image_content_type: "image/jpg", image_file_size: "1500")
 Project.create(title: "Example Project 2", link: "Mozilla.com", description: "This was intermediate.", image_file_name: "project2.jpg", image_content_type: "image/jpg", image_file_size: "500")
 Project.create(title: "Example Project 3", link: "Bing.com", description: "This was hard.", image_file_name: "project3.jpg", image_content_type: "image/jpg", image_file_size: "2000")
+Project.create(title: "Example Project 4", link: "Facebook.com", description: "This is Facebook.", image_file_name: "project4.jpg", image_content_type: "image/jpg", image_file_size: "1500")
+Project.create(title: "Example Project 5", link: "Myspace.com", description: "This is Myspace.", image_file_name: "project5.jpg", image_content_type: "image/jpg", image_file_size: "500")
+Project.create(title: "Example Project 6", link: "Ask.com", description: "This is Ask.com.", image_file_name: "project6.jpg", image_content_type: "image/jpg", image_file_size: "2000")
 
 Photo.create(title: "Example Photo 1", photographer: "Drakken Saer", image_file_name: "photo1.jpg", image_content_type: "image/jpg", image_file_size: "1500")
 Photo.create(title: "Example Photo 2", photographer: "Drakken Saer", image_file_name: "photo2.jpg", image_content_type: "image/jpg", image_file_size: "500")
 Photo.create(title: "Example Photo 3", photographer: "Drakken Saer", image_file_name: "photo3.jpg", image_content_type: "image/jpg", image_file_size: "2000")
+Photo.create(title: "Example Photo 4", photographer: "Drakken Saer", image_file_name: "photo4.jpg", image_content_type: "image/jpg", image_file_size: "1500")
+Photo.create(title: "Example Photo 5", photographer: "Drakken Saer", image_file_name: "photo5.jpg", image_content_type: "image/jpg", image_file_size: "500")
+Photo.create(title: "Example Photo 6", photographer: "Drakken Saer", image_file_name: "photo6.jpg", image_content_type: "image/jpg", image_file_size: "2000")
 
 
 4.times do
