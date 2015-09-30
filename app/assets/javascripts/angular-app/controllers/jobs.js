@@ -23,7 +23,7 @@
       $scope.delete = function(job){
         var Job = new JobFactory(job);
         Job.$delete(function(success) {
-          $state.go('^', {jobs: $scope.jobs.splice(job, 1)});
+          $state.go('^', {jobs: $scope.jobs.splice($scope.jobs.indexOf(job), 1)});
           flash('Message deleted successfully!');
         });
       }
