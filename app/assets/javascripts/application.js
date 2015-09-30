@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require bootstrap-switch
 //= require angular
 //= require angular-resource
 //= require angular-rails-templates
@@ -24,5 +23,6 @@
 //= require angular-flash-messages/angular-flash
 //= require angular-scroll/angular-scroll
 //= require ng-parallax/angular-parallax
+//= require angular-bootstrap-toggle-switch/angular-toggle-switch
 //= require_tree ../templates
 //= require_tree ./

@@ -34,11 +34,8 @@
       </div>
 
       <div class="checkbox">
-        <input data-label-text="Primary"
-               ng-model="photo.is_primary"
-               id="is_primary" 
-               name="is_primary" 
-               type="checkbox" />
+        <toggle-switch ng-model="photo.is_primary" knob-label="Primary" >
+        </toggle-switch>
       </div>
 
       <div class="form-group">
@@ -61,12 +58,9 @@
                  value="Submit" />
         </div>
         <div class="btn-group">
-          <a ui-sref="root.photos" href class="btn btn-large btn-default">&larr; Cancel</a>
+          <a ui-sref="^" href class="btn btn-large btn-default">&larr; Cancel</a>
         </div>
       </div>
     </form>
   </div>
 </div>
-<script>
-  $("[type='checkbox']").bootstrapSwitch();
-</script>

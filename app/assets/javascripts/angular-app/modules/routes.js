@@ -139,30 +139,23 @@
         title: "Photography",
         controller: "PhotosCtrl"
       })
-        .state('root.photos.show', {
-        abstract: true,
-        template: '<ui-view/>',
-        url: "/{id:int}",
+        .state('root.photos.edit', {
+        url: "/{id:int}/edit",
+        templateUrl: "photos/edit.html",
+        title: "Edit Photo",
+        controller: "EditPhotoCtrl",
         resolve: {
           photo: ['$stateParams', 'photos', function($stateParams, photos){
             return photos.filter(function(data) {
               return data.id == $stateParams.id;
             });
-          }]
-        }
-      })
-        .state('root.photos.show.edit', {
-        url: "/edit",
-        templateUrl: "photos/edit.html",
-        title: "Edit Photo",
-        controller: "EditPhotoCtrl",
-        resolve: {
+          }],
           auth: ['$auth', function($auth){
             return $auth.validateUser();
           }]
         }
       })
-      .state('root.photos.new', {
+        .state('root.photos.new', {
         url: "/new",
         templateUrl: "photos/new.html",
         title: "New Photo",
@@ -187,17 +180,32 @@
           }]
         }
       })
-        .state('root.projects.show.edit', {
-        url: "/edit",
+        .state('root.projects.edit', {
+        url: "/{id:int}/edit",
         templateUrl: "projects/edit.html",
         title: "Edit Project",
-        controller: "EditProjectCtrl"
+        controller: "EditProjectCtrl",
+        resolve: {
+          project: ['$stateParams', 'projects', function($stateParams, projects){
+            return projects.filter(function(data) {
+              return data.id == $stateParams.id;
+            });
+          }],
+          auth: ['$auth', function($auth){
+            return $auth.validateUser();
+          }]
+        }
       })
         .state('root.projects.new', {
         url: "/new",
         templateUrl: "projects/new.html",
         title: "New Project",
-        controller: "NewProjectCtrl"
+        controller: "NewProjectCtrl",
+        resolve: {
+          auth: ['$auth', function($auth){
+            return $auth.validateUser();
+          }]
+        }
       });
     }
   ]);

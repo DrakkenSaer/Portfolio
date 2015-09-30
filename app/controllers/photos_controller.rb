@@ -10,8 +10,13 @@ class PhotosController < ApplicationController
   
   def create
     @photo = Photo.new(photo_params)
-    if @photo.save!
-      render json: @photo.attributes.merge(image_medium: @photo.image.url(:medium)), status: :created
+    if @photo.save
+      render json: @photo.attributes.merge(
+        image_original: @photo.image.url(:original),
+        image_large: @photo.image.url(:large),
+        image_medium: @photo.image.url(:medium),
+        image_small: @photo.image.url(:small),
+        ), status: :created
     else
       render json: @photo.errors, status: :unprocessable_entity
     end
@@ -22,8 +27,13 @@ class PhotosController < ApplicationController
   
   def update
     @photo = Photo.find(params[:id])
-    if @photo.update!(photo_params)
-      render json: @photo.attributes.merge(image_medium: @photo.image.url(:medium), image_large: @photo.image.url(:large))
+    if @photo.update(photo_params)
+      render json: @photo.attributes.merge(
+        image_original: @photo.image.url(:original),
+        image_large: @photo.image.url(:large),
+        image_medium: @photo.image.url(:medium),
+        image_small: @photo.image.url(:small),
+        )
     else
       render json: @photo.errors, status: :unprocessable_entity
     end

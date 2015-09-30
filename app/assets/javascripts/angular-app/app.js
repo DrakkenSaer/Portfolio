@@ -17,6 +17,7 @@
     'flash',
     'duScroll',
     'duParallax',
+    'toggle-switch',
     'app.routes',
     'app.directives',
     'app.controllers',

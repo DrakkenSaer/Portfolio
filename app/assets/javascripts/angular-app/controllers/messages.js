@@ -18,7 +18,7 @@
       $scope.delete = function(message){
         var Message = new MessageFactory(message);
         Message.$delete(function(success) {
-          $state.go('^', {messages: $scope.messages.splice(message, 1)});
+          $state.go('^', {messages: $scope.messages.splice($scope.messages.indexOf(message), 1)});
           flash('Message deleted successfully!');
         });
       }

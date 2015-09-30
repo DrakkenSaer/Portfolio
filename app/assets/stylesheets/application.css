@@ -12,4 +12,5 @@
 *
 *= require_tree .
 *= require_self
+*= require angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css
 */

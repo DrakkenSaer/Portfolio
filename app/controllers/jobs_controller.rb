@@ -13,13 +13,14 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    if @job.save!
+    if @job.save
       render json: @job.attributes.merge(
         image_original: @job.image.url(:original),
         image_large: @job.image.url(:large),
         image_medium: @job.image.url(:medium),
-        image_small: @job.image.url(:small)
-        )
+        image_small: @job.image.url(:small),
+        references: @job.references
+        ), status: :created
     else
       render json: @job.errors, status: :unprocessable_entity
     end
@@ -30,7 +31,7 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    if @job.update!(job_params)
+    if @job.update(job_params)
       render json: @job.attributes.merge(
         image_original: @job.image.url(:original),
         image_large: @job.image.url(:large),

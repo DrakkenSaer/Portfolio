@@ -30,12 +30,12 @@
     }
   ])
     .controller('EditJobCtrl',[
-    '$scope', '$stateParams', '$state', 'job', 'Upload',
-    function($scope, $stateParams, $state, job, Upload) {
+    '$scope', '$stateParams', '$state', 'job', 'flash', 'Upload',
+    function($scope, $stateParams, $state, job, flash, Upload) {
       $scope.job = job[0];
       
       $scope.back = function() {
-        $state.go('^.show({id: $stateParams.id})')
+        $state.go('^.show', {id: $stateParams.id})
       }
       
       $scope.save = function(fd) {
@@ -58,7 +58,8 @@
             }
           }
         }).success(function (data, status, headers, config) {
-          console.log("Successfully updated work entry!")
+          console.log('Successfully updated work entry!')
+          flash('Successfully updated work entry!');
           for (var i=0; i < $scope.jobs.length; i++) {
             if ($scope.jobs[i].id == $stateParams.id) {
               $scope.jobs[i] = data;
@@ -74,8 +75,8 @@
     }
   ])
     .controller('NewJobCtrl',[
-    '$scope', '$state', 'Upload',
-    function($scope, $state, Upload) {
+    '$scope', '$state', 'flash', 'Upload',
+    function($scope, $state, flash, Upload) {
       $scope.back = function() {
         $state.go('^')
       }
@@ -103,7 +104,8 @@
           $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
           console.log('Progress: ' + $scope.progress + '%');
         }).success(function (data, status, headers, config) {
-          console.log('Successfully saved work entry!');
+          console.log('Successfully created work entry!');
+          flash('Successfully created work entry!');
           $scope.jobs.push(data);
           $state.go('^');
         }).error(function (data, status, headers, config) {
