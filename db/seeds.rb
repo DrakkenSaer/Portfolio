@@ -15,7 +15,7 @@ Job.create(title: "Example Job 4", company: "Example Corporation 4", description
 Job.create(title: "Example Job 5", company: "Example Corporation 5", description: "This was wtf.", image_file_name: "companylogo2.jpg", image_content_type: "image/jpg", image_file_size: "1500")
 Job.create(title: "Example Job 6", company: "Example Corporation 6", description: "This was hard.", image_file_name: "companylogo3.jpg", image_content_type: "image/jpg", image_file_size: "1500")
 
-jobs = Job.all
+jobs = Job.first(3)
 
 5.times do
   reference = "Example - example@hotmail.com"

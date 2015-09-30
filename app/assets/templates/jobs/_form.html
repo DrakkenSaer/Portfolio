@@ -104,38 +104,29 @@
       <!-- Regarding nested forms
 http://www.angularjshub.com/examples/forms/nestedforms/
 http://www.dahuatu.com/oYwKqzYPyE.html
+http://stackoverflow.com/questions/27527167/nested-form-fields-in-angularjs
 -->
 
       <label for="job_references">References</label>
 
-      <input ng-model="job.references[0].reference" 
-             class="form-control" 
-             id="job_references_attributes_0_reference" 
-             name="job[references_attributes][0][reference]" 
+      <input ng-model="job.references[0].reference"
+             class="form-control"  
              type="text" />
 
       <input ng-model="job.references[1].reference"
              class="form-control" 
-             id="job_references_attributes_1_reference" 
-             name="job[references_attributes][1][reference]" 
              type="text" />
 
       <input ng-model="job.references[2].reference"
              class="form-control" 
-             id="job_references_attributes_2_reference" 
-             name="job[references_attributes][2][reference]" 
              type="text" />
 
       <input ng-model="job.references[3].reference"
              class="form-control" 
-             id="job_references_attributes_3_reference" 
-             name="job[references_attributes][3][reference]" 
              type="text" />
 
       <input ng-model="job.references[4].reference"
              class="form-control" 
-             id="job_references_attributes_4_reference" 
-             name="job[references_attributes][4][reference]" 
              type="text" />
 
       <div class="form-group">
@@ -159,7 +150,7 @@ http://www.dahuatu.com/oYwKqzYPyE.html
                  ng-disabled="message.id || form.$invalid" />
         </div>
         <div class="btn-group">
-          <a ui-sref="^" href class="btn btn-large btn-default">&larr; Cancel</a>
+          <a ng-click="back()" href class="btn btn-large btn-default">&larr; Cancel</a>
         </div>
       </div>
     </form>  

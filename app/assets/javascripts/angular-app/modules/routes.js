@@ -56,12 +56,17 @@
           }]
         }
       })
-        .state('root.jobs.show.edit', {
-        url: "/edit",
+        .state('root.jobs.edit', {
+        url: "/{id:int}/edit",
         templateUrl: "jobs/edit.html",
         title: "Edit Work History",
         controller: "EditJobCtrl",
         resolve: {
+          job: ['$stateParams', 'jobs', function($stateParams, jobs){
+            return jobs.filter(function(data) {
+              return data.id == $stateParams.id;
+            });
+          }],
           auth: ['$auth', function($auth){
             return $auth.validateUser();
           }]

@@ -13,7 +13,7 @@
       $scope.display_photo = photos[photos.length-1];
       $scope.display_project = projects[projects.length-1];
       
-      //redirect based on data model and admin user - WIP
+      //redirect based on data model and admin user
       if(photos.length === 0 && projects.length === 0 && $scope.user.id == null){
         $state.go('^.home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');

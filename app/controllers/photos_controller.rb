@@ -10,11 +10,10 @@ class PhotosController < ApplicationController
   
   def create
     @photo = Photo.new(photo_params)
-    if @photo.save
-      flash[:success] = "Photo successfully uploaded!"
-      redirect_to photos_path
+    if @photo.save!
+      render json: @photo.attributes.merge(image_medium: @photo.image.url(:medium)), status: :created
     else
-      render 'new'
+      render json: @photo.errors, status: :unprocessable_entity
     end
   end
   
@@ -24,19 +23,18 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update!(photo_params)
-      flash[:success] = "Photo updated!"
-      redirect_to photos_path
+      render json: @photo.attributes.merge(image_medium: @photo.image.url(:medium), image_large: @photo.image.url(:large))
     else
-      render 'edit'
+      render json: @photo.errors, status: :unprocessable_entity
     end
   end
   
   def destroy
     @photo = Photo.find(params[:id])
     @photo.image = nil
-    @photo.destroy!
-    flash[:success] = "Photo deleted!"
-    redirect_to photos_path
+    if @photo.destroy!
+      render nothing: true
+    end
   end
   
   private
