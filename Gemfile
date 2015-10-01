@@ -6,8 +6,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem "paperclip", "~> 4.1"
-gem 'aws-sdk', '~> 1.5.7'
+gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '< 2'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'bower-rails', '~> 0.10.0'
