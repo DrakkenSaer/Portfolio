@@ -1,7 +1,7 @@
 <div ui-view>
   <h1>Work history</h1>
 
-  <div class="center">
+  <div class="text-center">
     <div class="btn-group">
       <a ui-sref=".new" class="btn btn-success" ng-show="user.id">Add New Work Experience</a>
     </div>
@@ -9,8 +9,10 @@
 
   <div ng-repeat="job in jobs" ng-class-even="row">
     <div class="col-md-6 job">
-      <div class="center"><a class="img-responsive img-darken center" ui-sref=".show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image_medium}}"/></a></div>
-      <ul class="center">
+      <a ui-sref=".show({id: job.id})">
+        <img alt="{{job.company}}" class="img-responsive center-block" ng-src="{{job.image_medium}}"/>
+      </a>
+      <ul class="text-center">
         <li>{{job.title}}</li>
       </ul>
     </div>

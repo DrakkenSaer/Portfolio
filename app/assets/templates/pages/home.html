@@ -2,55 +2,48 @@
   <section id="bg-main">
     <!-- <video-bg video-id="'s6zR2T9vn2c'" loop="true" mute="true" start="14" end="314"> -->
     <div id="dark-overlay"></div>
-    <div class="container v-center">
-      <div class="jumbotron">
+    <div class="v-center">
+      <div class="jumbotron center-block text-center">
         <h1>Web dev & design</h1>
         <p>
           Made fast, simple, and easy
         </p>
-        <a href="#scroll-send" du-smooth-scroll du-scrollspy class="scroll-button center"></a>
+        <a href="#scroll-send-1" du-smooth-scroll du-scrollspy class="scroll-button"></a>
       </div>
     </div>
     <!-- </video-bg> -->
   </section>
 
-  <div class="container-fluid white" id="scroll-send">
-    <div class="row">
-      <div class="container buffer">
-        <div class="col-md-12">
-          <div ng-include="'pages/_about_summary.html'"></div>
-        </div>
-        <div class="center">
-          <div class="btn-group">
-            <a ui-sref="^.about" class="btn btn-default btn-lg">About me</a>
-          </div>
-        </div>
-      </div>
+  <section class="container-fluid white v-center" id="scroll-send-1">
+    <div class="center-block text-center">
+      <div ng-include="'pages/_about_summary.html'"></div>
+      <a href="#scroll-send-2" du-smooth-scroll du-scrollspy class="scroll-button"></a>
     </div>
-  </div>
+  </section>
 
-  <section>
+  <section class="section-no-scroll" id="scroll-send-2">
     <div id="sliding-bg" du-parallax y="background"></div>
-    <div class="container v-center">
-      <div class="jumbotron">
-        <h1>Cool tricks for your webpage</h1>
+    <div class="v-center">
+      <div class="jumbotron center-block text-center">
+        <h1>Change is coming to your webpage!</h1>
+        <a href="#scroll-send-3" du-smooth-scroll du-scrollspy class="scroll-button"></a>
       </div>
     </div>
   </section>
 
-  <div class="container-fluid buffer white">
-    <div class="row">
+  <section class="container-fluid white v-center" id="scroll-send-3">
+    <div class="row center-block text-center" ng-show="jobs[0]">
       <div ng-repeat="job in jobs" class="col-md-4 job">
-        <h1><a class="img-responsive img-darken center" ui-sref="^.jobs.show({id: job.id})"><img alt="{{job.company}}" class="img-responsive" ng-src="{{job.image_small}}"/></a></h1>
-        <ul class="center">
+        <a ui-sref="^.jobs.show({id: job.id})">
+          <img class="img-responsive center-block" alt="{{job.company}}" ng-src="{{job.image_small}}"/>
+        </a>
+        <ul>
           <li>{{job.title}}</li>
         </ul>
       </div>
-    </div>
-    <div class="center" ng-show="jobs[0]">
       <div class="btn-group">
         <a class="btn btn-default btn-lg" ui-sref="^.jobs">Work history</a>
       </div>
     </div>
-  </div>
+  </section>
 </div>
