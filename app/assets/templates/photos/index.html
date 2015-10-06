@@ -1,22 +1,21 @@
 <div ui-view>
   <h1>Photography</h1>
 
-  <div class="center">
+  <div class="text-center">
     <div class="btn-group">
       <a ui-sref=".new" class="btn btn-success" ng-show="user.id">Add New Photo</a>
     </div>
   </div>
 
   <div ng-repeat="photo in photos" ng-class="{row: $index % 3 == 2}">
-    <div class="col-md-4 photo">
-      <ul class="center">    
+    <div class="col-md-4 photo text-center">
+      <ul>
         <li>
           <a href="{{photo.image_large}}" 
-             class="img-responsive img-rounded img-darken" 
              title="{{photo.title}}" 
              rel="gallery">
             <img ng-src="{{photo.image_small}}" 
-                 class="img-responsive img-rounded" 
+                 class="img-responsive img-rounded center-block" 
                  alt="{{photo.title}}" />
           </a>
         </li>

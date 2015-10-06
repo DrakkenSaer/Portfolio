@@ -1,6 +1,6 @@
 <div ui-view>
   <h1>Projects</h1>
-  <div class="center">
+  <div class="text-center">
     <div class="btn-group">
       <a ui-sref=".new" class="btn btn-success" ng-show="user.id">Add New Project</a>
     </div>
@@ -8,11 +8,13 @@
 
   <div ng-repeat="project in projects" ng-class="{row: $index % 3 == 2}">
     <div class="col-md-4 project">
-      <ul class="center">    
+      <ul class="text-center">    
         <h2>{{project.title}}</h2>
         <li>
-          <a ui-sref=".show({id: project.id})" class="img-thumbnail img-darken">
-            <img ng-src="{{project.image_medium}}" class="img-responsive" alt="{{project.title}}" />
+          <a ui-sref=".show({id: project.id})">
+            <img ng-src="{{project.image_medium}}" 
+                 class="img-responsive img-rounded center-block" 
+                 alt="{{project.title}}" />
           </a>
         </li>
       </ul>

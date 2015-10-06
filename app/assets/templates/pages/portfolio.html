@@ -1,40 +1,36 @@
 <div ui-view>
   <h1>Portfolio</h1>
 
-  <div ng-show="user.id" class="row">
-    <div class="center col-md-6">
+  <div ng-show="user.id" class="row text-center">
+    <div class="col-md-6">
       <div class="btn-group">
         <a ui-sref="^.photos.new" class="btn btn-success">Add New Photo</a>
       </div>
     </div>
-    <div class="center col-md-6">
+    <div class="col-md-6">
       <div class="btn-group">
         <a ui-sref="^.projects.new" class="btn btn-success">Add New Project</a>
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row text-center">
     <div ng-show="display_photo" class="col-md-6">
-      <div class="center">
-        <h2>Photos</h2>
-        <a ui-sref="^.photos" class="img-thumbnail img-darken">
-          <img ng-src="{{display_photo.image_medium}}" 
-               class="img-responsive" 
-               alt="{{display_photo.title}}" />
-        </a>
-      </div>
+      <h2>Photos</h2>
+      <a ui-sref="^.photos">
+        <img ng-src="{{display_photo.image_medium}}" 
+             class="img-responsive img-thumbnail center-block" 
+             alt="{{display_photo.title}}" />
+      </a>
     </div>
 
     <div ng-show="display_project" class="col-md-6">
-      <div class="center">
-        <h2>Projects</h2>
-        <a ui-sref="^.projects" class="img-thumbnail img-darken">
-          <img ng-src="{{display_project.image_medium}}" 
-               class="img-responsive" 
-               alt="{{display_project.title}}" />
-        </a>
-      </div>
+      <h2>Projects</h2>
+      <a ui-sref="^.projects">
+        <img ng-src="{{display_project.image_medium}}" 
+             class="img-responsive img-thumbnail center-block"
+             alt="{{display_project.title}}" />
+      </a>
     </div>
   </div>
 </div>

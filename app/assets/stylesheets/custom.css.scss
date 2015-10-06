@@ -156,17 +156,27 @@ section {
   }
 }
 
+/* CSS for images */
+
+a {
+  img {
+    @extend a;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
 /* ===================== Header ===================== */
 
 header {
+  font-weight: bold;
   .navbar-brand {
     color: white !important;
     text-transform: uppercase;
     letter-spacing: -1px;
-    font-weight: bold;
   }
   li {
-    font-weight: bold;
     .active {
       color: $gray-lighter !important; 
     }
@@ -225,13 +235,8 @@ form {
     @extend .glyphicon-chevron-down;
     color: inherit;
   }
-  .white {
-    position: relative;
-    background: white;
-    z-index: 1;
-  }
   .buffer {
-    min-height: 100%;
+    padding: 70px 0;
   }
   #sliding-bg {
     background: image-url("blue-ocean.jpg") no-repeat center center;
