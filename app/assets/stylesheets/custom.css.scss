@@ -228,6 +228,9 @@ form {
 /* ===================== Home Page ===================== */
 
 .home {
+  &:first-child {
+    margin-top: -70px;
+  }
   .scroll-button {
     font-size: 2em;
     margin-top: 2em;
@@ -238,16 +241,19 @@ form {
   .buffer {
     padding: 70px 0;
   }
-  #sliding-bg {
-    background: image-url("blue-ocean.jpg") no-repeat center center;
+  #bg-second {
+    background: image-url("beach-overview.jpg") no-repeat center center;
     background-size: cover;
     width: 100%;
     height: 100%;
     position: absolute; 
   }
-  #bg-main{
-    background-color: black;
-    margin-top: -70px;
+  #bg-first{
+    background: image-url("alaska-mountain-range.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute; 
   }
   #dark-overlay {
     background-color: black;
@@ -255,7 +261,7 @@ form {
     height: 100vh;
     width: 100%;
     position: absolute;
-    opacity: 0.4;
+    opacity: 0.2;
     filter: alpha(opacity=40); /* For IE8 and earlier */
   }
   .jumbotron {

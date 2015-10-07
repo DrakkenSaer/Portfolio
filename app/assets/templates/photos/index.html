@@ -11,9 +11,11 @@
     <div class="col-md-4 photo text-center">
       <ul>
         <li>
-          <a href="{{photo.image_large}}" 
+          <a ng-href="{{photo.image_original}}"
              title="{{photo.title}}" 
-             rel="gallery">
+             rel="gallery"
+             class="fancybox"
+             fancybox >
             <img ng-src="{{photo.image_small}}" 
                  class="img-responsive img-rounded center-block" 
                  alt="{{photo.title}}" />
@@ -23,7 +25,6 @@
           <a ui-sref=".edit({id: photo.id})">Edit Photo</a> |
           <a ng-confirm-click
              confirmed-click="delete(photo)"
-             href
              rel="nofollow">
             Delete Photo
           </a>

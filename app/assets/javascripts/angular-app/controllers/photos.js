@@ -7,7 +7,14 @@
     '$scope', '$state', 'photos', 'flash', 'PhotoFactory', 
     function($scope, $state, photos, flash, PhotoFactory) {
       $scope.photos = photos;
-
+      
+      // for fancybox, otherwise angular redirects to root due to html5 mode
+      $scope.$on('$locationChangeStart', function (event, next, current) {
+        if (next.indexOf('/images/') > 0) {
+          event.preventDefault();
+        }
+      });
+      
       $scope.delete = function(photo){
         var Photo = new PhotoFactory(photo);
         Photo.$delete(function(success) {

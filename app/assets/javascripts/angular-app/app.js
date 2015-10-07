@@ -10,7 +10,6 @@
   angular.module('app', [
     'templates', 
     'ngResource', 
-    'angularVideoBg', 
     'ng-token-auth',
     'ui.router',
     'ngFileUpload',
@@ -23,10 +22,7 @@
     'app.controllers',
     'app.services'
   ])
-    .run(['$state', '$rootScope', '$stateParams', function($state, $rootScope, $stateParams){
+    .run(function(){
       return console.log('Angular: Up and running');
-      $rootScope.back = function(){
-        $state.go('^', {id: $stateParams.id});
-      }
-    }]);
+    });
 })();

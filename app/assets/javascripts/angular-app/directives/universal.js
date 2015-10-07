@@ -3,7 +3,9 @@
 
   angular
     .module('directives.universal', [])
-    .directive('updateTitle', ['$rootScope', '$timeout', function($rootScope, $timeout) {
+    .directive('updateTitle', [
+    '$rootScope', '$timeout', 
+    function($rootScope, $timeout) {
       return {
         link: function(scope, element) {
           var listener = function(event, toState) {
@@ -17,7 +19,9 @@
         }
       };
     }])
-    .directive('updateContainer', ['$rootScope', '$timeout', function($rootScope, $timeout) {
+    .directive('updateContainer', [
+    '$rootScope', '$timeout', 
+    function($rootScope, $timeout) {
       return {
         link: function(scope, element, attr) {
           var listener = function(event, toState) {
@@ -42,5 +46,12 @@
           });
         }
       };
-    }]);
+    }])
+    .directive('fancybox',function(){
+    return {
+      link: function(scope, element, attrs) {
+        $('.fancybox').fancybox();
+      }
+    }
+  });
 })();
