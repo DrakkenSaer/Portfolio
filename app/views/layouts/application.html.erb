@@ -27,6 +27,10 @@
     <div update-container id="main">
       <div ui-view>
         <%= yield %>
+        <!-- display if JS is disabled -->
+        <div ng-hide="true">
+          <%= render "shared/no_javascript.html" %>
+        </div>
       </div>
     </div>
 
