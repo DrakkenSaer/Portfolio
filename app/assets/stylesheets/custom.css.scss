@@ -24,6 +24,7 @@
   .danger {
     @extend .alert-danger;
   }
+  
 }
 
 
@@ -38,7 +39,7 @@
 /* ===================== Universal ===================== */
 
 /* miscellaneous */
-
+ 
 .debug_dump {
   clear: both;
   float: left;
@@ -106,6 +107,11 @@ ul, li {
 
 .width-100 {
   width: 100%;
+}
+
+.absolute {
+  z-index: 100;
+  position: absolute;
 }
 
 /* CSS for links */
