@@ -7,14 +7,14 @@
     '$scope', '$state', 'photos', 'flash', 'PhotoFactory', 
     function($scope, $state, photos, flash, PhotoFactory) {
       $scope.photos = photos;
-      
+
       // for fancybox, otherwise angular redirects to root due to html5 mode
       $scope.$on('$locationChangeStart', function (event, next, current) {
         if (next.indexOf('/images/') > 0) {
           event.preventDefault();
         }
       });
-      
+
       $scope.delete = function(photo){
         var Photo = new PhotoFactory(photo);
         Photo.$delete(function(success) {
@@ -48,14 +48,19 @@
             }
           }
         }).success(function (data, status, headers, config) {
-          console.log("Successfully updated photo!")
-          flash("Successfully updated photo!")
+          if (data.is_primary == true) {
+            for (var i=0; i < $scope.photos.length; i++) {
+              $scope.photos[i].is_primary = false;
+            }            
+          }
           for (var i=0; i < $scope.photos.length; i++) {
             if ($scope.photos[i].id == $stateParams.id) {
               $scope.photos[i] = data;
               break;
             }
           }
+          console.log("Successfully updated photo!")
+          flash("Successfully updated photo!")
           $state.go('^');
         }).error(function (data, status, headers, config) {
           console.log('Error status: ' + status);
@@ -83,6 +88,11 @@
           $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
           console.log('Progress: ' + $scope.progress + '%');
         }).success(function (data, status, headers, config) {
+          if (data.is_primary == true) {
+            for (var i=0; i < $scope.photos.length; i++) {
+              $scope.photos[i].is_primary = false;
+            }
+          }
           console.log('Successfully saved photo!');
           flash('Successfully saved photo!');
           $scope.photos.push(data);

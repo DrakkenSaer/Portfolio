@@ -51,14 +51,19 @@
             }
           }
         }).success(function (data, status, headers, config) {
-          console.log("Successfully updated project!");
-          flash("Successfully updated project!");
+          if (data.is_primary == true) {
+            for (var i=0; i < $scope.projects.length; i++) {
+              $scope.projects[i].is_primary = false;
+            }            
+          }
           for (var i=0; i < $scope.projects.length; i++) {
             if ($scope.projects[i].id == $stateParams.id) {
               $scope.projects[i] = data;
               break;
             }
           }
+          console.log("Successfully updated project!");
+          flash("Successfully updated project!");
           $state.go('^.show', {id: $stateParams.id})
         }).error(function (data, status, headers, config) {
           console.log('Error status: ' + status);
@@ -91,6 +96,11 @@
           $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
           console.log('Progress: ' + $scope.progress + '%');
         }).success(function (data, status, headers, config) {
+          if (data.is_primary == true) {
+            for (var i=0; i < $scope.projects.length; i++) {
+              $scope.projects[i].is_primary = false;
+            }            
+          }
           console.log('Successfully saved project!');
           flash('Successfully saved project!');
           $scope.projects.push(data);
