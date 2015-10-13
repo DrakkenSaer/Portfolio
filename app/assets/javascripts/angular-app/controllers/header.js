@@ -4,28 +4,14 @@
   angular
     .module('controllers.header', [])
     .controller('HeaderCtrl',[
-    '$scope', '$state', '$http', 
-    function($scope, $state, $http) {
+    '$scope', '$state', '$http', 'jobs', 'projects', 'photos',
+    function($scope, $state, $http, jobs, projects, photos) {
       $scope.isActive = function(route) {
         return $state.includes('root.' + route);
       }
 
-      $scope.jobs = []
-      $http.get('/api/jobs').
-      success(function(data) {
-        $scope.jobs = data
-      });
-
-      $scope.projects = []
-      $http.get('/api/projects').
-      success(function(data) {
-        $scope.projects = data
-      });
-
-      $scope.photos = []
-      $http.get('/api/photos').
-      success(function(data) {
-        $scope.photos = data
-      });
+      $scope.jobs = jobs;
+      $scope.projects = projects;
+      $scope.photos = photos;
     }]);
 })();

@@ -18,14 +18,14 @@
   </head>
   <body>
     <!-- do not render on resume page -->
-    <div ng-hide="$state.includes('^.resume')" ng-include="'layouts/header.html'"></div>
+    <div ng-hide="$state.includes('^.resume')" ui-view="header"></div>
     
     <!-- for page flash alerts -->
     <div flash:messages class="container" role="alert"></div>
 
     <!-- conditional container logic used for CSS needs for specific pages -->
     <div update-container id="main">
-      <div ui-view>
+      <div ui-view="main">
         <%= yield %>
         <!-- display if JS is disabled -->
         <div ng-hide="true">
@@ -35,7 +35,7 @@
     </div>
 
     <!-- do not render on resume page -->
-    <div ng-hide="$state.includes('^.resume')" ng-include="'layouts/footer.html'"></div>
+    <div ng-hide="$state.includes('^.resume')" ui-view="footer"></div>
     
     <div class="container-fluid">
       <div class="container">

@@ -12,7 +12,6 @@
       $stateProvider
         .state('root', {
         abstract: true,
-        template: '<ui-view/>',
         resolve: {
           jobs: ['JobFactory', function(JobFactory){
             return JobFactory.query().$promise;
@@ -23,6 +22,18 @@
           projects: ['ProjectFactory', function(ProjectFactory){
             return ProjectFactory.query().$promise;
           }]
+        },
+        views: {
+          'main': {
+            template: '<ui-view/>'
+          },
+          'header': {
+            templateUrl: "layouts/header.html",
+            controller: "HeaderCtrl"            
+          },
+          'footer': {
+            templateUrl: "layouts/footer.html"
+          }
         }
       })
         .state('root.home', {
