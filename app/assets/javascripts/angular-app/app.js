@@ -17,6 +17,7 @@
     'duScroll',
     'duParallax',
     'toggle-switch',
+    'headroom',
     'app.routes',
     'app.directives',
     'app.controllers',

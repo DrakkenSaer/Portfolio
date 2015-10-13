@@ -11,18 +11,21 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require fancybox/source/jquery.fancybox.pack
+//= require bootstrap-sprockets
+
 //= require angular
 //= require angular-resource
 //= require angular-rails-templates
-//= require angular-cookie/angular-cookie
-//= require ng-token-auth/dist/ng-token-auth
-//= require angular-ui-router/release/angular-ui-router
-//= require ng-file-upload/ng-file-upload
+//= require headroom.js/dist/headroom.min.js
+//= require headroom.js/dist/angular.headroom.min.js
+//= require ng-parallax/angular-parallax.min.js
+//= require angular-cookie/angular-cookie.min.js
+//= require ng-file-upload/ng-file-upload.min.js
+//= require angular-scroll/angular-scroll.min.js
+//= require ng-token-auth/dist/ng-token-auth.min.js
 //= require angular-flash-messages/angular-flash
-//= require angular-scroll/angular-scroll
-//= require ng-parallax/angular-parallax
-//= require angular-bootstrap-toggle-switch/angular-toggle-switch
+//= require angular-ui-router/release/angular-ui-router.min.js
+//= require angular-bootstrap-toggle-switch/angular-toggle-switch.min.js
 //= require_tree ../templates
 //= require_tree ./

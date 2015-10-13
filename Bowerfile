@@ -3,6 +3,7 @@
 
 asset 'fancybox'
 asset 'ng-parallax'
+asset 'headroom.js'
 asset 'ng-token-auth'
 asset 'ng-file-upload'
 asset 'angular-ui-router'

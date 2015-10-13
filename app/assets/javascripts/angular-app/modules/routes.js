@@ -53,7 +53,7 @@
             return jobs.filter(function(data) {
               return data.id == $stateParams.id;
             });
-          }]
+          }] 
         }
       })
         .state('root.jobs.edit', {

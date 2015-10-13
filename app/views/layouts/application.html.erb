@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="web developer, web design, ruby on rails, css, bootstrap, jquery, website builder, ruby, php">
+    <meta name="keywords" content="web developer, web design, ruby on rails, css, bootstrap, jquery, website builder, ruby, php, angularjs, javascript">
     <meta name="author" content="Drakken Saer">
     <meta name="robots" content="index, follow">
     <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
     <!-- do not render on resume page -->
     <div ng-hide="$state.includes('^.resume')" ng-include="'layouts/footer.html'"></div>
     
-    <div class="container-fluid white">
+    <div class="container-fluid">
       <div class="container">
         <%= debug(params) if Rails.env.development? %>
       </div>

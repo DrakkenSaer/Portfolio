@@ -10,9 +10,9 @@
         link: function(scope, element) {
           var listener = function(event, toState) {
             var title = 'Saer Designs';
-            if (toState.title) title = toState.title;
+            if (toState.title) title = toState.title + " | ";
             $timeout(function() {
-              element.text('Saer Designs | ' + title);
+              element.text(title + 'Saer Designs');
             }, 0, false);
           };
           $rootScope.$on('$stateChangeSuccess', listener);
