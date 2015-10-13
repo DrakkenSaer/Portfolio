@@ -30,13 +30,13 @@
     .run(['$rootScope','$state','flash', function ($rootScope, $state, flash) {
       $rootScope.$on('auth:login-success', function() {
         $state.go('root.home');
-        flash('info absolute', 'Redirected to home page: User logged in');
+        flash('info absolute container', 'Redirected to home page: User logged in');
         console.log('Redirected to home page: User logged in');
       });
 
       $rootScope.$on('auth:logout-success', function() {
         $state.go('root.home');
-        flash('info absolute', 'Redirected to home page: User logged out');
+        flash('info absolute container', 'Redirected to home page: User logged out');
         console.log('Redirected to home page: User logged out');
       });
 
