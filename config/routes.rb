@@ -7,14 +7,14 @@ Rails.application.routes.draw do
     resources :messages, except: [:new, :edit, :update, :show]
     resources :projects, except: [:new, :edit, :show]
     resources :photos, except: [:new, :edit, :show]
-    resources :resume, only: [:index]
+    resources :resume, except: [:new, :edit, :show]
   end
 
-  resources :jobs
-  resources :projects
-  resources :photos, except: [:show]
-  resources :messages, except: [:edit, :update]
-  resources :resume, only: [:index]
+  resources :jobs, except: [:create, :update]
+  resources :projects, except: [:create, :update]
+  resources :photos, except: [:show, :create, :update]
+  resources :messages, except: [:edit, :create, :update]
+  resources :resume, except: [:edit, :create, :update]
 
   match 'modeling', to: 'photos#index', via: :get
   match 'portfolio', to: 'pages#portfolio', via: :get

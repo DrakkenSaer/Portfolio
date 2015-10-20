@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805201735) do
+ActiveRecord::Schema.define(version: 20151020184121) do
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -71,6 +71,30 @@ ActiveRecord::Schema.define(version: 20150805201735) do
   end
 
   add_index "references", ["job_id"], name: "index_references_on_job_id"
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "header"
+    t.string   "link"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "position"
+    t.text     "qualifications"
+    t.text     "skills"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "title"
+    t.string   "years"
+    t.text     "description"
+    t.integer  "resume_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "schools", ["resume_id"], name: "index_schools_on_resume_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
