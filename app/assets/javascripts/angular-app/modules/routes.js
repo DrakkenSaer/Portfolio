@@ -136,7 +136,12 @@
         url: "/resume",
         templateUrl: "resume/index.html",
         title: "Resume",
-        controller: "ResumeCtrl"
+        controller: "ResumeCtrl",
+        resolve: {
+          resume: ['ResumeFactory', function(ResumeFactory){
+            return ResumeFactory.get().$promise;
+          }]
+        }
       })
         .state('root.portfolio', {
         url: "/portfolio",

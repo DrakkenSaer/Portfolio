@@ -6,6 +6,7 @@
     'services.jobs',
     'services.messages',
     'services.photos',
-    'services.projects'
+    'services.projects',
+    'services.resume'
   ]);
 })();

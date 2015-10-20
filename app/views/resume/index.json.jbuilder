@@ -1,4 +1,2 @@
-json.array!(@jobs) do |job|
-  json.(job, :id, :title, :company, :description, :years)
-  json.references job.references, :id, :reference
-end
+json.extract! @resume, :header, :link, :address, :phone, :email, :position, :qualifications, :skills
+json.schools @resume.schools, :id, :title, :years, :description

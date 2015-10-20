@@ -1,38 +1,30 @@
 <div class="resume text-center">
   <div id="resume-header">
-    <h2>Ian (Drakken or Adela) Coutu</h2>
-    <a ui-sref="^.home">www.saerdesigns.com</a>
+    <h2>{{resume.header}}</h2>
+    <a ui-sref="^.home">{{resume.link}}</a>
     <address>
-      26180 SW CANYON CREEK RD<br>
-      APT 104<br>
-      WILSONVILLE, OR<br>
-      97070
+      {{resume.address}}
     </address>
     <ul class="nav pull-left">
-      678-439-8431
+      {{resume.phone}}
     </ul>
     <ul class="nav pull-right">
-      <a href="mailto:shadowdrakkeen@gmail.com">shadowdrakkeen@gmail.com</a>
+      <a href="mailto:{{resume.email}}">{{resume.email}}</a>
     </ul><br>
     <hr> 
   </div>
   <div id="resume-body" class="col-md-6 col-md-offset-3"> 
     <div id="position">
       <h2>Position desired</h2>
-      Web Developer / Designer (Ruby on Rails & AngularJS)
+      {{resume.position}}
     </div>
     <div id="qualifications">
       <h2>Qualifications</h2>
-      6+ years experience with web technologies<br>
-      Solid organizational and planning skills<br>
-      Knowledge of SEO tactics and practices<br>
-      Experience with UI & design<br>
-      Knowledge of MVC implementations<br>
-      Knowledge of RESTful software architecture<br>
+      {{resume.qualifications}}
     </div>
     <div id="skills">
       <h2>Skills</h2>
-      Ruby on Rails, AngularJS, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS, SASS, Angular JS, PostgreSQL, WordPress, Windows OS, MacOS, Linux, LivePerson Administration, Windows Phone OS, Customer Service, Android OS, Nitrous.IO
+      {{resume.skills}}
     </div>
     <div id="history">
       <h2>Work History</h2>
@@ -50,8 +42,11 @@
     </div>
     <div id="education">
       <h2>Education</h2>
-      <h3>Kennesaw State University</h3>
-      Completed non-degree course in philosophy and computer theory
+      <div ng-repeat="school in resume.schools">
+        <li><h3>{{school.title}}</h3></li>
+        <li><small>{{school.years}}</small></li>
+        <li>{{school.description}}</li>
+      </div>
     </div>
   </div>
 </div>
