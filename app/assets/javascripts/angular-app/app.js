@@ -9,7 +9,8 @@
 
   angular.module('app', [
     'templates', 
-    'ngResource', 
+    'ngResource',
+    'ngSanitize',
     'ng-token-auth',
     'ui.router',
     'ngFileUpload',

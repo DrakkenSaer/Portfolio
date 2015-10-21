@@ -16,6 +16,7 @@
 
 //= require angular
 //= require angular-resource
+//= require angular-sanitize
 //= require angular-rails-templates
 //= require headroom.js/dist/headroom.min.js
 //= require headroom.js/dist/angular.headroom.min.js

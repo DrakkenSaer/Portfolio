@@ -151,6 +151,11 @@ a {
   padding: 1em 3em;
 }
 
+.glyphicon {
+  font-size: 15px;
+  margin: 10px;
+}
+
 /* CSS for headers */
 
 h1 {
@@ -250,8 +255,8 @@ form {
     margin-top: -70px;
   }
   .scroll-button {
-    font-size: 2em;
     margin-top: 2em;
+    font-size: 2em;
     @extend .glyphicon;
     @extend .glyphicon-chevron-down;
     color: inherit;
@@ -259,15 +264,15 @@ form {
   .buffer {
     padding: 70px 0;
   }
-  #bg-second {
-    background: image-url("beach-overview.jpg") no-repeat center center;
+  #bg-first{
+    background: image-url("alaska-mountain-range.jpg") no-repeat center center;
     background-size: cover;
     width: 100%;
     height: 100%;
     position: absolute; 
   }
-  #bg-first{
-    background: image-url("alaska-mountain-range.jpg") no-repeat center center;
+  #bg-second {
+    background: image-url("beach-overview.jpg") no-repeat center center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -283,7 +288,7 @@ form {
     filter: alpha(opacity=40); /* For IE8 and earlier */
   }
   .jumbotron {
-    position:relative;
+    position: relative;
     background: none !important;
     color: white !important;
   }
@@ -334,6 +339,10 @@ form {
 .resume {
   font-size: 125%;
   font-family: Calibri !important;
+  input {
+    width: 40%;
+    display: inline;
+  }
   hr {
     border: 2px dashed #C0C0C0;
   }

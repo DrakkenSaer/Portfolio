@@ -1,52 +1,82 @@
+<pre>{{resume}}</pre>
 <div class="resume text-center">
-  <div id="resume-header">
-    <h2>{{resume.header}}</h2>
-    <a ui-sref="^.home">{{resume.link}}</a>
-    <address>
-      {{resume.address}}
-    </address>
-    <ul class="nav pull-left">
-      {{resume.phone}}
-    </ul>
-    <ul class="nav pull-right">
-      <a href="mailto:{{resume.email}}">{{resume.email}}</a>
-    </ul><br>
-    <hr> 
-  </div>
-  <div id="resume-body" class="col-md-6 col-md-offset-3"> 
-    <div id="position">
-      <h2>Position desired</h2>
-      {{resume.position}}
+  <form ng-submit="save(resume)" 
+        accept-charset="UTF-8" 
+        enctype="multipart/form-data" 
+        role="form"
+        name="form"
+        novalidate>
+    <div ng-include="'shared/error_messages.html'"></div>
+    <div id="resume-header">
+      <h2>{{resume.header}}</h2>
+      <a ui-sref="^.home">{{resume.link}}</a>
+      <address>
+        <span ng-hide="editing">{{resume.address}}</span>
+        <input ng-model="resume.address" 
+               class="form-control" 
+               id="title" 
+               name="title" 
+               type="text"
+               ng-show="editing" />
+        <a href 
+           ng-click="editing = 1" 
+           ng-hide="editing" 
+           ng-show="editing == 0 && user.id" 
+           class="glyphicon glyphicon-pencil"></a>
+        <a href 
+           ng-click="editing = 0" 
+           ng-show="editing && user.id" 
+           ng-show="user.id" 
+           class="glyphicon glyphicon-ok"></a>
+        <a href 
+           ng-click="editing = 0" 
+           ng-show="editing && user.id" 
+           ng-show="user.id" 
+           class="glyphicon glyphicon-remove"></a>
+      </address>
+      <ul class="nav pull-left">
+        {{resume.phone}}
+      </ul>
+      <ul class="nav pull-right">
+        <a href="mailto:{{resume.email}}">{{resume.email}}</a>
+      </ul><br>
+      <hr> 
     </div>
-    <div id="qualifications">
-      <h2>Qualifications</h2>
-      {{resume.qualifications}}
-    </div>
-    <div id="skills">
-      <h2>Skills</h2>
-      {{resume.skills}}
-    </div>
-    <div id="history">
-      <h2>Work History</h2>
-      <div ng-repeat="job in jobs">
-        <li><a ui-sref='^.jobs.show({id: job.id})'><h3>{{job.title}}</h3></a></li>
-        <li>{{job.company}}</li>
-        <li ng-show="job.years">{{job.years}}</li>
-        <li class="word-wrap">{{job.description}}</li>
-        <br>
-        <div ng-show="job.references[0]">
-          <li><b>Professional References</b></li>
-          <li ng-repeat="person in job.references track by $index">{{person.reference}}</li>
+    <div id="resume-body" class="col-md-6 col-md-offset-3"> 
+      <div id="position">
+        <h2>Position desired</h2>
+        {{resume.position}}
+      </div>
+      <div id="qualifications">
+        <h2>Qualifications</h2>
+        {{resume.qualifications}}
+      </div>
+      <div id="skills">
+        <h2>Skills</h2>
+        {{resume.skills}}
+      </div>
+      <div id="history">
+        <h2>Work History</h2>
+        <div ng-repeat="job in jobs">
+          <li><a ui-sref='^.jobs.show({id: job.id})'><h3>{{job.title}}</h3></a></li>
+          <li>{{job.company}}</li>
+          <li ng-show="job.years">{{job.years}}</li>
+          <li class="word-wrap">{{job.description}}</li>
+          <br>
+          <div ng-show="job.references[0]">
+            <li><b>Professional References</b></li>
+            <li ng-repeat="person in job.references track by $index">{{person.reference}}</li>
+          </div>
+        </div>
+      </div>
+      <div id="education">
+        <h2>Education</h2>
+        <div ng-repeat="school in resume.schools">
+          <li><h3>{{school.title}}</h3></li>
+          <li><small>{{school.years}}</small></li>
+          <li>{{school.description}}</li>
         </div>
       </div>
     </div>
-    <div id="education">
-      <h2>Education</h2>
-      <div ng-repeat="school in resume.schools">
-        <li><h3>{{school.title}}</h3></li>
-        <li><small>{{school.years}}</small></li>
-        <li>{{school.description}}</li>
-      </div>
-    </div>
-  </div>
+  </form>
 </div>
