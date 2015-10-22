@@ -242,7 +242,7 @@ form {
   }
 
   textarea {
-    height: 300px;
+    height: 150px !important;
     resize: vertical;
   }
 }
@@ -340,7 +340,7 @@ form {
   font-size: 125%;
   font-family: Calibri !important;
   input {
-    width: 40%;
+    width: 300px;
     display: inline;
   }
   hr {
@@ -348,6 +348,22 @@ form {
   }
   div {
     margin-bottom: 3em;
+  }
+  .glyphicon-pencil {
+    opacity: 0;
+  }
+  *:hover > .glyphicon-pencil {
+    opacity: 1;
+  }
+  .page-header {
+    border: none;
+    margin: 0;
+    h2 {
+      display: inline;
+    }
+  }
+  .form-control{
+    margin: 0;
   }
   #resume-body {
     h2 {
