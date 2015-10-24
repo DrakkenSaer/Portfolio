@@ -5,15 +5,15 @@
         name="form"
         novalidate>
     <div ng-include="'shared/error_messages.html'"></div>
-    <div id="resume-header">
-      <div class="page-header">
+    <div id="resume_header">
+      <div class="page-header" ng-show="resume.header || user.id">
         <h2 ng-hide="editing_h">{{resume.header}}</h2>
         <input ng-model="resume.header" 
                class="form-control" 
                id="title" 
                name="title" 
                type="text"
-               ng-show="editing_h" />
+               ng-show="editing_h || new_h" />
         <a href 
            ng-click="editing_h = 1"
            ng-show="editing_h == 0 || editing_h == undefined && user.id" 
@@ -27,8 +27,8 @@
            ng-show="editing_h && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </div>
-      <span>
-        <a ui-sref="^.home" ng-hide="editing_l">{{resume.link}}</a>
+      <span ng-show="resume.link || user.id">
+        <a ui-sref="root.home" ng-hide="editing_l">{{resume.link}}</a>
         <input ng-model="resume.link" 
                class="form-control" 
                id="title" 
@@ -48,7 +48,7 @@
            ng-show="editing_l && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </span>
-      <address>
+      <address ng-show="resume.address || user.id">
         <span ng-hide="editing_a">{{resume.address}}</span>
         <input ng-model="resume.address" 
                class="form-control" 
@@ -69,7 +69,7 @@
            ng-show="editing_a && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </address>
-      <ul class="nav pull-left">
+      <ul class="nav pull-left" ng-show="resume.phone || user.id">
         <span ng-hide="editing_p">{{resume.phone}}</span>
         <input ng-model="resume.phone" 
                class="form-control" 
@@ -90,7 +90,7 @@
            ng-show="editing_p && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </ul>
-      <ul class="nav pull-right">
+      <ul class="nav pull-right" ng-show="resume.email || user.id">
         <a href="mailto:{{resume.email}}" ng-hide="editing_e">{{resume.email}}</a>
         <input ng-model="resume.email" 
                class="form-control" 
@@ -113,8 +113,8 @@
       </ul><br>
       <hr> 
     </div>
-    <div id="resume-body" class="col-md-6 col-md-offset-3"> 
-      <div id="position">
+    <div id="resume_body" class="col-md-6 col-md-offset-3"> 
+      <div id="position" ng-show="resume.position || user.id">
         <h2>Position desired</h2>
         <span ng-hide="editing_po">{{resume.position}}</span>
         <input ng-model="resume.position" 
@@ -136,7 +136,7 @@
            ng-show="editing_po && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </div>
-      <div id="qualifications">
+      <div id="qualifications" ng-show="resume.qualifications || user.id">
         <h2>Qualifications</h2>
         <span ng-hide="editing_q">{{resume.qualifications}}</span>
         <textarea ng-model="resume.qualifications" 
@@ -159,7 +159,7 @@
            ng-show="editing_q && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </div>
-      <div id="skills">
+      <div id="skills" ng-show="resume.skills || user.id">
         <h2>Skills</h2>
         <span ng-hide="editing_s">{{resume.skills}}</span>
         <textarea ng-model="resume.skills" 
@@ -182,7 +182,7 @@
            ng-show="editing_s && user.id" 
            class="glyphicon glyphicon-remove"></a>
       </div>
-      <div id="history">
+      <div id="history" ng-show="jobs.length > 0 || user.id">
         <h2>Work History</h2>
         <div ng-repeat="job in jobs">
           <li><a ui-sref='^.jobs.show({id: job.id})'><h3>{{job.title}}</h3></a></li>
@@ -196,32 +196,75 @@
           </div>
         </div>
       </div>
-      <div id="education">
+      <div id="education" ng-show="resume.schools.length > 0 || user.id">
         <h2>Education</h2>
         <div ng-repeat="school in resume.schools">
           <li>
-            <h3>{{school.title}}</h3>
-            <input ng-model="school.title" 
+            <div class="page-header">
+              <h3 ng-hide="editing_school_t == school.id">{{school.title}}</h3>
+              <input ng-model="school.title" 
+                     class="form-control" 
+                     id="title" 
+                     name="title" 
+                     type="text"
+                     ng-show="editing_school_t == school.id" />
+              <a href 
+                 ng-click="editing_school_t = school.id"
+                 ng-show="editing_school_t == 0 || editing_school_t == undefined && user.id" 
+                 class="glyphicon glyphicon-pencil"></a>
+              <a href 
+                 ng-click="save(resume); editing_school_t = 0" 
+                 ng-show="editing_school_t == school.id && user.id"
+                 class="glyphicon glyphicon-ok"></a>
+              <a href 
+                 ng-click="cancel('schools'); editing_school_t = 0"
+                 ng-show="editing_school_t == school.id && user.id" 
+                 class="glyphicon glyphicon-remove"></a>
+            </div>
+          </li>
+          <li>
+            <small ng-hide="editing_school_y == school.id">{{school.years}}</small>
+            <input ng-model="school.years"
                    class="form-control" 
                    id="title" 
                    name="title" 
                    type="text"
-                   ng-show="editing_school == school.id" />
+                   ng-show="editing_school_y == school.id" />
             <a href 
-               ng-click="editing_school = school.id"
-               ng-show="editing_school == 0 || editing_school == undefined && user.id" 
+               ng-click="editing_school_y = school.id"
+               ng-show="editing_school_y == 0 || editing_school_y == undefined && user.id" 
                class="glyphicon glyphicon-pencil"></a>
             <a href 
-               ng-click="save(resume); editing_school = 0" 
-               ng-show="editing_school == school.id && user.id"
+               ng-click="save(resume); editing_school_y = 0" 
+               ng-show="editing_school_y == school.id && user.id"
                class="glyphicon glyphicon-ok"></a>
             <a href 
-               ng-click="cancel(school); editing_school = 0"
-               ng-show="editing_school == school.id && user.id" 
+               ng-click="cancel('schools'); editing_school_y = 0"
+               ng-show="editing_school_y == school.id && user.id" 
                class="glyphicon glyphicon-remove"></a>
           </li>
-          <li><small>{{school.years}}</small></li>
-          <li>{{school.description}}</li>
+          <li>
+            <span ng-hide="editing_school_d == school.id">{{school.description}}</span>
+            <textarea ng-model="school.description"
+                      class="form-control" 
+                      id="title" 
+                      name="title" 
+                      type="text"
+                      ng-show="editing_school_d == school.id">
+            </textarea>
+            <a href 
+               ng-click="editing_school_d = school.id"
+               ng-show="editing_school_d == 0 || editing_school_d == undefined && user.id" 
+               class="glyphicon glyphicon-pencil"></a>
+            <a href 
+               ng-click="save(resume); editing_school_d = 0" 
+               ng-show="editing_school_d == school.id && user.id"
+               class="glyphicon glyphicon-ok"></a>
+            <a href 
+               ng-click="cancel('schools'); editing_school_d = 0"
+               ng-show="editing_school_d == school.id && user.id" 
+               class="glyphicon glyphicon-remove"></a>
+          </li>
         </div>
       </div>
     </div>

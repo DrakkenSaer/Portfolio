@@ -18,7 +18,7 @@
   </head>
   <body>
     <!-- do not render on resume page -->
-    <div ng-hide="$state.includes('^.resume')" ui-view="header"></div>
+    <div ng-hide="$state.includes('root.resume')" ui-view="header"></div>
     
     <!-- for page flash alerts -->
     <div flash:messages class="container" role="alert"></div>
@@ -35,7 +35,7 @@
     </div>
 
     <!-- do not render on resume page -->
-    <div ng-hide="$state.includes('^.resume')" ui-view="footer"></div>
+    <div ng-hide="$state.includes('root.resume')" ui-view="footer"></div>
     
     <div class="container-fluid">
       <div class="container">

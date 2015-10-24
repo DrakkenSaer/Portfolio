@@ -7,20 +7,22 @@ Rails.application.routes.draw do
     resources :messages, except: [:new, :edit, :update, :show]
     resources :projects, except: [:new, :edit, :show]
     resources :photos, except: [:new, :edit, :show]
-    resources :resume, except: [:new, :edit, :show]
+    resources :resume, except: [:new, :edit, :index, :show]
+    match 'resume', to: 'resume#show', via: :get
   end
 
   resources :jobs, except: [:create, :update]
   resources :projects, except: [:create, :update]
   resources :photos, except: [:show, :create, :update]
   resources :messages, except: [:edit, :create, :update]
-  resources :resume, except: [:edit, :create, :update]
+  resources :resume, only: [:new]
 
   match 'modeling', to: 'photos#index', via: :get
   match 'portfolio', to: 'pages#portfolio', via: :get
   match 'contact', to: 'messages#new', via: :get
   match 'about', to: 'pages#about', via: :get
   match 'login', to: 'sessions#new', via: :get
+  match 'resume', to: 'resume#show', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

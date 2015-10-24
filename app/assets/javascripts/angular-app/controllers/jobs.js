@@ -35,7 +35,7 @@
       $scope.job = job[0];
       
       $scope.back = function() {
-        $state.go('^.show', {id: $stateParams.id})
+        $state.go('^.show', {id: $stateParams.id});
       }
       
       $scope.save = function(fd) {

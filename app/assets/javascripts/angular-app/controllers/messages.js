@@ -28,7 +28,7 @@
     '$scope', 'MessageFactory', 'flash',
     function($scope, MessageFactory, flash) {
       $scope.save = function(message) {
-        var Message = new MessageFactory(message);
+        var Message = new MessageFactory({message: message});
         Message.$save(function(success) {
           $scope.message = success;
           $scope.errors = null;

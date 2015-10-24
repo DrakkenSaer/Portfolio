@@ -1,17 +1,24 @@
 class ResumeController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @jobs = Job.last(3)
-    @resume = Resume.first
   end
   
   def show
+    @jobs = Job.last(3)
+    @resume = Resume.first
   end
 
   def new
   end
 
   def create
+    @resume = Resume.new(resume_params)
+    if @resume.save
+      render json: @resume, status: :created
+    else
+      render json: @resume.errors, status: :unprocessable_entity
+    end
   end
 
   def edit

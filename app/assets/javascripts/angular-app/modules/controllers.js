@@ -4,6 +4,7 @@
   angular
     .module('app.controllers', [
     'controllers.header',
+    'controllers.footer',
     'controllers.home',
     'controllers.jobs',
     'controllers.messages',

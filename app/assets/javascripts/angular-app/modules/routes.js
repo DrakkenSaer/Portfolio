@@ -21,6 +21,9 @@
           }],
           projects: ['ProjectFactory', function(ProjectFactory){
             return ProjectFactory.query().$promise;
+          }],
+          resume: ['ResumeFactory', function(ResumeFactory){
+            return ResumeFactory.get().$promise;
           }]
         },
         views: {
@@ -32,7 +35,8 @@
             controller: "HeaderCtrl"            
           },
           'footer': {
-            templateUrl: "layouts/footer.html"
+            templateUrl: "layouts/footer.html",
+            controller: "FooterCtrl"
           }
         }
       })
@@ -133,15 +137,20 @@
         }
       })
         .state('root.resume', {
+        abstract: true,
+        template: '<ui-view/>'
+      })
+        .state('root.resume.show', {
         url: "/resume",
-        templateUrl: "resume/index.html",
+        templateUrl: "resume/show.html",
         title: "Resume",
-        controller: "ResumeCtrl",
-        resolve: {
-          resume: ['ResumeFactory', function(ResumeFactory){
-            return ResumeFactory.get().$promise;
-          }]
-        }
+        controller: "ShowResumeCtrl"
+      })
+        .state('root.resume.new', {
+        url: "/resume/new",
+        templateUrl: "resume/new.html",
+        title: "Create Resume",
+        controller: "NewResumeCtrl"
       })
         .state('root.portfolio', {
         url: "/portfolio",

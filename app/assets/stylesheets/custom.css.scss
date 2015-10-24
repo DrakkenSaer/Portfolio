@@ -351,6 +351,7 @@ form {
   }
   .glyphicon-pencil {
     opacity: 0;
+    margin-right: -30px;
   }
   *:hover > .glyphicon-pencil {
     opacity: 1;
@@ -358,14 +359,14 @@ form {
   .page-header {
     border: none;
     margin: 0;
-    h2 {
+    h2, h3 {
       display: inline;
     }
   }
   .form-control{
     margin: 0;
   }
-  #resume-body {
+  #resume_body {
     h2 {
       text-decoration: underline;
     }
