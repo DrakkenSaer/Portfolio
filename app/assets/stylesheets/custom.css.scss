@@ -8,13 +8,13 @@
 
 // headroom.js
 .headroom {
-    transition: transform 200ms linear;
+  transition: transform 200ms linear;
 }
 .headroom--pinned {
-    transform: translateY(0%);
+  transform: translateY(0%);
 }
 .headroom--unpinned {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 
@@ -36,7 +36,7 @@
   .danger {
     @extend .alert-danger;
   }
-  
+
 }
 
 
@@ -51,7 +51,7 @@
 /* ===================== Universal ===================== */
 
 /* miscellaneous */
- 
+
 .debug_dump {
   clear: both;
   float: left;
@@ -320,7 +320,7 @@ form {
     height: 5px;
     color: #ccc; /* old IE */
     background-color: #ccc; /* Modern Browsers */
- }
+  }
 }
 
 .about {
@@ -337,21 +337,12 @@ form {
 /* ===================== Resume ===================== */
 
 .resume {
-  font-size: 125%;
-  font-family: Calibri !important;
-  input {
-    width: 300px;
-    display: inline;
-  }
-  hr {
-    border: 2px dashed #C0C0C0;
-  }
-  div {
-    margin-bottom: 3em;
+  .glyphicon-plus {
+    margin-right: -5px;
   }
   .glyphicon-pencil {
-    opacity: 0;
     margin-right: -30px;
+    opacity: 0;
   }
   *:hover > .glyphicon-pencil {
     opacity: 1;
@@ -363,12 +354,28 @@ form {
       display: inline;
     }
   }
-  .form-control{
-    margin: 0;
+  #resume_body, #resume_header {
+    font-family: 'Calibri';
+    font-size: 125%;
+    hr {
+      border: 2px dashed #C0C0C0;
+    }
+    .form-control {
+      margin: 0;
+    }
   }
   #resume_body {
+    div {
+      margin-bottom: 1em;
+    }
     h2 {
       text-decoration: underline;
+    }
+  }
+  #resume_header {
+    input {
+      width: 400px;
+      display: inline;
     }
   }
 }
@@ -376,5 +383,5 @@ form {
 /* viewport-specific browsers */
 
 @-ms-viewport{
-	width: device-width;
+  width: device-width;
 }

@@ -66,7 +66,7 @@
               break;
             }
           }
-          $state.go('^.show', {id: $stateParams.id})
+          $state.go('^.show', {id: $stateParams.id});
         }).error(function (data, status, headers, config) {
           console.log('Error status: ' + status);
           $scope.errors = data;
@@ -107,6 +107,7 @@
           console.log('Successfully created work entry!');
           flash('Successfully created work entry!');
           $scope.jobs.push(data);
+          $scope.errors = null;
           $state.go('^');
         }).error(function (data, status, headers, config) {
           console.log('Error status: ' + status);

@@ -16,10 +16,11 @@
                name="header" 
                type="text"
                required
-               ng-disabled="resume.id" />
+               ng-disabled="resume.id"
+               placeholder= "Drakken (or Adela) Saer"/>
         <div ng-class="{'alert alert-danger':form.header.$invalid}" 
              ng-show="form.$submitted || form.header.$touched">
-          <div ng-show="form.header.$error.required">Title can't be blank.</div>
+          <div ng-show="form.header.$error.required">Header can't be blank.</div>
         </div>
       </div>
 
@@ -30,17 +31,19 @@
                id="link"
                name="link" 
                type="text"
-               ng-disabled="resume.id" />
+               ng-disabled="resume.id"
+               placeholder="www.saerdesigns.com" />
       </div>
 
       <div class="form-group">
-        <label for="address">Mailing Address</label>
+        <label for="address">Mailing Address (use ";" to create new line)</label>
         <textarea ng-model="resume.address" 
                   class="form-control" 
                   id="address" 
                   name="address" 
                   type="text"
-                  ng-disabled="resume.id" >
+                  ng-disabled="resume.id"
+                  placeholder="26180 SW Canyon Creek RD; Apt 104; Wilsonville, OR; 97070; USA" >
         </textarea>
       </div>
 
@@ -51,7 +54,8 @@
                id="phone" 
                name="phone" 
                type="text"
-               ng-disabled="resume.id" />
+               ng-disabled="resume.id"
+               placeholder="678-439-8431" />
       </div>
 
       <div class="form-group">
@@ -61,7 +65,8 @@
                id="email" 
                name="email" 
                type="text"
-               ng-disabled="resume.id" />
+               ng-disabled="resume.id"
+               placeholder="shadowdrakkeen@gmail.com" />
       </div>
 
       <div class="form-group">
@@ -71,7 +76,8 @@
                id="position" 
                name="position" 
                type="text"
-               ng-disabled="resume.id" />
+               ng-disabled="resume.id"
+               placeholder="Web Developer / Designer (Ruby on Rails & AngularJS)" />
       </div>
 
       <div class="form-group">
@@ -80,7 +86,8 @@
                   class="form-control" 
                   id="qualifications" 
                   name="qualifications"
-                  ng-disabled="resume.id">
+                  ng-disabled="resume.id"
+                  placeholder="6+ years experience with web technologies; Solid organizational and planning skills; Knowledge of SEO tactics and practices; Experience with UI & design; Knowledge of MVC implementations; Knowledge of RESTful software architecture" >
         </textarea>
       </div>
 
@@ -91,12 +98,44 @@
                   id="skills" 
                   name="skills" 
                   type="text"
-                  ng-disabled="resume.id">
+                  ng-disabled="resume.id"
+                  placeholder="Ruby on Rails, AngularJS, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS, SASS, Angular JS, PostgreSQL, WordPress, Windows OS, MacOS, Linux, LivePerson Administration, Windows Phone OS, Customer Service, Android OS, Nitrous.IO" >
         </textarea>
       </div>
 
-      <label for="school_references">Schools</label>
-
+      <div class="page-header text-center">
+        <h3>Education</h3>
+        <a href
+           class="glyphicon glyphicon-plus"
+           ng-click="number = number+1"></a>
+        <a href 
+           class="glyphicon glyphicon-minus"
+           ng-click="number = number-1"></a>
+      </div>
+      <div class="form-group" ng-repeat="i in getNumber(number) track by $index">
+        <label for="school-title">School Title</label>
+        <input ng-model="resume.schools[$index].title" 
+               class="form-control"
+               name="school-title" 
+               type="text"
+               ng-disabled="resume.id"
+               placeholder="Example University" />
+        <label for="school-years">Years Attended</label>
+        <input ng-model="resume.schools[$index].years" 
+               class="form-control"
+               name="school-years" 
+               type="text"
+               ng-disabled="resume.id"
+               placeholder="2010-2014" />
+        <label for="school-description">Description of School</label>
+        <textarea ng-model="resume.schools[$index].description" 
+                  class="form-control"
+                  name="school-description" 
+                  type="text"
+                  ng-disabled="resume.id"
+                  placeholder="During my time at this institution I learned many things." >
+        </textarea>
+      </div>
 
       <div class="text-center">
         <div class="btn-group">  

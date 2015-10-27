@@ -137,20 +137,21 @@
         }
       })
         .state('root.resume', {
-        abstract: true,
-        template: '<ui-view/>'
-      })
-        .state('root.resume.show', {
         url: "/resume",
         templateUrl: "resume/show.html",
         title: "Resume",
-        controller: "ShowResumeCtrl"
+        controller: "ResumeCtrl"
       })
         .state('root.resume.new', {
-        url: "/resume/new",
+        url: "/new",
         templateUrl: "resume/new.html",
         title: "Create Resume",
-        controller: "NewResumeCtrl"
+        controller: "NewResumeCtrl",
+        resolve: {
+          auth: ['$auth', function($auth){
+            return $auth.validateUser();
+          }]
+        }
       })
         .state('root.portfolio', {
         url: "/portfolio",

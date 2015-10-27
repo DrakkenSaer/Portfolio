@@ -27,7 +27,7 @@ class ResumeController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
     if @resume.update(resume_params)
-      render nothing: true
+      render json: @resume.attributes.merge(schools: @resume.schools)
     else
       render json: @resume.errors, status: :unprocessable_entity
     end

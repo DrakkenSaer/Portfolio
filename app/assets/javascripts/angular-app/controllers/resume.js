@@ -3,12 +3,17 @@
 
   angular
     .module('controllers.resume', [])
-    .controller('ShowResumeCtrl', [
+    .controller('ResumeCtrl', [
     '$scope', '$state', 'jobs', 'resume', '$rootScope', 'ResumeFactory', 
     function($scope, $state, jobs, resume, $rootScope, ResumeFactory) {
       $scope.jobs = jobs.slice(Math.max(jobs.length - 3, 0));
       $scope.resume = resume;
       $scope.resume_original = angular.copy(resume);
+      $scope.number = 0;
+      $scope.getNumber = function(num) {
+        return new Array(num);   
+      }
+      $rootScope.$state = $state;
 
       $scope.cancel = function(obj) {
         var resume_canceled = angular.copy($scope.resume_original);
@@ -41,23 +46,28 @@
         });
       }
 
-
       //redirect if empty data model & not admin
       if(resume.id == null && $scope.user.id == null){
         $state.go('root.home');
         console.log('Redirected to home page: Un-authenticated users cannot view empty model data');
-      } else if(resume.id == null && $scope.user.id != null) {
-        $state.go('^.new');
+      } else if($state.is('root.resume') && resume.id == null && $scope.user.id != null) {
+        $state.go('.new');
         console.log('Redirected to new resume page: Empty model data');
       }
     }])
     .controller('NewResumeCtrl', [
-    '$scope', '$state', 'ResumeFactory', 'resume', 'flash',
-    function($scope, $state, ResumeFactory, resume, flash) {
-      $scope.resume = resume;
-      if(resume.id != null){
+    '$scope', '$rootScope', '$state', 'ResumeFactory', 'flash',
+    function($scope, $rootScope, $state, ResumeFactory, flash) {
+      $scope.number = 0;
+      $scope.getNumber = function(num) {
+        return new Array(num);   
+      }
+      $rootScope.$state = $state;
+
+      if($scope.resume.id != null){
         flash('info', 'A resume already exists! View it to update it.');
-      } 
+      }
+
       $scope.save = function(resume) {
         //Rails-friendly data compilation for nested attributes
         var data = {
@@ -75,10 +85,10 @@
         }
         var Resume = new ResumeFactory(data);
         Resume.$save(function(success) {
-          $scope.resume = success;
+          flash('Successfully created resume!');
+          console.log('Successfully created resume!');
           $scope.errors = null;
-          $state.go('^.show');
-          console.log('Resume saved successfully!');
+          $state.go('^', {resume: success});
         }, function(error) {
           $scope.errors = error.data;
         });

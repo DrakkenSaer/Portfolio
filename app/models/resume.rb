@@ -1,8 +1,8 @@
 class Resume < ActiveRecord::Base
   has_many :schools, dependent: :destroy
   accepts_nested_attributes_for :schools
-  validate :only_one
-  validates :header, presence: true
+  validate :only_one, on: :create
+  validates :header, :link, :address, :phone, :email, :position, :qualifications, :skills, presence: true
 
   def only_one
     if Resume.all.length > 0
