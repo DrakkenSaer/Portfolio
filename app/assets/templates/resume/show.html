@@ -8,13 +8,16 @@
       <div ng-include="'shared/error_messages.html'"></div>
       <div id="resume_header">
         <div class="page-header" ng-show="resume.header || user.id">
-          <h2 ng-hide="editing_h">{{resume_original.header}}</h2>
+          <h2 ng-hide="editing_h">
+            {{(resume.header == null || resume.header == "") ? "Header" : resume.header}}
+          </h2>
           <input ng-model="resume.header" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_h || new_h" />
+                 ng-show="editing_h"
+                 placeholder="Ian (Drakken or Adela) Coutu" />
           <a href 
              ng-click="editing_h = 1"
              ng-show="editing_h == 0 || editing_h == undefined && user.id" 
@@ -29,13 +32,16 @@
              class="glyphicon glyphicon-remove"></a>
         </div>
         <span ng-show="resume.link || user.id">
-          <a ui-sref="root.home" ng-hide="editing_l">{{resume.link}}</a>
+          <a ui-sref="root.home" ng-hide="editing_l">
+            {{(resume.link == null || resume.link == "") ? "Portfolio Link" : resume.link}}
+          </a>
           <input ng-model="resume.link" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_l" />
+                 ng-show="editing_l"
+                 placeholder="www.saerdesigns.com" />
           <a href 
              ng-click="editing_l = 1" 
              ng-show="editing_l == 0 || editing_l == undefined && user.id" 
@@ -50,13 +56,16 @@
              class="glyphicon glyphicon-remove"></a>
         </span>
         <address ng-show="resume.address || user.id">
-          <span ng-hide="editing_a">{{resume.address}}</span>
+          <span ng-hide="editing_a">
+            {{(resume.address == null || resume.address == "") ? "Mailing Address" : resume.address}}
+          </span>
           <input ng-model="resume.address" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_a" />
+                 ng-show="editing_a"
+                 placeholder="26180 SW CANYON CREEK RD; APT 104; WILSONVILLE, OR; 97070" />
           <a href 
              ng-click="editing_a = 1"
              ng-show="editing_a == 0 || editing_a == undefined && user.id" 
@@ -71,13 +80,16 @@
              class="glyphicon glyphicon-remove"></a>
         </address>
         <ul class="nav pull-left" ng-show="resume.phone || user.id">
-          <span ng-hide="editing_p">{{resume.phone}}</span>
+          <span ng-hide="editing_p">
+            {{(resume.phone == null || resume.phone == "") ? "Phone Number" : resume.phone}}
+          </span>
           <input ng-model="resume.phone" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_p" />
+                 ng-show="editing_p"
+                 placeholder="678-439-8431" />
           <a href 
              ng-click="editing_p = 1" 
              ng-show="editing_p == 0 || editing_p == undefined && user.id" 
@@ -92,13 +104,16 @@
              class="glyphicon glyphicon-remove"></a>
         </ul>
         <ul class="nav pull-right" ng-show="resume.email || user.id">
-          <a href="mailto:{{resume.email}}" ng-hide="editing_e">{{resume.email}}</a>
+          <a href="mailto:{{resume.email}}" ng-hide="editing_e">
+            {{(resume.email == null || resume.email == "") ? "Email Address" : resume.email}}
+          </a>
           <input ng-model="resume.email" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_e" />
+                 ng-show="editing_e"
+                 placeholder="shadowdrakkeen@gmail.com" />
           <a href 
              ng-click="editing_e = 1" 
              ng-show="editing_e == 0 || editing_e == undefined && user.id" 
@@ -116,14 +131,17 @@
       </div>
       <div id="resume_body" class="col-md-6 col-md-offset-3"> 
         <div id="position" ng-show="resume.position || user.id">
-          <h2>Position desired</h2>
-          <span ng-hide="editing_po">{{resume.position}}</span>
+          <h2>Desired Position</h2>
+          <span ng-hide="editing_po">
+            {{(resume.position == null || resume.position == "") ? "Desired Position" : resume.position}}
+          </span>
           <input ng-model="resume.position" 
                  class="form-control" 
                  id="title" 
                  name="title" 
                  type="text"
-                 ng-show="editing_po" />
+                 ng-show="editing_po"
+                 placeholder="Web Developer / Designer (Ruby on Rails & AngularJS)" />
           <a href 
              ng-click="editing_po = 1"
              ng-show="editing_po == 0 || editing_po == undefined && user.id" 
@@ -139,13 +157,16 @@
         </div>
         <div id="qualifications" ng-show="resume.qualifications || user.id">
           <h2>Qualifications</h2>
-          <span ng-hide="editing_q">{{resume.qualifications}}</span>
+          <span ng-hide="editing_q">
+            {{(resume.qualifications == null || resume.qualifications == "") ? "Qualifications" : resume.qualifications}}
+          </span>
           <textarea ng-model="resume.qualifications" 
                     class="form-control" 
                     id="title" 
                     name="title" 
                     type="text"
-                    ng-show="editing_q">
+                    ng-show="editing_q"
+                    placeholder="6+ years experience with web technologies; Solid organizational and planning skills; Knowledge of SEO tactics and practices; Experience with UI & design; Knowledge of MVC implementations; Knowledge of RESTful software architecture" >
           </textarea>
           <a href 
              ng-click="editing_q = 1"
@@ -162,13 +183,16 @@
         </div>
         <div id="skills" ng-show="resume.skills || user.id">
           <h2>Skills</h2>
-          <span ng-hide="editing_s">{{resume.skills}}</span>
+          <span ng-hide="editing_s">
+            {{(resume.skills == null || resume.skills == "") ? "Skills" : resume.skills}}
+          </span>
           <textarea ng-model="resume.skills" 
                     class="form-control" 
                     id="title" 
                     name="title" 
                     type="text"
-                    ng-show="editing_s">
+                    ng-show="editing_s"
+                    placeholder="Ruby on Rails, AngularJS, Heroku, Git, AJAX, jQuery, Javascript, CSS3, HTML5, SQL deployment, UNIX, Bootstrap, Ruby, PHP, MySQL, LESS CSS, SASS, Angular JS, PostgreSQL, WordPress, Windows OS, MacOS, Linux, LivePerson Administration, Windows Phone OS, Customer Service, Android OS, Nitrous.IO" >
           </textarea>
           <a href 
              ng-click="editing_s = 1"
@@ -207,11 +231,11 @@
             <a href 
                class="glyphicon glyphicon-minus"
                ng-click="number = number-1"
-               ng-show="user.id"></a>
+               ng-show="user.id && number > 0"></a>
           </div>
           <div class="form-group" ng-repeat="i in getNumber(number) track by $index">
             <label for="school-title">School Title</label>
-            <input ng-model="resume.add_school[resume.schools.length + 1 + $index].title" 
+            <input ng-model="resume.schools[resume_original.schools.length + 1 + $index].title" 
                    class="form-control"
                    id="school-title"
                    name="school-title" 
@@ -220,7 +244,7 @@
                    placeholder="Example University"
                    required />
             <label for="school-years">Years Attended</label>
-            <input ng-model="resume.add_school[resume.schools.length + 1 + $index].years" 
+            <input ng-model="resume.schools[resume_original.schools.length + 1 + $index].years" 
                    class="form-control"
                    id="school-years"
                    name="school-years" 
@@ -229,7 +253,7 @@
                    placeholder="2010-2014"
                    required />
             <label for="school-description">Description of School</label>
-            <textarea ng-model="resume.add_school[resume.schools.length + 1 + $index].description" 
+            <textarea ng-model="resume.schools[resume_original.schools.length + 1 + $index].description" 
                       class="form-control"
                       id="school-description" 
                       name="school-description" 
@@ -239,11 +263,11 @@
                       required >
             </textarea>
             <a href 
-               ng-click="save_school(resume); number = 0" 
+               ng-click="save(resume); $parent.number = 0" 
                ng-show="user.id"
                class="glyphicon glyphicon-ok"></a>
           </div>
-          <div ng-repeat="school in resume.schools">
+          <div ng-repeat="school in resume.schools track by $index">
             <li>
               <span class="page-header">
                 <h3 ng-hide="editing_school_t == school.id">{{school.title}}</h3>
@@ -252,10 +276,10 @@
                        id="title" 
                        name="title" 
                        type="text"
-                       ng-show="editing_school_t == school.id" />
+                       ng-show="editing_school_t == school.id && school.id" />
                 <a href 
                    ng-click="editing_school_t = school.id"
-                   ng-show="editing_school_t == 0 || editing_school_t == undefined && user.id" 
+                   ng-show="editing_school_t == 0 || editing_school_t == undefined && user.id && school.id" 
                    class="glyphicon glyphicon-pencil"></a>
                 <a href 
                    ng-click="save(resume); editing_school_t = 0" 
@@ -274,10 +298,10 @@
                      id="title" 
                      name="title" 
                      type="text"
-                     ng-show="editing_school_y == school.id" />
+                     ng-show="editing_school_y == school.id && school.id" />
               <a href 
                  ng-click="editing_school_y = school.id"
-                 ng-show="editing_school_y == 0 || editing_school_y == undefined && user.id" 
+                 ng-show="editing_school_y == 0 || editing_school_y == undefined && user.id && school.id" 
                  class="glyphicon glyphicon-pencil"></a>
               <a href 
                  ng-click="save(resume); editing_school_y = 0" 
@@ -295,11 +319,11 @@
                         id="title" 
                         name="title" 
                         type="text"
-                        ng-show="editing_school_d == school.id">
+                        ng-show="editing_school_d == school.id && school.id">
               </textarea>
               <a href 
                  ng-click="editing_school_d = school.id"
-                 ng-show="editing_school_d == 0 || editing_school_d == undefined && user.id" 
+                 ng-show="editing_school_d == 0 || editing_school_d == undefined && user.id && school.id" 
                  class="glyphicon glyphicon-pencil"></a>
               <a href 
                  ng-click="save(resume); editing_school_d = 0" 
@@ -310,6 +334,12 @@
                  ng-show="editing_school_d == school.id && user.id" 
                  class="glyphicon glyphicon-remove"></a>
             </li>
+            <a href 
+               rel="nofollow"
+               ng-confirm-click
+               confirmed-click="remove(school)"
+               ng-show="user.id && school.id" 
+               class="glyphicon glyphicon-remove-sign"></a>
           </div>
         </div>
       </div>

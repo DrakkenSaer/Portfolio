@@ -136,7 +136,7 @@ a {
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
   &:hover, &:active, &:link {
-    text-decoration: inherit;
+    text-decoration: none;
   }
 }
 
@@ -337,15 +337,16 @@ form {
 /* ===================== Resume ===================== */
 
 .resume {
-  .glyphicon-plus {
-    margin-right: -5px;
+  font-family: 'Calibri';
+  font-size: 125%;
+  .glyphicon {
+    opacity: 0;
+  }
+  *:hover > .glyphicon, .glyphicon-plus, .glyphicon-minus, .glyphicon-remove, .glyphicon-ok {
+    opacity: 1;
   }
   .glyphicon-pencil {
     margin-right: -30px;
-    opacity: 0;
-  }
-  *:hover > .glyphicon-pencil {
-    opacity: 1;
   }
   .page-header {
     border: none;
@@ -354,28 +355,22 @@ form {
       display: inline;
     }
   }
-  #resume_body, #resume_header {
-    font-family: 'Calibri';
-    font-size: 125%;
-    hr {
-      border: 2px dashed #C0C0C0;
-    }
-    .form-control {
-      margin: 0;
-    }
+  :not(.form-group) > input {
+    width: 300px;
+    display: inline;
+  }
+  hr {
+    border: 2px dashed #C0C0C0;
+  }
+  .form-control {
+    margin: 0;
   }
   #resume_body {
     div {
-      margin-bottom: 1em;
+      margin-bottom: 1.5em;
     }
     h2 {
       text-decoration: underline;
-    }
-  }
-  #resume_header {
-    input {
-      width: 400px;
-      display: inline;
     }
   }
 }

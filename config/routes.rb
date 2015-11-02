@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :projects, except: [:create, :update]
   resources :photos, except: [:show, :create, :update]
   resources :messages, except: [:edit, :create, :update]
-  resources :resume, only: [:new]
 
   match 'modeling', to: 'photos#index', via: :get
   match 'portfolio', to: 'pages#portfolio', via: :get

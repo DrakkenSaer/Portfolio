@@ -25,7 +25,7 @@ class ResumeController < ApplicationController
   end
 
   def update
-    @resume = Resume.find(params[:id])
+    @resume = Resume.first
     if @resume.update(resume_params)
       render json: @resume.attributes.merge(schools: @resume.schools)
     else
@@ -34,6 +34,11 @@ class ResumeController < ApplicationController
   end
 
   def destroy
+    @resume = Resume.first
+    @school = @resume.schools.find(params[:id])
+    if @school.destroy!
+      render json: @resume.attributes.merge(schools: @resume.schools)
+    end
   end
 
   private
