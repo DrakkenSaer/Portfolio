@@ -56,8 +56,8 @@
              class="glyphicon glyphicon-remove"></a>
         </span>
         <address ng-show="resume.address || user.id">
-          <span ng-hide="editing_a">
-            {{(resume.address == null || resume.address == "") ? "Mailing Address" : resume.address}}
+          <span ng-hide="editing_a" 
+                ng-bind-html="(resume.address == null || resume.address == '') ? 'Mailing Address' : resume.address | semicolonFilter">
           </span>
           <input ng-model="resume.address" 
                  class="form-control" 
@@ -147,7 +147,7 @@
              ng-show="editing_po == 0 || editing_po == undefined && user.id" 
              class="glyphicon glyphicon-pencil"></a>
           <a href 
-             ng-click="save(resume); editing_e = 0" 
+             ng-click="save(resume); editing_po = 0" 
              ng-show="editing_po && user.id"
              class="glyphicon glyphicon-ok"></a>
           <a href 
@@ -157,8 +157,8 @@
         </div>
         <div id="qualifications" ng-show="resume.qualifications || user.id">
           <h2>Qualifications</h2>
-          <span ng-hide="editing_q">
-            {{(resume.qualifications == null || resume.qualifications == "") ? "Qualifications" : resume.qualifications}}
+          <span ng-hide="editing_q"
+                ng-bind-html="(resume.qualifications == null || resume.qualifications == '') ? 'Qualifications' : resume.qualifications | semicolonFilter">
           </span>
           <textarea ng-model="resume.qualifications" 
                     class="form-control" 
@@ -210,9 +210,9 @@
         <div id="history" ng-show="jobs.length > 0 || user.id">
           <h2>Work History</h2>
           <div ng-repeat="job in jobs">
-            <li><a ui-sref='^.jobs.show({id: job.id})'><h3>{{job.title}}</h3></a></li>
+            <li><h3><a ui-sref='^.jobs.show({id: job.id})'>{{job.title}}</a></h3></li>
             <li>{{job.company}}</li>
-            <li ng-show="job.years">{{job.years}}</li>
+            <li><small ng-show="job.years">{{job.years}}</small></li>
             <li class="word-wrap">{{job.description}}</li>
             <br>
             <div ng-show="job.references[0]">

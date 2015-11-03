@@ -154,6 +154,12 @@ a {
 .glyphicon {
   font-size: 15px;
   margin: 10px;
+  &.glyphicon-remove-sign {
+    color: gray;
+    &:hover {
+      color: red;
+    }
+  }
 }
 
 /* CSS for headers */

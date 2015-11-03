@@ -22,9 +22,10 @@
     'app.routes',
     'app.directives',
     'app.controllers',
-    'app.services'
+    'app.services',
+    'app.filters'
   ])
     .run(function(){
-      return console.log('Angular: Up and running');
-    });
+    return console.log('Angular: Up and running');
+  });
 })();
