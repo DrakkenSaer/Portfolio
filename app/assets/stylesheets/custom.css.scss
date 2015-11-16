@@ -109,8 +109,7 @@ ul, li {
 /* positional CSS */
 
 .v-center {
-  height: 100vh;
-  min-height: 100%;
+  min-height: 100vh;
   display: -webkit-flex; /* Safari */
   -webkit-align-items: center; /* Safari 7.0+ */
   display: flex;
@@ -175,14 +174,9 @@ h1 {
 /* sectional CSS */
 
 section {
-  height: 100vh;
-  min-height: 100%;
+  min-height: 100vh;
   position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  &.section-no-scroll {
-    overflow: hidden !important;
-  }
+  overflow: hidden !important;
 }
 
 /* CSS for images */
@@ -260,15 +254,15 @@ form {
   &:first-child {
     margin-top: -70px;
   }
+  .buffer {
+    padding: 1em 0;
+  }
   .scroll-button {
     margin-top: 2em;
     font-size: 2em;
     @extend .glyphicon;
     @extend .glyphicon-chevron-down;
     color: inherit;
-  }
-  .buffer {
-    padding: 70px 0;
   }
   #bg-first{
     background: image-url("alaska-mountain-range.jpg") no-repeat center center;

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.5"
+ruby "2.2.3"
 
 gem 'rails', '4.2.3'
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -14,6 +14,8 @@ gem 'angular-rails-templates'
 gem 'bower-rails', '~> 0.10.0'
 gem 'devise_token_auth'
 gem 'omniauth' #For Devise Token Auth
+
+gem 'nokogiri'
 
 group :development, :test do
   gem 'sqlite3'

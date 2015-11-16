@@ -13,14 +13,16 @@
     </div>
   </section>
 
-  <section class="container-fluid buffer" id="scroll-send-1">
-    <div class="text-center">
-      <div ng-include="'pages/_about_summary.html'"></div>
-      <a href="#scroll-send-2" du-smooth-scroll du-scrollspy class="scroll-button"></a>
+  <section class="buffer" id="scroll-send-1">
+    <div class="v-center">
+      <div class="center-block text-center">
+        <div ng-include="'pages/_about_summary.html'"></div>
+        <a href="#scroll-send-2" du-smooth-scroll du-scrollspy class="scroll-button"></a>
+      </div>
     </div>
   </section>
 
-  <section class="section-no-scroll" id="scroll-send-2">
+  <section id="scroll-send-2">
     <div id="bg-second" du-parallax y="background"></div>
     <div id="dark-overlay"></div>
     <div class="v-center">
@@ -31,9 +33,9 @@
     </div>
   </section>
 
-  <section class="container-fluid buffer" id="scroll-send-3">
+  <section class="v-center" id="scroll-send-3">
     <div class="center-block text-center" ng-show="jobs[0]">
-      <div class="row">
+      <div class="col-md-12">
         <div ng-repeat="job in jobs" class="col-md-4 job">
           <a ui-sref="^.jobs.show({id: job.id})">
             <img class="img-responsive center-block" alt="{{job.company}}" ng-src="{{job.image_small}}"/>
