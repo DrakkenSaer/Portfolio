@@ -140,7 +140,8 @@
         url: "/resume",
         templateUrl: "resume/show.html",
         title: "Resume",
-        controller: "ResumeCtrl"
+        controller: "ResumeCtrl",
+        robots: "noindex, nofollow"
       })
         .state('root.resume.new', {
         url: "/new",

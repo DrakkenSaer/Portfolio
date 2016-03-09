@@ -33,6 +33,20 @@
         }
       };
     }])
+    .directive('updateRobots', [
+    '$rootScope', '$timeout', 
+    function($rootScope, $timeout) {
+      return {
+        link: function(scope, element, attr) {
+          var listener = function(event, toState) {
+            var robots = 'index, follow';
+            if (toState.robots) robots = toState.robots;
+            element.attr("content", robots);
+          };
+          $rootScope.$on('$stateChangeSuccess', listener);
+        }
+      };
+    }])
     .directive('ngConfirmClick', [
     function(){
       return {
